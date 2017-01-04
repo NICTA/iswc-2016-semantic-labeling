@@ -3,7 +3,7 @@ import json
 import re
 from xml.etree import ElementTree
 
-from column import Column
+from .column import Column
 from lib import indexer
 from lib.utils import not_allowed_chars
 
