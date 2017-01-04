@@ -3,6 +3,7 @@ import os
 import re
 import time
 from collections import OrderedDict, defaultdict
+from importlib import reload
 
 from lib import searcher, indexer
 from lib.source import Source
@@ -19,6 +20,13 @@ class SemanticLabeler:
         self.file_class_map = {}
         self.random_forest = None
 
+    def reset(self):
+        self.dataset_map = {}
+        self.file_class_map = {}
+        self.random_forest = None
+        reload(searcher)
+        reload(indexer)
+
     def read_data_sources(self, folder_paths):
         for folder_name in folder_paths:
             folder_path = "data/datasets/%s" % folder_name
@@ -32,7 +40,7 @@ class SemanticLabeler:
                 if ".DS" in filename:
                     continue
 
-                print filename
+                print(filename)
 
                 source = Source(os.path.splitext(filename)[0])
                 file_path = os.path.join(data_folder_path, filename)
@@ -62,7 +70,7 @@ class SemanticLabeler:
                     if extension == ".json":
                         source.read_semantic_type_json(os.path.join(model_folder_path, filename))
                     else:
-                        print source
+                        print(source)
                         source.read_semantic_type_from_gold(os.path.join(model_folder_path, filename))
 
             self.dataset_map[folder_name] = source_map
@@ -143,7 +151,7 @@ class SemanticLabeler:
 
     def test_semantic_types_from_2_sets(self, train_set, test_set):
         self.read_class_type_from_csv("data/datasets/%s/classes.csv" % test_set)
-        print self.file_class_map.keys()
+        print(self.file_class_map.keys())
         rank_score_map = defaultdict(lambda: 0)
         count_map = defaultdict(lambda: 0)
 
@@ -168,7 +176,7 @@ class SemanticLabeler:
 
                 semantic_types = column.predict_type(train_examples_map, textual_train_map, self.random_forest)
 
-                print column.name
+                print(column.name)
 
                 file_write.write(
                     column.name + "\t" + column.semantic_type + "\t" + str(semantic_types) + "\n")
