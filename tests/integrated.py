@@ -2,7 +2,7 @@ from collections import defaultdict
 
 from lib.utils import is_column_based, is_tree_based
 from main import sc
-from numeric import *
+from .numeric import *
 from tests.label import label_text_test
 from tests.textual import *
 

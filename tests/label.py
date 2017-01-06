@@ -10,7 +10,7 @@ def jaccard_similarity(x, y):
 
 
 def get_n_grams(sentence, n):
-    return [sentence[i:i + n] for i in xrange(len(sentence) - n)]
+    return [sentence[i:i + n] for i in range(len(sentence) - n)]
 
 
 def label_text_test(train_label, test_label, num1, num2):

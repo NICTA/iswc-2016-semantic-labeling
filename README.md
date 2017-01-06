@@ -4,15 +4,43 @@ Semantic Typing
 Automatically assign semantics to large data sets from heterogeneous sources based on their features using several Statistical and Machine Learning techniques.
 
 
-##Prerequisites
+## Prerequisites
 
-1. Elasticsearch
-2. Pyspark
+1. Elasticsearch:
+Download [here](https://www.elastic.co/downloads/elasticsearch).
+2. Pyspark:
+Download [Spark](http://spark.apache.org/downloads.html).
+Extract, navigate to python dir and run ```pip install -e .```
 3. scikit-learn
 4. pandas
 
-##API
-###First Time User
+ElasticSearch
+```
+curl -L -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.1.1.tar.gz
+tar -xvf elasticsearch-5.1.1.tar.gz
+cd elasticsearch-5.1.1/bin
+./elasticsearch
+```
+
+Spark
+```
+curl -L -O http://d3kbcqa49mib13.cloudfront.net/spark-2.1.0-bin-hadoop2.7.tgz
+tar -xvf spark-2.1.0-bin-hadoop2.7.tgz
+cd spark-2.1.0-bin-hadoop2.7/python
+pip install -e .
+pip install py4j
+```
+
+## API
+
+Run
+```
+python server.py
+```
+
+By default the server will be started on port 8000.
+
+### First Time User
 
 This has to be called the very first time the service is setup.
 
@@ -22,7 +50,7 @@ This has to be called the very first time the service is setup.
 
 **Parameters:** None
 
-###Add Semantic Type
+### Add Semantic Type
 
 This adds a new semantic type and the corresponding column.
 
@@ -50,7 +78,7 @@ This adds a new semantic type and the corresponding column.
   "header": [...Rows in the column...]
 }
 ```
-###Add columns to semantic type in bulk
+### Add columns to semantic type in bulk
 
 **URL** ```/semantic_type/bulk```
 
@@ -80,7 +108,7 @@ This adds a new semantic type and the corresponding column.
 }
 ```
 
-###Delete Semantic Type
+### Delete Semantic Type
 
 Deletes semantic type and all the corresponding column
 
@@ -105,7 +133,7 @@ Deletes semantic type and all the corresponding column
 }
 ```
 
-###Delete column
+### Delete column
 
 Delete a column from a semantic type
 
@@ -133,7 +161,7 @@ Delete a column from a semantic type
 }
 ```
 
-###Get Semantic Type
+### Get Semantic Type
 
 Determine semantic type of a column
 

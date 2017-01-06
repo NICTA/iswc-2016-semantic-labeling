@@ -4,7 +4,10 @@ import time
 
 import sys
 
-from semantic_labeler import SemanticLabeler
+from importlib import reload
+
+from main.semantic_labeler import SemanticLabeler
+# from semantic_labeler import SemanticLabeler
 
 __author__ = 'alse'
 

@@ -2,9 +2,10 @@ import os
 
 import numpy as np
 import pandas as pd
-from costcla import CostSensitiveRandomForestClassifier
+# from costcla import CostSensitiveRandomForestClassifier
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
+import logging
 
 from lib import searcher
 from lib.utils import is_tree_based
@@ -13,6 +14,7 @@ from tests.integrated import feature_list, tree_feature_list
 
 class MyRandomForest:
     def __init__(self, data_sets, dataset_map):
+        logging.info("Initializing random forest for {} datasets".format(len(data_sets)))
         self.data_sets = data_sets
         self.dataset_map = dataset_map
         self.model_path = os.path.join("data/train_models", "museum_column_1_%s.pickle")
@@ -20,14 +22,15 @@ class MyRandomForest:
         self.feature_selector = None
 
     def generate_train_data(self, train_sizes):
+        logging.info("Generating train data")
         train_data = []
         for data_set in self.data_sets:
             train_data = []
             index_config = {'name': data_set}
             source_map = self.dataset_map[data_set]
-            double_name_list = source_map.values() * 2
+            double_name_list = list(source_map.values()) * 2
             for size in train_sizes:
-                for idx, source_name in enumerate(source_map.keys()):
+                for idx, source_name in enumerate(list(source_map.keys())):
                     train_names = [source.index_name for source in double_name_list[idx + 1: idx + size + 1]]
                     train_examples_map = searcher.search_types_data(index_config, train_names)
                     source = source_map[source_name]
@@ -42,12 +45,15 @@ class MyRandomForest:
         return train_data
 
     def train(self, train_sizes):
+        logging.info("Training random forest")
         if os.path.exists(self.model_path):
             train_df = self.load()
         else:
             train_df = self.generate_train_data(train_sizes)
+            logging.info("try df init")
             train_df = pd.DataFrame(train_df)
             train_df = train_df.replace([np.inf, -np.inf, np.nan], 0)
+        logging.info("Dataframe init")
         # self.model = LogisticRegression(n_estimators=200, combination="majority_voting")
         self.model = LogisticRegression(class_weight="balanced")
         # print train_df
@@ -63,17 +69,23 @@ class MyRandomForest:
             # cost = len(train_df[train_df['label'] == False]) / len(train_df[train_df['label'] == True])
             # self.model.fit(train_df[feature_list].as_matrix(), train_df['label'].as_matrix(),
             #                np.tile(np.array([1, cost, 0, 0]), (train_df.shape[0], 1)))
-            print self.model.coef_
+            print(self.model.coef_)
+            logging.info("Model coefficients: {}".format(self.model.coef_))
+        logging.info("Model was fit")
 
     def save(self, df):
+        logging.info("Saving model {}".format(self.model_path))
         df.to_pickle(self.model_path)
 
     def load(self):
+        logging.info("Loading model {}".format(self.model_path))
         return pd.read_pickle(self.model_path)
 
     def predict(self, test_data, true_type):
+        logging.info("RandomForest predict")
         test_df = pd.DataFrame(test_data)
         test_df = test_df.replace([np.inf, -np.inf, np.nan], 0)
+        logging.info("Predicting random forest for test data: {}".format(test_df.shape))
         if is_tree_based:
             test_df['prob'] = [x[1] for x in self.model.predict_proba(test_df[tree_feature_list].as_matrix())]
         else:

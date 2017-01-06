@@ -1,4 +1,5 @@
 import re
+import logging
 
 from main import sc
 
@@ -20,6 +21,7 @@ def split_number_text(example):
 
 
 def get_distribution(data):
+    logging.debug("Getting distribution with spark")
     return sc.parallelize(data).map(lambda word: (word, 1)).reduceByKey(lambda x, y: x + y).sortBy(
         lambda x: -x[1]).zipWithIndex().flatMap(
         lambda x: [x[1]] * int(x[0][1] * 100.0 / len(data))).collect()

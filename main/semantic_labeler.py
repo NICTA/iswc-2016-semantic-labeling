@@ -4,6 +4,7 @@ import re
 import time
 from collections import OrderedDict, defaultdict
 from importlib import reload
+import logging
 
 from lib import searcher, indexer
 from lib.source import Source
@@ -16,20 +17,24 @@ __author__ = 'alse'
 
 class SemanticLabeler:
     def __init__(self):
+        logging.info("Initializing semantic labeler")
         self.dataset_map = {}
         self.file_class_map = {}
         self.random_forest = None
 
     def reset(self):
+        logging.info("Resetting semantic labeler")
         self.dataset_map = {}
         self.file_class_map = {}
         self.random_forest = None
-        reload(searcher)
-        reload(indexer)
+        logging.info("Cleaning elasticsearch indexer")
+        indexer.clean()
 
     def read_data_sources(self, folder_paths):
+        logging.info("Reading data sources...")
         for folder_name in folder_paths:
-            folder_path = "data/datasets/%s" % folder_name
+            folder_path = os.path.join("data", "datasets", folder_name)
+            logging.info("-->folder: {}".format(folder_path))
             source_map = OrderedDict()
             data_folder_path = os.path.join(folder_path, "data")
             model_folder_path = os.path.join(folder_path, "model")
@@ -39,7 +44,7 @@ class SemanticLabeler:
 
                 if ".DS" in filename:
                     continue
-
+                logging.info("   ...file: {}".format(filename))
                 print(filename)
 
                 source = Source(os.path.splitext(filename)[0])
@@ -75,36 +80,52 @@ class SemanticLabeler:
 
             self.dataset_map[folder_name] = source_map
 
+    def write_data_sources(self, limit=500):
+        logging.info("Writing available sources from semantic_labeler")
+        for folder_name, source_map in self.dataset_map.items():
+            for filename, source in source_map.items():
+                filepath = os.path.join("data", "write_csv_datasets", filename+".csv")
+                source.write_csv_file(filepath,limit)
+                filepath = os.path.join("data", "write_csv_datasets", filename + ".columnmap.txt")
+                source.write_column_map(filepath)
+                # with open(filepath, "w+") as f:
+                #     f.write(str(source.column_map))
+
     def train_random_forest(self, train_sizes, data_sets):
+        logging.info("Training random forest on {} datasets.".format(len(data_sets)))
         self.random_forest = MyRandomForest(data_sets, self.dataset_map)
         self.random_forest.train(train_sizes)
 
     def train_semantic_types(self, dataset_list):
+        logging.info("Training semantic types on {} datasets.".format(len(dataset_list)))
         for name in dataset_list:
+            logging.info("   training semantic types on {} ".format(name))
             index_config = {'name': re.sub(not_allowed_chars, "!", name)}
             indexer.init_analyzers(index_config)
             source_map = self.dataset_map[name]
-            for idx in range(len(source_map.keys())):
-                source = source_map[source_map.keys()[idx]]
+            for source in source_map.values():
+                # source = source_map[source_map.keys()[idx]]
                 source.save(index_config={'name': re.sub(not_allowed_chars, "!", name)})
 
     def predict_semantic_type_for_column(self, column):
+        logging.info("Predicting semantic type for column: {}.".format(column))
         train_examples_map = searcher.search_types_data("index_name", [])
         textual_train_map = searcher.search_similar_text_data("index_name", column.value_text, [])
         return column.predict_type(train_examples_map, textual_train_map, self.random_forest)
 
     def test_semantic_types(self, data_set, test_sizes):
+        logging.info("Testing semantic types.")
         rank_score_map = defaultdict(lambda: defaultdict(lambda: 0))
         count_map = defaultdict(lambda: defaultdict(lambda: 0))
 
         index_config = {'name': data_set}
         source_map = self.dataset_map[data_set]
-        double_name_list = source_map.values() * 2
+        double_name_list = list(source_map.values()) * 2
         file_write.write("Dataset: " + data_set + "\n")
         for size in test_sizes:
             start_time = time.time()
 
-            for idx, source_name in enumerate(source_map.keys()):
+            for idx, source_name in enumerate(list(source_map.keys())):
                 train_names = [source.index_name for source in double_name_list[idx + 1: idx + size + 1]]
                 train_examples_map = searcher.search_types_data(index_config, train_names)
                 source = source_map[source_name]
