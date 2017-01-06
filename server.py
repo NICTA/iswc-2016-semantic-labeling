@@ -14,7 +14,7 @@ import os
 # logging
 logFormatter = logging.Formatter("%(asctime)s [%(name)-12.12s] [%(levelname)-10.10s]  %(message)s")
 rootLogger = logging.getLogger()
-rootLogger.setLevel(logging.DEBUG)
+rootLogger.setLevel(logging.INFO)
 
 fileHandler = logging.FileHandler('karma-server.log', mode='w')
 fileHandler.setFormatter(logFormatter)
@@ -184,6 +184,7 @@ def delete_column():
     resp.status_code = 200
     return resp
 
+
 @service.route(COLUMN_URL, methods=["POST"])
 def get_semantic_type():
     logging.info("Getting semantic type...")
@@ -228,9 +229,11 @@ def first_time():
         logging.error("First time setup: {}".format(e))
         return error(str(e.args[0]) + " "+str(e.args))
 
+
 @service.route(RESET_URL, methods=["POST"])
 def reset_semantic_labeler():
     semantic_labeler.reset()
+
 
 @service.route(TEST_URL, methods=["GET"])
 def test_service():
@@ -246,6 +249,82 @@ def test_service():
     except Exception as e:
         logging.error("Test: {}".format(e))
         return error("Test failed due to: "+str(e.args[0])+" "+str(e.args))
+
+
+@service.route('/folder', methods=["POST"])
+def post_folder():
+    """
+    Add folder with data sources to the server.
+    :return:
+    """
+    logging.info("Adding data sources from folder")
+    folder_name = request.json["folder"]
+    semantic_labeler.read_data_sources(folder_name)
+    # TODO: implement
+
+@service.route('/folder', methods=["GET"])
+def list_folder():
+    """
+    List available folders with data sources on the server.
+    :return:
+    """
+    logging.info("Listing folders")
+    resp = jsonify({"folder_names": list(semantic_labeler.dataset_map.keys())})
+    resp.status_code = 200
+    # TODO: implement
+    return resp
+
+@service.route(SEMANTIC_TYPE_URL, methods=["GET"])
+def train_semantic_types():
+    """
+    Train semantic types for a list of folders.
+    :return:
+    """
+    folders = request.json["folder"]
+    logging.info("Training semantic types for {}".format(folders))
+    semantic_labeler.train_semantic_types(folders)
+    resp = jsonify("Semantic types trained.")
+    resp.status_code = 200
+    # TODO: implement
+    return resp
+
+
+@service.route('/train', methods=["POST"])
+def train_logistic_regression():
+    """
+    Train logistic regression:
+        train_sizes
+        folder_names
+    :return:
+    """
+    folders = request.json["folder"]
+    train_sizes = request.json["size"]
+    logging.info("Training logistic regression for {}".format(folders))
+    semantic_labeler.train_random_forest(train_sizes,folders)
+    resp = jsonify("Logistic regression trained.")
+    resp.status_code = 200
+    # TODO: implement
+    return resp
+
+
+@service.route('/predict', methods=["POST"])
+def train_logistic_regression():
+    """
+    Train logistic regression:
+        test_sizes
+        folder
+    :return:
+    """
+    folders = request.json["folder"]
+    test_sizes = request.json["size"]
+    logging.info("Testing for {}".format(folders))
+    ## rather run predict per each data source separately!!!
+    semantic_labeler.test_semantic_types(folders,test_sizes)
+    resp = jsonify("Tested.")
+    resp.status_code = 200
+    # TODO: implement
+    return resp
+
 
 if __name__ == "__main__":
     service.run(debug=True, port=8000)

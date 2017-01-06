@@ -16,8 +16,9 @@ __author__ = 'alse'
 
 
 class SemanticLabeler:
-    def __init__(self):
-        logging.info("Initializing semantic labeler")
+    def __init__(self, data_folder=os.path.join("data", "datasets")):
+        logging.info("Initializing semantic labeler with data folder: {}".format(data_folder))
+        self.data_folder = data_folder
         self.dataset_map = {}
         self.file_class_map = {}
         self.random_forest = None
@@ -33,7 +34,7 @@ class SemanticLabeler:
     def read_data_sources(self, folder_paths):
         logging.info("Reading data sources...")
         for folder_name in folder_paths:
-            folder_path = os.path.join("data", "datasets", folder_name)
+            folder_path = os.path.join(self.data_folder, folder_name)
             logging.info("-->folder: {}".format(folder_path))
             source_map = OrderedDict()
             data_folder_path = os.path.join(folder_path, "data")
