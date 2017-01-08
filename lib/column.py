@@ -117,11 +117,20 @@ class Column:
     def to_json(self):
         logging.debug("Column to json: {}".format(self.name))
         self.prepare_data()
-        doc_body = {'source': self.source_name, 'name': self.name, 'semantic_type': self.semantic_type,
-                    'textual_set': list(self.textual_set), "textual_list": self.textual_list, "values": self.value_list,
-                    'sample_list': self.sample_list, 'textual': self.value_text, 'is_numeric': self.is_numeric(),
-                    'word2vec': self.word2vec, 'numeric_list': self.numeric_list, 'char_lengths': self.char_lengths,
-                    "word_lengths": self.word_lengths, "histogram": self.histogram_list}
+        doc_body = {'source': self.source_name,
+                    'name': self.name,
+                    'semantic_type': self.semantic_type,
+                    'textual_set': list(self.textual_set),
+                    "textual_list": self.textual_list,
+                    "values": self.value_list,
+                    'sample_list': self.sample_list,
+                    'textual': self.value_text,
+                    'is_numeric': self.is_numeric(),
+                    'word2vec': self.word2vec,
+                    'numeric_list': self.numeric_list,
+                    'char_lengths': self.char_lengths,
+                    "word_lengths": self.word_lengths,
+                    "histogram": self.histogram_list}
         return doc_body
 
     def read_json_to_column(self, json_obj):
@@ -141,6 +150,13 @@ class Column:
         return len(self.textual_list) * 1.0 / (len(self.textual_list) + len(self.numeric_list))
 
     def predict_type(self, train_examples_map, textual_train_map, model):
+        """
+
+        :param train_examples_map:
+        :param textual_train_map:
+        :param model:
+        :return:
+        """
         logging.debug("Predicting type for column: {}".format(self.name))
         feature_vectors = self.generate_candidate_types(train_examples_map, textual_train_map)
         predictions = model.predict(feature_vectors, self.semantic_type)
@@ -151,7 +167,7 @@ class Column:
         prediction_map = defaultdict(lambda: [])
         for prediction in predictions:
             prediction_map[prediction[0][0]].append(prediction[1])
-        return sorted(prediction_map.items(), reverse=True)
+        return sorted(list(prediction_map.items()), reverse=True)
 
     def generate_candidate_types(self, train_examples_map, textual_train_map, is_labeled=False):
         logging.debug("Generating types for column: {}".format(self.name))

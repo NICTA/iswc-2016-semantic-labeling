@@ -82,21 +82,37 @@ class MyRandomForest:
         return pd.read_pickle(self.model_path)
 
     def predict(self, test_data, true_type):
-        logging.info("RandomForest predict")
+        logging.info("RandomForest module predict")
+        logging.info("test_data: {}".format(test_data))
+        logging.info("test_data type: {}".format(type(test_data)))
         test_df = pd.DataFrame(test_data)
         test_df = test_df.replace([np.inf, -np.inf, np.nan], 0)
-        logging.info("Predicting random forest for test data: {}".format(test_df.shape))
+        logging.info("Predicting random forest for test data of shape={}".format(test_df.shape))
         if is_tree_based:
+            logging.info("  tree based")
             test_df['prob'] = [x[1] for x in self.model.predict_proba(test_df[tree_feature_list].as_matrix())]
         else:
+            logging.info("  not tree based")
             test_df['prob'] = [x[1] for x in self.model.predict_proba(test_df[feature_list].as_matrix())]
         # test_df['prediction'] = [1 if x else 0 for x in self.model.predict(test_df[feature_list])]
+        logging.info("Setting truth: {}".format(type(test_df)))
+        logging.info(test_df)
+        logging.info("---true type: {}".format(true_type))
+        logging.info("---true type type: {}".format(type(true_type)))
+        logging.info("---splitting".format(test_df['name'].map(lambda row: row.split("!")[0])))
         test_df['truth'] = test_df['name'].map(lambda row: row.split("!")[0] == true_type)
-        test_df = test_df.sort(["prob"], ascending=[False]).head(4)
+        logging.info("  sorting")
+        # NOTE: we return probabilities for all semantic types
+        test_df = test_df.sort_values(by=["prob"], ascending=[False])#.head(4)
+        # NOTE: we add a normalized confidence score
+
 
         if os.path.exists("debug.csv"):
-            test_df.to_csv("debug.csv", mode='a', header=False)
+            logging.info("Appending debug")
+            test_df.to_csv("debug.csv", mode='a', header=False, index=False)
         else:
-            test_df.to_csv("debug.csv", mode='w', header=True)
+            logging.info("Writing debug")
+            test_df.to_csv("debug.csv", mode='w', header=True, index=False)
 
-        return test_df[["prob", 'name']].T.to_dict().values()
+        return list(test_df[["prob", 'name']].T.to_dict().values())
+

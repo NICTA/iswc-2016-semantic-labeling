@@ -8,8 +8,10 @@ from lib.source import Source
 from lib.utils import get_new_index_name
 from main.semantic_labeler import SemanticLabeler
 
+
 import logging
 import os
+from shutil import copyfile
 
 # logging
 logFormatter = logging.Formatter("%(asctime)s [%(name)-12.12s] [%(levelname)-10.10s]  %(message)s")
@@ -87,7 +89,7 @@ UPLOAD_FOLDER = "/data/"  # TODO change this to model folder
 TEST_URL = "/test"
 RESET_URL = "/reset"
 semantic_labeler = SemanticLabeler()
-
+domains = ["soccer", "dbpedia", "museum", "weather"]
 
 def error(message=""):
     with service.app_context():
@@ -95,7 +97,8 @@ def error(message=""):
         response = make_response()
         response.status_code = 500
         response.headers = {
-            "X-Status-Reason": message
+            "X-Status-Reason": message,
+            "message": message
         }
         print("Error response: ", response)
         return response
@@ -232,7 +235,19 @@ def first_time():
 
 @service.route(RESET_URL, methods=["POST"])
 def reset_semantic_labeler():
-    semantic_labeler.reset()
+    """
+    This endpoint is needed to clean elastic search server, reset model and all read in data sources.
+    It is crucial to reset elastic search before retraining.
+    """
+    logging.info("Resetting the labeler")
+    try:
+        semantic_labeler.reset()
+        resp = jsonify("DSL reset!")
+        resp.status_code = 200
+        return resp
+    except Exception as e:
+        logging.error("First time setup: {}".format(e))
+        return error(str(e.args[0]) + " "+str(e.args))
 
 
 @service.route(TEST_URL, methods=["GET"])
@@ -250,17 +265,21 @@ def test_service():
         logging.error("Test: {}".format(e))
         return error("Test failed due to: "+str(e.args[0])+" "+str(e.args))
 
-
-@service.route('/folder', methods=["POST"])
-def post_folder():
+@service.route('/domain', methods=["POST"])
+def index_folder():
     """
-    Add folder with data sources to the server.
+    Index domain with data sources with semantic labeler.
     :return:
     """
-    logging.info("Adding data sources from folder")
-    folder_name = request.json["folder"]
-    semantic_labeler.read_data_sources(folder_name)
-    # TODO: implement
+    logging.info("Indexing data sources from folder")
+    try:
+        folder_name = request.json["folder"]
+        semantic_labeler.read_data_sources(folder_name)
+        logging.info("Listing folders for response.")
+        return list_folder()
+    except Exception as e:
+        logging.error("Indexing data sources: {}".format(e))
+        return error("Folder indexing failed due to: "+str(e.args[0])+" "+str(e.args))
 
 @service.route('/folder', methods=["GET"])
 def list_folder():
@@ -273,6 +292,7 @@ def list_folder():
     resp.status_code = 200
     # TODO: implement
     return resp
+
 
 @service.route(SEMANTIC_TYPE_URL, methods=["GET"])
 def train_semantic_types():
@@ -297,33 +317,109 @@ def train_logistic_regression():
         folder_names
     :return:
     """
-    folders = request.json["folder"]
-    train_sizes = request.json["size"]
-    logging.info("Training logistic regression for {}".format(folders))
-    semantic_labeler.train_random_forest(train_sizes,folders)
-    resp = jsonify("Logistic regression trained.")
-    resp.status_code = 200
-    # TODO: implement
-    return resp
+    try:
+        folders = request.json["folder"]
+        train_sizes = request.json["size"]
+        logging.info("Training logistic regression for {}".format(folders))
+        semantic_labeler.train_random_forest(train_sizes,folders)
+        resp = jsonify("Logistic regression trained.")
+        resp.status_code = 200
+        # TODO: implement
+        return resp
+    except Exception as e:
+        logging.error("Training: {}".format(e))
+        return error("Training failed due to: "+str(e.args[0])+" "+str(e.args))
 
 
-@service.route('/predict', methods=["POST"])
-def train_logistic_regression():
+@service.route('/predict', methods=["GET"])
+def predict_logistic_regression():
     """
-    Train logistic regression:
-        test_sizes
+    Predict for all sources in the folder specified in the request json:
         folder
+    The specified folder must be indexed by the semantic labeler already.
     :return:
     """
+    if "folder" not in request.json:
+        logging.error("Bad request uri. Folder name not specified.")
+        return error("Bad request uri. Folder name not specified.")
     folders = request.json["folder"]
-    test_sizes = request.json["size"]
-    logging.info("Testing for {}".format(folders))
+    logging.info("Predicting semantic types for {}".format(folders))
     ## rather run predict per each data source separately!!!
-    semantic_labeler.test_semantic_types(folders,test_sizes)
-    resp = jsonify("Tested.")
-    resp.status_code = 200
-    # TODO: implement
-    return resp
+    try:
+        result = semantic_labeler.predict_folder_semantic_types(folders)
+        resp = jsonify(result)
+        resp.status_code = 200
+        return resp
+    except Exception as e:
+        logging.error("Prediction for the folder failed: {}".format(e))
+        return error("Prediction for the folder failed due to: " + str(e.args[0]) + " " + str(e.args))
+
+@service.route('/copy', methods=["POST"])
+def copy_data():
+    """
+    Create folder with the specified name which holds sources specified in the request.
+    Sources to be put into the folder should already exist on the server within a domain folder.
+    Domain folders are fixed and listed in the global variable domains.
+    We just copy neccessary files from the domain folders into the specified folder.
+    This method is useful to create train and test data folders.
+    :return:
+    """
+    logging.info("Creating new folder")
+    try:
+        print(request.json)
+        requested_folder_name = request.json["folder"]
+        requested_file_names = request.json["files"]
+
+        # creating folder: it should contain subfolders data and model
+        new_folder = os.path.join(semantic_labeler.data_folder, requested_folder_name)
+        folder_sources = os.path.join(new_folder, "data")
+        folder_models = os.path.join(new_folder, "model")
+        if not(os.path.exists(new_folder)):
+            logging.info("Creating folder: {}".format(new_folder))
+            os.makedirs(new_folder)
+        if not(os.path.exists(folder_sources)):
+            os.makedirs(folder_sources)
+            logging.info("Creating folder: {}".format(folder_sources))
+        else:
+            # delete all sources from the folder
+            logging.info("Cleaning {}".format(folder_sources))
+            [os.remove(os.path.join(folder_sources, f)) for f in os.listdir(folder_sources)]
+        if not(os.path.exists(folder_models)):
+            logging.info("Creating folder: {}".format(folder_models))
+            os.makedirs(folder_models)
+        else:
+            # delete all models from the folder
+            [os.remove(os.path.join(folder_models, f)) for f in os.listdir(folder_models)]
+            logging.info("Cleaning {}".format(folder_models))
+
+        copied_files = 0
+        for folder_name in domains:
+            folder_path = os.path.join(semantic_labeler.data_folder, folder_name)
+            data_folder_path = os.path.join(folder_path, "data")
+            model_folder_path = os.path.join(folder_path, "model")
+            for filename in os.listdir(data_folder_path):
+                if filename in requested_file_names:
+                    src = os.path.join(data_folder_path, filename)
+                    dst = os.path.join(folder_sources, filename)
+                    logging.info("Coping source {}".format(src))
+                    # we copy source to the train folder
+                    copyfile(src, dst)
+                    if os.path.exists(model_folder_path):
+                        src = os.path.join(model_folder_path, filename+".model.json")
+                        dst = os.path.join(folder_models, filename+".model.json")
+                        logging.info("Coping model {}".format(src))
+                        # we copy model to the train folder
+                        copyfile(src, dst)
+                    copied_files += 1
+        logging.info("Indexing new folder: {}".format(requested_folder_name))
+        semantic_labeler.read_data_sources([requested_folder_name])
+
+        resp = jsonify({"new_folder": requested_folder_name, "copied_sources": copied_files})
+        resp.status_code = 200
+        return resp
+    except Exception as e:
+        logging.error("Creating new folder: {}".format(e))
+        return error("Folder creation failed due to: "+str(e.args))
 
 
 if __name__ == "__main__":

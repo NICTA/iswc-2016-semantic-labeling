@@ -52,7 +52,10 @@ def get_test_results(train_examples_map, textual_train_map, test_examples_map, i
                 continue
             for test_name in data_tests_map[value[0]]:
                 if test_name in feature_list:
-                    row = {'name': key, 'data_type': value[0], 'test_name': test_name, 'values': value[1],
+                    row = {'name': key,
+                           'data_type': value[0],
+                           'test_name': test_name,
+                           'values': value[1],
                            'num': item_map['is_numeric']}
                     result_list.append(row)
         return result_list
@@ -110,10 +113,10 @@ def get_test_results(train_examples_map, textual_train_map, test_examples_map, i
             else:
                 feature_vectors[name][TF_IDF_TEST] = 0
         feature_vectors[name][IS_NUMERIC] = test_examples_map['is_numeric']
-        feature_vectors[name]['name'] = name.encode("utf-8")
+        feature_vectors[name]['name'] = name.encode("utf-8").decode()  # make it a string and not a bytes object!!!
         feature_vectors[name]['column_name'] = test_examples_map['name'] + "!" + test_examples_map['semantic_type']
         if is_labeled and name.split("!")[0] == test_examples_map['semantic_type']:
             feature_vectors[name]['label'] = 1
         else:
             feature_vectors[name]['label'] = 0
-    return feature_vectors.values()
+    return list(feature_vectors.values())

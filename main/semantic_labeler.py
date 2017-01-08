@@ -114,6 +114,43 @@ class SemanticLabeler:
         textual_train_map = searcher.search_similar_text_data("index_name", column.value_text, [])
         return column.predict_type(train_examples_map, textual_train_map, self.random_forest)
 
+    def predict_folder_semantic_types(self, folder_name):
+        """
+        Predict semantic types for all source in folder
+        :param folder_name:
+        :return:
+        """
+        logging.info("Predicting semantic types for folder: {}.".format(folder_name))
+        if self.random_forest is None:
+            logging.error("Prediction not possible. Model not trained.")
+            raise Exception("Prediction not possible. Model not trained.")
+        if folder_name not in self.dataset_map:
+            logging.error("Prediction not possible: folder is not indexed by semantic labeler.")
+            raise Exception("Prediction not possible: folder is not indexed by semantic labeler.")
+
+        result = []
+        source_map = self.dataset_map[folder_name]
+        start_time = time.time()
+
+        for source in source_map.values():
+            train_examples_map = searcher.search_types_data("index_name", [])
+            for column in source.column_map.values():
+                cur_res = {'source_name': source.name,
+                           'column_name': column.name,
+                           'correct_label': column.semantic_type,
+                           'scores': []
+                           }
+                if column.semantic_type:
+                    textual_train_map = searcher.search_similar_text_data("index_name", column.value_text, [])
+                    semantic_types = column.predict_type(train_examples_map, textual_train_map, self.random_forest)
+                    all_preds = [(score, l) for l in labels for score, labels in semantic_types]
+                    # normalize scores so that they sum up to 1
+                    total = sum([element[0] for element in all_preds])
+                    cur_res['scores'] = [(score / total, l) for score, l in all_preds]
+                result.append(cur_res)
+        running_time = time.time() - start_time
+        return {"folder_name": folder_name, "running_time": running_time, "predictions": result}
+
     def test_semantic_types(self, data_set, test_sizes):
         logging.info("Testing semantic types.")
         rank_score_map = defaultdict(lambda: defaultdict(lambda: 0))
@@ -136,6 +173,7 @@ class SemanticLabeler:
                         textual_train_map = searcher.search_similar_text_data(index_config, column.value_text,
                                                                               train_names)
                         semantic_types = column.predict_type(train_examples_map, textual_train_map, self.random_forest)
+                        logging.debug("    semantic types: {}".format(semantic_types))
 
                         for threshold in [0.01]:
                             found = False
