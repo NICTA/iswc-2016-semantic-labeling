@@ -116,7 +116,7 @@ class SemanticLabeler:
 
     def predict_folder_semantic_types(self, folder_name):
         """
-        Predict semantic types for all source in folder
+        Predict semantic types for all sources in folder
         :param folder_name:
         :return:
         """

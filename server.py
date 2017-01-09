@@ -24,7 +24,7 @@ fileHandler.setLevel(logging.DEBUG)
 rootLogger.addHandler(fileHandler)
 
 consoleHandler = logging.StreamHandler()
-consoleHandler.setLevel(logging.WARNING)
+consoleHandler.setLevel(logging.INFO)
 consoleHandler.setFormatter(logFormatter)
 rootLogger.addHandler(consoleHandler)
 
@@ -91,6 +91,30 @@ RESET_URL = "/reset"
 semantic_labeler = SemanticLabeler()
 domains = ["soccer", "dbpedia", "museum", "weather"]
 
+
+@service.errorhandler(404)
+def not_found(error=None):
+    message = {
+            'status': 404,
+            'message': 'Not Found: ' + request.url,
+    }
+    resp = jsonify(message)
+    resp.status_code = 404
+    return resp
+
+
+@service.errorhandler(414)
+def bad_uri(err=None):
+    logging.error("Bad uri {}: {}.".format(request.url, err))
+    message = {
+            'status': 414,
+            'message': err + " <in> " + request.url,
+    }
+    resp = jsonify(message)
+    resp.status_code = 414
+    return resp
+
+
 def error(message=""):
     with service.app_context():
         print("Error message: ", message)
@@ -100,7 +124,6 @@ def error(message=""):
             "X-Status-Reason": message,
             "message": message
         }
-        print("Error response: ", response)
         return response
 
 
@@ -108,33 +131,21 @@ def allowed_file(filename, extensions):
     return '.' in filename and \
            filename.rsplit('.', 1)[1] in extensions
 
+
 @service.route('/')
 def hello():
     resp = jsonify("Karma DSL running here!")
     resp.status_code = 200
     return resp
 
+
 @service.route(SEMANTIC_TYPE_URL, methods=['POST', 'PUT'])
 def add_semantic_type(column=None, semantic_type=None):
-    if not (column and semantic_type):
-        column = request.json["column"]
-        semantic_type = request.json["semantic_type"]
-
-
-    column_name = column.keys()[0]
-
-    if column and semantic_type and column_name:
-        source = Source(column_name)
-        source.read_data_from_dict(column)
-        source.set_semantic_type(semantic_type, column_name)
-        _id = get_new_index_name(semantic_type, column_name)
-        source.save(index_config={"name": _id, "size": 0})
-        return str(_id)
-        """
     try:
         if not (column and semantic_type):
             column = request.json["column"]
             semantic_type = request.json["semantic_type"]
+        logging.info("Adding semantic type: {}".format(semantic_type))
         column_name = column.keys()[0]
 
         if column and semantic_type and column_name:
@@ -143,9 +154,11 @@ def add_semantic_type(column=None, semantic_type=None):
             source.set_semantic_type(semantic_type, column_name)
             _id = get_new_index_name(semantic_type, column_name)
             source.save(index_config={"name": _id, "size": 0})
-            return str(_id)
+            resp = jsonify({"index_name": _id})
+            resp.status_code = 200
+            return resp
     except Exception as e:
-        return error(e.message+" "+str(e.args))"""
+        return error("Semantic type adding failed: {}".format(e.args))
 
 
 @service.route(SEMANTIC_TYPE_URL, methods=["DELETE"])
@@ -191,12 +204,13 @@ def delete_column():
 @service.route(COLUMN_URL, methods=["POST"])
 def get_semantic_type():
     logging.info("Getting semantic type...")
-    try:
-        print(request)
-        header = request.json["header"]
-        source = request.json["source"]
-        values = request.json["values"]
 
+    if "header" not in request.json or "source" not in request.json or "values" not in request.json:
+        return bad_uri("Either header, or source, or values not in request.")
+    header = request.json["header"]
+    source = request.json["source"]
+    values = request.json["values"]
+    try:
         column = Column(header, source)
         for element in values:
             logging.info("Add element: {}".format(element))
@@ -205,7 +219,7 @@ def get_semantic_type():
         return str(semantic_labeler.predict_semantic_type_for_column(column))
     except Exception as e:
         logging.error("Get semantic type: {}".format(e))
-        return error(str(e))
+        return error("Getting semantic type failed: {}".format(e.args))
 
 
 @service.route(FIRST_TIME_URL, methods=["GET"])
@@ -224,7 +238,7 @@ def first_time():
         # semantic_labeler.read_data_sources(["soccer", "dbpedia", "museum","flights", "weather", "phone"])
         # semantic_labeler.train_semantic_types(["soccer", "dbpedia", "museum", "flights", "weather", "phone"])
         # semantic_labeler.train_random_forest([11], ["soccer"])
-        semantic_labeler.write_data_sources()
+        # semantic_labeler.write_data_sources()
         resp = jsonify("Training complete.")
         resp.status_code = 200
         return resp
@@ -246,8 +260,8 @@ def reset_semantic_labeler():
         resp.status_code = 200
         return resp
     except Exception as e:
-        logging.error("First time setup: {}".format(e))
-        return error(str(e.args[0]) + " "+str(e.args))
+        logging.error("Semantic labeler reset: {}".format(e.args))
+        return error("Semantic labeler reset failed: {}".format(e.args))
 
 
 @service.route(TEST_URL, methods=["GET"])
@@ -262,8 +276,9 @@ def test_service():
         resp.status_code=200
         return resp
     except Exception as e:
-        logging.error("Test: {}".format(e))
+        logging.error("Test: {}".format(e.args))
         return error("Test failed due to: "+str(e.args[0])+" "+str(e.args))
+
 
 @service.route('/domain', methods=["POST"])
 def index_folder():
@@ -271,15 +286,18 @@ def index_folder():
     Index domain with data sources with semantic labeler.
     :return:
     """
-    logging.info("Indexing data sources from folder")
+    if "folder" not in request.json:
+        return bad_uri("missing parameter: 'folder' not in request")
+    folder_name = request.json["folder"]
+    logging.info("Indexing data sources from folder {}".format(folder_name))
     try:
-        folder_name = request.json["folder"]
         semantic_labeler.read_data_sources(folder_name)
         logging.info("Listing folders for response.")
         return list_folder()
     except Exception as e:
         logging.error("Indexing data sources: {}".format(e))
         return error("Folder indexing failed due to: "+str(e.args[0])+" "+str(e.args))
+
 
 @service.route('/folder', methods=["GET"])
 def list_folder():
@@ -300,7 +318,13 @@ def train_semantic_types():
     Train semantic types for a list of folders.
     :return:
     """
+    if request.json is None:
+        return bad_uri("JSON missing")
+    if "folder" not in request.json:
+        return bad_uri("missing parameter: 'folder' not in request")
     folders = request.json["folder"]
+    if not(isinstance(folders, list)):
+        return bad_uri("wrong parameter: 'folder' not list")
     logging.info("Training semantic types for {}".format(folders))
     semantic_labeler.train_semantic_types(folders)
     resp = jsonify("Semantic types trained.")
@@ -317,9 +341,17 @@ def train_logistic_regression():
         folder_names
     :return:
     """
+    if request.json is None:
+        return bad_uri("JSON missing")
+    if "folder" not in request.json or "size" not in request.json:
+        return bad_uri("missing parameter: 'folder' or/and 'size' not in request")
+    folders = request.json["folder"]
+    if not(isinstance(folders, list)):
+        return bad_uri("wrong parameter: 'folder' not list")
+    train_sizes = request.json["size"]
+    if not(isinstance(train_sizes, list)):
+        return bad_uri("wrong parameter: 'size' not list")
     try:
-        folders = request.json["folder"]
-        train_sizes = request.json["size"]
         logging.info("Training logistic regression for {}".format(folders))
         semantic_labeler.train_random_forest(train_sizes,folders)
         resp = jsonify("Logistic regression trained.")
@@ -328,7 +360,7 @@ def train_logistic_regression():
         return resp
     except Exception as e:
         logging.error("Training: {}".format(e))
-        return error("Training failed due to: "+str(e.args[0])+" "+str(e.args))
+        return error("Training failed due to: {}".format(e))
 
 
 @service.route('/predict', methods=["GET"])
@@ -339,9 +371,10 @@ def predict_logistic_regression():
     The specified folder must be indexed by the semantic labeler already.
     :return:
     """
+    if request.json is None:
+        return bad_uri("JSON missing")
     if "folder" not in request.json:
-        logging.error("Bad request uri. Folder name not specified.")
-        return error("Bad request uri. Folder name not specified.")
+        return bad_uri("missing parameter: 'folder' not in request")
     folders = request.json["folder"]
     logging.info("Predicting semantic types for {}".format(folders))
     ## rather run predict per each data source separately!!!
@@ -352,7 +385,8 @@ def predict_logistic_regression():
         return resp
     except Exception as e:
         logging.error("Prediction for the folder failed: {}".format(e))
-        return error("Prediction for the folder failed due to: " + str(e.args[0]) + " " + str(e.args))
+        return error("Prediction for the folder failed due to: {}".format(e))
+
 
 @service.route('/copy', methods=["POST"])
 def copy_data():
@@ -365,10 +399,15 @@ def copy_data():
     :return:
     """
     logging.info("Creating new folder")
+    if request.json is None:
+        return bad_uri("JSON missing")
+    if "folder" not in request.json or "files" not in request.json:
+        return bad_uri("missing parameter: 'folder' or/and 'files' not in request")
+    requested_folder_name = request.json["folder"]
+    requested_file_names = request.json["files"]
+    if not(isinstance(requested_file_names, list)):
+        return bad_uri("wrong parameter: 'files' not list")
     try:
-        print(request.json)
-        requested_folder_name = request.json["folder"]
-        requested_file_names = request.json["files"]
 
         # creating folder: it should contain subfolders data and model
         new_folder = os.path.join(semantic_labeler.data_folder, requested_folder_name)
@@ -419,7 +458,7 @@ def copy_data():
         return resp
     except Exception as e:
         logging.error("Creating new folder: {}".format(e))
-        return error("Folder creation failed due to: "+str(e.args))
+        return error("Folder creation failed due to: {}".format(e))
 
 
 if __name__ == "__main__":

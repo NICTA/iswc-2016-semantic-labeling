@@ -53,6 +53,7 @@ class MyRandomForest:
             logging.info("try df init")
             train_df = pd.DataFrame(train_df)
             train_df = train_df.replace([np.inf, -np.inf, np.nan], 0)
+        train_df.to_csv("training_data.csv", mode='w', header=True, index=False)
         logging.info("Dataframe init")
         # self.model = LogisticRegression(n_estimators=200, combination="majority_voting")
         self.model = LogisticRegression(class_weight="balanced")

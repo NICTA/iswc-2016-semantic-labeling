@@ -89,5 +89,6 @@ class Indexer:
             self.es.indices.delete(index='*', ignore=[400, 404])
             return True
         except Exception as e:
-            print("Error occurred while cleaning index: ", e)
-        return False
+            logging.error("Error occurred while cleaning index: {}".format(e))
+            print("Error occurred while cleaning index: {}".format(e))
+            raise Exception("Error occurred while cleaning index: {}".format(e))
