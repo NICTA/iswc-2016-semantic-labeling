@@ -2,4 +2,16 @@
 *~
 *.swp
 debug.txt
-*.log
+*.log*
+.idea/
+training_data.csv
+data/datasets/flight/
+data/datasets/phonedirectory/
+data/datasets/test_data/
+data/datasets/train_data/
+data/datasets/weapon-lod/
+data/write_csv_datasets/
+lib/__pycache__/
+main/__pycache__/
+search/__pycache__/
+tests/__pycache__/
