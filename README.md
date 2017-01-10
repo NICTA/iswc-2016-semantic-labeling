@@ -1,3 +1,5 @@
+This fork contains the original back end for semantic labelling, but the api has been changed.
+
 Semantic Typing
 ===============
 
