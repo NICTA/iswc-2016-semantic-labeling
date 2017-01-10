@@ -1,4 +1,5 @@
 This fork contains the original back end for semantic labelling, but the api has been changed.
+These changes have been introduced to allow common evaluation benchmark for various schema matching approaches.
 
 Semantic Typing
 ===============
