@@ -38,11 +38,12 @@ class Column:
         return self.__str__()
 
     def add_value(self, value):
+        logging.debug("     starting element add")
         if not value:
             return
 
         value = value.strip()
-        # logging.debug("  adding value (" + str(value) + ") to column (" + str(self.name) + ") with type " + str(type(value)))
+        logging.debug("  adding value (" + str(value) + ") to column (" + str(self.name) + ") with type " + str(type(value)))
         if not value or value == "NULL":
             return
         # String handling is different in Python3 from what it was in Python2
@@ -56,24 +57,24 @@ class Column:
         #     logging.debug("  decoding: {}".format(type(value)))
 
         value = re.sub(not_allowed_chars, " ", value)
-        # logging.debug("    1 subsitute not allowed chars: {}".format(value))
+        logging.debug("    1 subsitute not allowed chars: {}".format(value))
 
         self.word_set = self.word_set.union(set(value.split(" ")))
-        # logging.debug("    2 ...")
+        logging.debug("    2 ...")
 
-        if "full" in self.source_name and len(self.value_list) > 500:
+        if self.source_name and "full" in self.source_name and len(self.value_list) > 500:
             return
-        # logging.debug("    2 ...")
+        logging.debug("    2 ...")
         self.value_list.append(value)
-        # logging.debug("    2 ...")
+        logging.debug("    2 ...")
 
         self.word_lengths.append(len(value.split(" ")))
-        # logging.debug("    2 ...")
+        logging.debug("    2 ...")
         self.char_lengths.append(len(value))
-        # logging.debug("    2 ...")
+        logging.debug("    2 ...")
 
         numbers, text = split_number_text(value)
-        # logging.debug("    3 ...")
+        logging.debug("    3 ...")
 
         if text:
             self.value_text += (" " + text)
@@ -115,7 +116,7 @@ class Column:
             self.is_prepared = True
 
     def to_json(self):
-        logging.debug("Column to json: {}".format(self.name))
+        logging.info("Column to json: {}".format(self.name))
         self.prepare_data()
         doc_body = {'source': self.source_name,
                     'name': self.name,
@@ -157,8 +158,9 @@ class Column:
         :param model:
         :return:
         """
-        logging.debug("Predicting type for column: {}".format(self.name))
+        logging.info("Predicting type for column: {}".format(self.name))
         feature_vectors = self.generate_candidate_types(train_examples_map, textual_train_map)
+        logging.info("Candidates generated: {}".format(self.name))
         predictions = model.predict(feature_vectors, self.semantic_type)
         predictions = [
             ((round(prediction['prob'], 2), prediction['prob'], self.source_name + "!" + self.name),
@@ -170,5 +172,5 @@ class Column:
         return sorted(list(prediction_map.items()), reverse=True)
 
     def generate_candidate_types(self, train_examples_map, textual_train_map, is_labeled=False):
-        logging.debug("Generating types for column: {}".format(self.name))
+        logging.info("Generating types for column: {}".format(self.name))
         return get_test_results(train_examples_map, textual_train_map, self.to_json(), is_labeled)

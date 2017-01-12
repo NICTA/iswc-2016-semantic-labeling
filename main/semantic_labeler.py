@@ -133,20 +133,27 @@ class SemanticLabeler:
         start_time = time.time()
 
         for source in source_map.values():
-            train_examples_map = searcher.search_types_data("index_name", [])
+            # we need to index the source
+            index_config = {'name': source.index_name}
+            source.save(index_config)
             for column in source.column_map.values():
                 cur_res = {'source_name': source.name,
                            'column_name': column.name,
                            'correct_label': column.semantic_type,
                            'scores': []
                            }
-                if column.semantic_type:
-                    textual_train_map = searcher.search_similar_text_data("index_name", column.value_text, [])
-                    semantic_types = column.predict_type(train_examples_map, textual_train_map, self.random_forest)
-                    all_preds = [(score, l) for l in labels for score, labels in semantic_types]
-                    # normalize scores so that they sum up to 1
-                    total = sum([element[0] for element in all_preds])
-                    cur_res['scores'] = [(score / total, l) for score, l in all_preds]
+
+                train_examples_map = searcher.search_types_data(index_config, [])
+                textual_train_map = searcher.search_similar_text_data(index_config, column.value_text, [])
+                semantic_types = column.predict_type(train_examples_map, textual_train_map, self.random_forest)
+                logging.info("Column <{}> predicted semantic types {}".format(column.name, semantic_types))
+                all_preds = []
+                for (score, labels) in semantic_types:
+                    all_preds += [(score, l) for l in labels]
+                # normalize scores so that they sum up to 1
+                total = sum([element[0] for element in all_preds])
+                cur_res['scores'] = [(score / total, l) for score, l in all_preds]
+                logging.info("Scores normalized")
                 result.append(cur_res)
         running_time = time.time() - start_time
         return {"folder_name": folder_name, "running_time": running_time, "predictions": result}

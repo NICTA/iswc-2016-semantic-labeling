@@ -3,6 +3,7 @@
 *.swp
 debug.txt
 *.log*
+*.csv
 .idea/
 training_data.csv
 data/datasets/flight/

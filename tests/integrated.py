@@ -6,6 +6,8 @@ from .numeric import *
 from tests.label import label_text_test
 from tests.textual import *
 
+import logging
+
 __author__ = 'alse'
 
 IS_NUMERIC = "IS_NUM"
@@ -61,7 +63,7 @@ def get_test_results(train_examples_map, textual_train_map, test_examples_map, i
         return result_list
 
     feature_vectors = defaultdict(lambda: defaultdict(lambda: 0))
-
+    logging.info("  => feature generation 1")
     if is_column_based:
         train_data_rdd = sc.parallelize(train_examples_map).map(lambda hit: hit['_source']).flatMap(
             lambda hit: zip_with_key("%s" % (hit['semantic_type']), hit))
@@ -82,6 +84,7 @@ def get_test_results(train_examples_map, textual_train_map, test_examples_map, i
             lambda row: [((row[0][0], x), round(feature_tests_map[x](row[1], test_examples_map[row[0][1]]), 2)) for
                          x in data_tests_map[row[0][1]]]).collect()
 
+    logging.info("  => feature generation 2")
     for result in sorted(test_results):
         feature_vectors[result[0][0]][result[0][1]] = result[1]
 
@@ -95,6 +98,7 @@ def get_test_results(train_examples_map, textual_train_map, test_examples_map, i
         score = balance_result(source["is_numeric"], test_examples_map["is_numeric"], False, score)
         if feature_vectors[name][TF_IDF_TEST] < score:
             feature_vectors[name][TF_IDF_TEST] = score
+    logging.info("  => feature generation 3")
 
     if is_tree_based:
         for name in feature_vectors.keys():
@@ -103,6 +107,7 @@ def get_test_results(train_examples_map, textual_train_map, test_examples_map, i
                     feature_vectors[name][test + str(j)] = j * 0.2 <= feature_vectors[name][test] < (j + 1) * 0.2
                 del feature_vectors[name][test]
 
+    logging.info("  => feature generation 4")
     for name in feature_vectors.keys():
 
         if TF_IDF_TEST not in feature_vectors[name]:
@@ -114,7 +119,10 @@ def get_test_results(train_examples_map, textual_train_map, test_examples_map, i
                 feature_vectors[name][TF_IDF_TEST] = 0
         feature_vectors[name][IS_NUMERIC] = test_examples_map['is_numeric']
         feature_vectors[name]['name'] = name.encode("utf-8").decode()  # make it a string and not a bytes object!!!
-        feature_vectors[name]['column_name'] = test_examples_map['name'] + "!" + test_examples_map['semantic_type']
+        if test_examples_map['semantic_type']:
+            feature_vectors[name]['column_name'] = test_examples_map['name'] + "!" + test_examples_map['semantic_type']
+        else:
+            feature_vectors[name]['column_name'] = test_examples_map['name'] + "!" + str(test_examples_map['semantic_type'])
         if is_labeled and name.split("!")[0] == test_examples_map['semantic_type']:
             feature_vectors[name]['label'] = 1
         else:

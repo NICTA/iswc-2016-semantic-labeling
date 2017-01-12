@@ -20,11 +20,11 @@ rootLogger.setLevel(logging.INFO)
 
 fileHandler = logging.FileHandler('karma-server.log', mode='w')
 fileHandler.setFormatter(logFormatter)
-fileHandler.setLevel(logging.DEBUG)
+fileHandler.setLevel(logging.INFO)
 rootLogger.addHandler(fileHandler)
 
 consoleHandler = logging.StreamHandler()
-consoleHandler.setLevel(logging.INFO)
+consoleHandler.setLevel(logging.WARNING)
 consoleHandler.setFormatter(logFormatter)
 rootLogger.addHandler(consoleHandler)
 
@@ -39,7 +39,7 @@ es_logger.addHandler(es_logger_handler)
 
 es_tracer = logging.getLogger('elasticsearch.trace')
 es_tracer.propagate = False
-es_tracer.setLevel(logging.DEBUG)
+es_tracer.setLevel(logging.INFO)
 es_tracer_handler = logging.handlers.RotatingFileHandler('karma-elasticsearch-full.log',
                                                    maxBytes=0.5*10**9,
                                                    backupCount=3, mode='w')
@@ -205,15 +205,20 @@ def delete_column():
 def get_semantic_type():
     logging.info("Getting semantic type...")
 
-    if "header" not in request.json or "source" not in request.json or "values" not in request.json:
+    if "header" not in request.json or "values" not in request.json:
         return bad_uri("Either header, or source, or values not in request.")
     header = request.json["header"]
-    source = request.json["source"]
     values = request.json["values"]
+    if "source" not in request.json:
+        source=None
+    else:
+        source = request.json["source"]
+
     try:
         column = Column(header, source)
         for element in values:
             logging.info("Add element: {}".format(element))
+            logging.debug("column: {}".format(column))
             column.add_value(element)
 
         return str(semantic_labeler.predict_semantic_type_for_column(column))
@@ -281,7 +286,7 @@ def test_service():
 
 
 @service.route('/domain', methods=["POST"])
-def index_folder():
+def read_folder():
     """
     Index domain with data sources with semantic labeler.
     :return:
