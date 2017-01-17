@@ -2,9 +2,14 @@ import os
 
 from gensim.models import Word2Vec
 
-from pyspark import SparkContext, SQLContext
+from pyspark import SparkConf, SparkContext, SQLContext
 
-sc = SparkContext()
+conf = (SparkConf()
+         .setMaster("local[*]")
+         .setAppName("KarmaDSL")
+         .set("spark.executor.memory", "1g"))
+
+sc = SparkContext(conf=conf)
 sql_context = SQLContext(sc)
 
 root_dir = os.path.abspath(os.path.join(os.path.realpath(__file__), '..'))
