@@ -467,5 +467,5 @@ def copy_data():
 
 
 if __name__ == "__main__":
-    service.run(debug=True, port=8000)
+    service.run(debug=True, port=8000, host=0.0.0.0)
 
