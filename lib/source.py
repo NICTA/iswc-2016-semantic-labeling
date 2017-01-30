@@ -49,12 +49,18 @@ class Source(object):
         logging.info("Saving source: {}".format(self.name))
         indexer.index_source(source=self, index_config=index_config)
 
-    def write_column_map(self, filepath):
+    def write_column_map(self, filepath, filter_unknown=False):
         logging.info("Writing column map to {}".format(filepath))
         with open(filepath, "w+") as f:
+            if filter_unknown:
+                column_map = [(k, v) for (k, v) in self.column_map.items()
+                              if v.semantic_type is not None]
+                column_map = dict(column_map)
+            else:
+                column_map = self.column_map
             writer = csv.writer(f, quotechar='"', quoting=csv.QUOTE_ALL)
             writer.writerow(["key", "column_name", "source_name", "semantic_type"])
-            for key, col in self.column_map.items():
+            for key, col in column_map.items():
                 writer.writerow([key, col.name, col.source_name, col.semantic_type])
 
     def read_semantic_type_json(self, file_path):
@@ -81,24 +87,30 @@ class Source(object):
         except:
             return
 
-    def write_csv_file(self, file_path, limit=500):
+    def write_csv_file(self, file_path, limit=500, filter_unknown=False):
         with open(file_path, "w") as csv_file:
             logging.info("Writing csv: {}".format(file_path))
             writer = csv.writer(csv_file, quotechar='"', quoting=csv.QUOTE_ALL)
+            if filter_unknown:
+                column_map = [(k, v) for (k, v) in self.column_map.items()
+                              if v.semantic_type is not None]
+                column_map = dict(column_map)
+            else:
+                column_map = self.column_map
             try:
-                headers = [column.name for column in self.column_map.values()]
+                headers = [column.name for column in column_map.values()]
                 writer.writerow(headers)
             except:
                 logging.warning("No headers for dataset: {}".format(file_path))
             if limit is None:
-                limit = max([len(column.value_list) for column in self.column_map.values()])
+                limit = max([len(column.value_list) for column in column_map.values()])
             for i in range(limit):
                 output_list = []
-                for column in self.column_map.values():
+                for column in column_map.values():
                     try:
                         output_list.append(column.value_list[i])
                     except:
-                        output_list.append(" ")
+                        output_list.append("")
                 writer.writerow(output_list)
 
     def read_data_from_dict(self, data):

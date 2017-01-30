@@ -2,12 +2,19 @@ import os
 
 from gensim.models import Word2Vec
 
+# configure spark to be started with more allocated memory
+memory = '12g'
+pyspark_submit_args = ' --driver-memory ' + memory + ' pyspark-shell'
+os.environ["PYSPARK_SUBMIT_ARGS"] = pyspark_submit_args
+
 from pyspark import SparkConf, SparkContext, SQLContext
 
 conf = (SparkConf()
-         .setMaster("local[*]")
+         .setMaster("local")
          .setAppName("KarmaDSL")
-         .set("spark.executor.memory", "1g"))
+        .set("spark.executor.cores","8")
+         .set("spark.executor.memory", "1g")
+        )
 
 sc = SparkContext(conf=conf)
 sql_context = SQLContext(sc)
