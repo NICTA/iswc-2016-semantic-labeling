@@ -3,6 +3,7 @@ import json
 import re
 from xml.etree import ElementTree
 import logging
+import random
 
 from .column import Column
 from lib import indexer
@@ -216,10 +217,14 @@ class Source(object):
         correct_encoding = self.find_source_encoding(file_path)
         with open(file_path, 'r', encoding=correct_encoding) as f:
             num_types = int(f.readline())
+            # headers are randomly sampled numbers from (1000,9999)
+            up = (10**4)-1
+            down = 10**3
+            headers = random.sample(range(down,up), num_types)
             f.readline()
             for num_type in range(num_types):
                 semantic_type = f.readline().strip()
-                column = Column(str(num_type), file_path)
+                column = Column(str(headers[num_type]), file_path)
                 column.semantic_type = "---".join(
                     [part.split("/")[-1] for part in semantic_type.replace("#", "").split("|")])
                 num_values = int(f.readline())
