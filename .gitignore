@@ -16,3 +16,6 @@ lib/__pycache__/
 main/__pycache__/
 search/__pycache__/
 tests/__pycache__/
+data/datasets/t2k/
+data/write_columnmap_True/
+data/write_csv_datasets_True/

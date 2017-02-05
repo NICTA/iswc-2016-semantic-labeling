@@ -243,7 +243,7 @@ def first_time():
         # semantic_labeler.read_data_sources(["soccer", "dbpedia", "museum","flights", "weather", "phone"])
         # semantic_labeler.train_semantic_types(["soccer", "dbpedia", "museum", "flights", "weather", "phone"])
         # semantic_labeler.train_random_forest([11], ["soccer"])
-        # semantic_labeler.write_data_sources()
+        semantic_labeler.write_data_sources(limit=None, filter_unknown=True)
         resp = jsonify("Training complete.")
         resp.status_code = 200
         return resp
@@ -358,7 +358,7 @@ def train_logistic_regression():
         return bad_uri("wrong parameter: 'size' not list")
     try:
         logging.info("Training logistic regression for {}".format(folders))
-        semantic_labeler.train_random_forest(train_sizes,folders)
+        semantic_labeler.train_random_forest(train_sizes, folders)
         resp = jsonify("Logistic regression trained.")
         resp.status_code = 200
         # TODO: implement

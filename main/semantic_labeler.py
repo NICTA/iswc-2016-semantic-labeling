@@ -81,14 +81,14 @@ class SemanticLabeler:
 
             self.dataset_map[folder_name] = source_map
 
-    def write_data_sources(self, limit=500):
+    def write_data_sources(self, limit=500, filter_unknown=False):
         logging.info("Writing available sources from semantic_labeler")
         for folder_name, source_map in self.dataset_map.items():
             for filename, source in source_map.items():
-                filepath = os.path.join("data", "write_csv_datasets", filename+".csv")
-                source.write_csv_file(filepath,limit)
-                filepath = os.path.join("data", "write_csv_datasets", filename + ".columnmap.txt")
-                source.write_column_map(filepath)
+                filepath = os.path.join("data", "write_csv_datasets_"+str(filter_unknown), filename+".csv")
+                source.write_csv_file(filepath, limit, filter_unknown)
+                filepath = os.path.join("data", "write_columnmap_"+str(filter_unknown), filename + ".columnmap.txt")
+                source.write_column_map(filepath, filter_unknown)
                 # with open(filepath, "w+") as f:
                 #     f.write(str(source.column_map))
 
@@ -145,15 +145,23 @@ class SemanticLabeler:
 
                 train_examples_map = searcher.search_types_data(index_config, [])
                 textual_train_map = searcher.search_similar_text_data(index_config, column.value_text, [])
-                semantic_types = column.predict_type(train_examples_map, textual_train_map, self.random_forest)
-                logging.info("Column <{}> predicted semantic types {}".format(column.name, semantic_types))
-                all_preds = []
-                for (score, labels) in semantic_types:
-                    all_preds += [(score, l) for l in labels]
-                # normalize scores so that they sum up to 1
-                total = sum([element[0] for element in all_preds])
-                cur_res['scores'] = [(score / total, l) for score, l in all_preds]
-                logging.info("Scores normalized")
+                try:
+                    semantic_types = column.predict_type(train_examples_map, textual_train_map, self.random_forest)
+                    logging.info("Column <{}> predicted semantic types {}".format(column.name, semantic_types))
+                    all_preds = []
+                    for (score, labels) in semantic_types:
+                        all_preds += [(score, l) for l in labels]
+                    # normalize scores so that they sum up to 1
+                    total = sum([element[0] for element in all_preds])
+                    if total > 0:
+                        cur_res['scores'] = [(score / total, l) for score, l in all_preds]
+                    else:
+                        cur_res['scores'] = [(score, l) for score, l in all_preds]
+                    logging.info("Scores normalized")
+                except Exception as e:
+                    logging.warning("Could not get predictions for column {} due to {}".format(column.name, e))
+                    cur_res['scores'] = [(1.0, 'unknown')]
+
                 result.append(cur_res)
         running_time = time.time() - start_time
         return {"folder_name": folder_name, "running_time": running_time, "predictions": result}

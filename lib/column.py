@@ -118,6 +118,7 @@ class Column:
     def to_json(self):
         logging.info("Column to json: {}".format(self.name))
         self.prepare_data()
+        logging.info("Data prepared")
         doc_body = {'source': self.source_name,
                     'name': self.name,
                     'semantic_type': self.semantic_type,
@@ -132,6 +133,7 @@ class Column:
                     'char_lengths': self.char_lengths,
                     "word_lengths": self.word_lengths,
                     "histogram": self.histogram_list}
+        logging.info("Column to json succeeded: {}".format(self.name))
         return doc_body
 
     def read_json_to_column(self, json_obj):

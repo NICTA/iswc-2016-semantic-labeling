@@ -25,6 +25,8 @@ cd elasticsearch-5.1.1/bin
 ./elasticsearch
 ```
 
+sudo sysctl -w vm.max_map_count=262144
+
 Spark
 ```
 curl -L -O http://d3kbcqa49mib13.cloudfront.net/spark-2.1.0-bin-hadoop2.7.tgz
