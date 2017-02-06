@@ -101,8 +101,7 @@ RUN \
 # Download this repo
 #
 RUN \
-    git clone https://github.com/NICTA/iswc-2016-semantic-labeling.git &&
-    git checkout docker
+    git clone https://github.com/NICTA/iswc-2016-semantic-labeling.git && git checkout docker
 
 #
 # Expose the default port

@@ -10,10 +10,10 @@ os.environ["PYSPARK_SUBMIT_ARGS"] = pyspark_submit_args
 from pyspark import SparkConf, SparkContext, SQLContext
 
 conf = (SparkConf()
-         .setMaster("local")
-         .setAppName("KarmaDSL")
+        .setMaster("local")
+        .setAppName("KarmaDSL")
         .set("spark.executor.cores","8")
-         .set("spark.executor.memory", "1g")
+        .set("spark.executor.memory", "1g")
         )
 
 sc = SparkContext(conf=conf)
