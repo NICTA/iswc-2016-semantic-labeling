@@ -9,6 +9,7 @@ Automatically assign semantics to large data sets from heterogeneous sources bas
 
 ## Prerequisites
 
+0. Java JRE: if not installed, download and install as described, e.g., [here](http://www.wikihow.com/Install-Oracle-Java-JRE-on-Ubuntu-Linux)
 1. Elasticsearch:
 Download [here](https://www.elastic.co/downloads/elasticsearch).
 2. Pyspark:
