@@ -232,18 +232,18 @@ def first_time():
     logging.info("First time setup...")
     try:
         semantic_labeler.reset()
-        # semantic_labeler.read_data_sources(["soccer"])
+        semantic_labeler.read_data_sources(["museum"])
         # semantic_labeler.train_semantic_types(["soccer"])
         # semantic_labeler.train_random_forest([11], ["soccer"])
 
-        semantic_labeler.read_data_sources(["soccer", "dbpedia", "museum", "weather"])
-        semantic_labeler.train_semantic_types(["soccer", "dbpedia", "museum", "weather"])
-        semantic_labeler.train_random_forest([11], ["soccer"])
+        # semantic_labeler.read_data_sources(["soccer", "dbpedia", "museum", "weather"])
+        # semantic_labeler.train_semantic_types(["soccer", "dbpedia", "museum", "weather"])
+        # semantic_labeler.train_random_forest([11], ["soccer"])
 
         # semantic_labeler.read_data_sources(["soccer", "dbpedia", "museum","flights", "weather", "phone"])
         # semantic_labeler.train_semantic_types(["soccer", "dbpedia", "museum", "flights", "weather", "phone"])
         # semantic_labeler.train_random_forest([11], ["soccer"])
-        semantic_labeler.write_data_sources(limit=None, filter_unknown=True)
+        semantic_labeler.write_data_sources(limit=None, filter_unknown=False)
         resp = jsonify("Training complete.")
         resp.status_code = 200
         return resp
@@ -399,7 +399,7 @@ def copy_data():
     Create folder with the specified name which holds sources specified in the request.
     Sources to be put into the folder should already exist on the server within a domain folder.
     Domain folders are fixed and listed in the global variable domains.
-    We just copy neccessary files from the domain folders into the specified folder.
+    We just copy necessary files from the domain folders into the specified folder.
     This method is useful to create train and test data folders.
     :return:
     """

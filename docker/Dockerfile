@@ -15,17 +15,18 @@ RUN \
       apt-transport-https \
       software-properties-common
 
-#
-# Install Anaconda3
-#
-RUN apt-get update --fix-missing && apt-get install -y wget bzip2 ca-certificates \
-    libglib2.0-0 libxext6 libsm6 libxrender1 \
-        git mercurial subversion
 
-RUN echo 'export PATH=/opt/conda/bin:$PATH' > /etc/profile.d/conda.sh && \
-    wget --quiet https://repo.continuum.io/archive/Anaconda3-4.2.0-Linux-x86_64.sh -O ~/anaconda.sh && \
-        /bin/bash ~/anaconda.sh -b -p /opt/conda && \
-            rm ~/anaconda.sh
+#
+# Install python 3.5
+#
+#
+#RUN apt-get update --fix-missing && apt-get install -y wget bzip2 ca-certificates \
+#    libglib2.0-0 libxext6 libsm6 libxrender1 \
+#    git mercurial subversion
+
+RUN apt-get install -y --no-install-recommends \
+        python3.5 \
+        python3.5-dev
 
 RUN apt-get install -y curl grep sed dpkg && \
     TINI_VERSION=`curl https://github.com/krallin/tini/releases/latest | grep -o "/v.*\"" | sed 's:^..\(.*\).$:\1:'` && \
@@ -34,8 +35,36 @@ RUN apt-get install -y curl grep sed dpkg && \
                 rm tini.deb && \
                     apt-get clean
 
-ENV PATH /opt/conda/bin:$PATH
+RUN which python3
 
+# make some useful symlinks that are expected to exist
+RUN cd /usr/local/bin/ \
+#	&& { [ -e easy_install ] || ln -s easy_install-* easy_install; } \
+	&& ln -s idle3 idle \
+	&& ln -s pydoc3 pydoc \
+	&& ln -s python3 python \
+	&& ln -s python3-config python-config
+
+RUN ln -s /usr/bin/python3 /usr/bin/python
+
+# get pip
+RUN curl -O https://bootstrap.pypa.io/get-pip.py && \
+    python3 get-pip.py && \
+    rm get-pip.py
+
+
+RUN pip3 --no-cache-dir install \
+        flask \
+        flask-admin \
+        flask-login \
+        flask-restful \
+        flask-uploads \
+        matplotlib \
+        numpy \
+        requests \
+        sklearn \
+        pandas \
+        Pillow
 #
 # Install Java 1.8...
 #
@@ -77,15 +106,15 @@ RUN \
     curl -L -O http://d3kbcqa49mib13.cloudfront.net/spark-2.1.0-bin-hadoop2.7.tgz && \
     tar -xvf spark-2.1.0-bin-hadoop2.7.tgz && \
     cd spark-2.1.0-bin-hadoop2.7/python && \
-    pip install -e .
+    pip3 install -e .
 
 #
 # Download python packages...
 #
 RUN \
-    pip install py4j && \
-    pip install elasticsearch && \
-    pip install gensim
+    pip3 install py4j && \
+    pip3 install elasticsearch && \
+    pip3 install gensim
 
 USER $username
 
@@ -96,6 +125,9 @@ RUN \
   curl -L -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.1.1.tar.gz && \
   tar -xvf elasticsearch-5.1.1.tar.gz
 
+# remove archives
+RUN rm elasticsearch-5.1.1.tar.gz
+RUN rm spark-2.1.0-bin-hadoop2.7.tgz
 
 #
 # Download this repo
@@ -108,6 +140,8 @@ RUN git clone https://github.com/NICTA/iswc-2016-semantic-labeling.git
 WORKDIR iswc-2016-semantic-labeling
 RUN git checkout docker
 
+WORKDIR /home/$username
+
 #
 # Expose the default port
 #
@@ -118,5 +152,6 @@ EXPOSE 8000
 #
 CMD \
     eval 'elasticsearch-5.1.1/bin/elasticsearch &' && \
-    cd iswc-2016-semantic-labeling && \
-    python server.py -h 0.0.0.0
+    cd iswc-2016-semantic-labeling/ && \
+    python3 server.py -h 0.0.0.0
+

@@ -27,7 +27,7 @@ class Source(object):
         for enc in encodings:
             try:
                 with open(file_path, "r", encoding=enc) as f:
-                    [f.readline() for i in range(limit)]
+                    [f.readline() for _ in range(limit)]
                 return enc
             except:
                 continue
@@ -220,7 +220,7 @@ class Source(object):
             # headers are randomly sampled numbers from (1000,9999)
             up = (10**4)-1
             down = 10**3
-            headers = random.sample(range(down,up), num_types)
+            headers = random.sample(range(down, up), num_types)
             f.readline()
             for num_type in range(num_types):
                 semantic_type = f.readline().strip()
