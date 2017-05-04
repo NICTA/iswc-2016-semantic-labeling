@@ -164,8 +164,9 @@ class Column:
         feature_vectors = self.generate_candidate_types(train_examples_map, textual_train_map)
         logging.info("Candidates generated: {}".format(self.name))
         predictions = model.predict(feature_vectors, self.semantic_type)
+        logging.debug("Predictions obtained: {}".format(self.name))
         predictions = [
-            ((round(prediction['prob'], 2), prediction['prob'], self.source_name + "!" + self.name),
+            ((round(prediction['prob'], 2), prediction['prob'], str(self.source_name) + "!" + str(self.name)),
              prediction['name'].split("!")[0])
             for prediction in predictions]
         prediction_map = defaultdict(lambda: [])

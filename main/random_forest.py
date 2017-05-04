@@ -115,5 +115,8 @@ class MyRandomForest:
             logging.info("Writing debug")
             test_df.to_csv("debug.csv", mode='w', header=True, index=False)
 
-        return list(test_df[["prob", 'name']].T.to_dict().values())
+        res = list(test_df[["prob", 'name']].T.to_dict().values())
+        logging.debug("Prediction Results {}".format(res))
+
+        return res
 

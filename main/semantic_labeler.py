@@ -110,9 +110,49 @@ class SemanticLabeler:
 
     def predict_semantic_type_for_column(self, column):
         logging.info("Predicting semantic type for column: {}.".format(column))
-        train_examples_map = searcher.search_types_data("index_name", [])
-        textual_train_map = searcher.search_similar_text_data("index_name", column.value_text, [])
-        return column.predict_type(train_examples_map, textual_train_map, self.random_forest)
+        if self.random_forest is None:
+            logging.error("Prediction not possible. Model not trained.")
+            raise Exception("Prediction not possible. Model not trained.")
+
+        start_time = time.time()
+        # source_name = ""
+        # if column.source_name:
+        #     index_name = re.sub(not_allowed_chars, "", column.source_name)
+        #     source_name = column.source_name
+        #     index_config = {'name': index_name}
+        #     train_examples_map = searcher.search_types_data(index_config, [])
+        #     textual_train_map = searcher.search_similar_text_data(index_config, column.value_text, [])
+        # else:
+        #     train_examples_map = searcher.search_types_data("", [])
+        #     textual_train_map = searcher.search_similar_text_data("", column.value_text, [])
+        #
+        train_examples_map = searcher.search_types_data("", [])
+        textual_train_map = searcher.search_similar_text_data("", column.value_text, [])
+
+        cur_res = {'source_name': column.source_name,
+                   'column_name': column.name,
+                   'correct_label': column.semantic_type,
+                   'scores': [(1.0, 'fail')]
+                   }
+        try:
+            semantic_types = column.predict_type(train_examples_map, textual_train_map, self.random_forest)
+            all_preds = []
+            for (score, labels) in semantic_types:
+                all_preds += [(score, l) for l in labels]
+            # normalize scores so that they sum up to 1
+            total = sum([element[0] for element in all_preds])
+            if total > 0:
+                cur_res['scores'] = [(score / total, l) for score, l in all_preds]
+            else:
+                cur_res['scores'] = [(score, l) for score, l in all_preds]
+            logging.info("Scores normalized")
+
+        except Exception as e:
+            logging.warning("Could not get predictions for column {} due to {}".format(column.name, e))
+            cur_res['scores'] = [(1.0, 'fail')]
+
+        running_time = time.time() - start_time
+        return {"folder_name": "", "running_time": running_time, "predictions": [cur_res]}
 
     def predict_folder_semantic_types(self, folder_name):
         """
@@ -160,7 +200,7 @@ class SemanticLabeler:
                     logging.info("Scores normalized")
                 except Exception as e:
                     logging.warning("Could not get predictions for column {} due to {}".format(column.name, e))
-                    cur_res['scores'] = [(1.0, 'unknown')]
+                    cur_res['scores'] = [(1.0, 'fail')]
 
                 result.append(cur_res)
         running_time = time.time() - start_time

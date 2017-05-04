@@ -45,7 +45,8 @@ RUN cd /usr/local/bin/ \
 	&& ln -s python3 python \
 	&& ln -s python3-config python-config
 
-RUN ln -s /usr/bin/python3 /usr/bin/python
+# symlink to make python3 default
+RUN rm -f /usr/bin/python && ln -s /usr/bin/python3 /usr/bin/python
 
 # get pip
 RUN curl -O https://bootstrap.pypa.io/get-pip.py && \
@@ -151,7 +152,7 @@ EXPOSE 8000
 # Launch the server...
 #
 CMD \
-    eval 'elasticsearch-5.1.1/bin/elasticsearch &' && \
-    cd iswc-2016-semantic-labeling/ && \
-    python3 server.py -h 0.0.0.0
+    eval 'elasticsearch-5.1.1/bin/elasticsearch &'
+#    cd iswc-2016-semantic-labeling/ && \
+#    python3 server.py
 

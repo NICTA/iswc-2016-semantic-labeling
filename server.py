@@ -13,12 +13,15 @@ import logging
 import os
 from shutil import copyfile
 
+
 # logging
-logFormatter = logging.Formatter("%(asctime)s [%(name)-12.12s] [%(levelname)-10.10s]  %(message)s")
+logFormatter = logging.Formatter("%(asctime)s [%(levelname)-10.10s] %(module)s: %(message)s")
 rootLogger = logging.getLogger()
 rootLogger.setLevel(logging.INFO)
 
-fileHandler = logging.FileHandler('karma-server.log', mode='w')
+fileHandler = logging.handlers.RotatingFileHandler('karma-server.log', mode='w',
+                                                    maxBytes=0.5 * 10 ** 9,
+                                                    backupCount=5)
 fileHandler.setFormatter(logFormatter)
 fileHandler.setLevel(logging.INFO)
 rootLogger.addHandler(fileHandler)
@@ -206,11 +209,15 @@ def get_semantic_type():
     logging.info("Getting semantic type...")
 
     if "header" not in request.json or "values" not in request.json:
-        return bad_uri("Either header, or source, or values not in request.")
+        logging.error("Either header or values not in request.")
+        return bad_uri("Either header or values not in request.")
     header = request.json["header"]
     values = request.json["values"]
+    if not(isinstance(values, list)):
+        logging.error("values must be a list")
+        return bad_uri("values must be a list")
     if "source" not in request.json:
-        source=None
+        source = None
     else:
         source = request.json["source"]
 
@@ -221,7 +228,10 @@ def get_semantic_type():
             logging.debug("column: {}".format(column))
             column.add_value(element)
 
-        return str(semantic_labeler.predict_semantic_type_for_column(column))
+        result = semantic_labeler.predict_semantic_type_for_column(column)
+        resp = jsonify(result)
+        resp.status_code = 200
+        return resp
     except Exception as e:
         logging.error("Get semantic type: {}".format(e))
         return error("Getting semantic type failed: {}".format(e.args))
@@ -232,9 +242,9 @@ def first_time():
     logging.info("First time setup...")
     try:
         semantic_labeler.reset()
-        semantic_labeler.read_data_sources(["museum"])
-        # semantic_labeler.train_semantic_types(["soccer"])
-        # semantic_labeler.train_random_forest([11], ["soccer"])
+        semantic_labeler.read_data_sources(["soccer"])
+        semantic_labeler.train_semantic_types(["soccer"])
+        semantic_labeler.train_random_forest([11], ["soccer"])
 
         # semantic_labeler.read_data_sources(["soccer", "dbpedia", "museum", "weather"])
         # semantic_labeler.train_semantic_types(["soccer", "dbpedia", "museum", "weather"])
@@ -243,7 +253,7 @@ def first_time():
         # semantic_labeler.read_data_sources(["soccer", "dbpedia", "museum","flights", "weather", "phone"])
         # semantic_labeler.train_semantic_types(["soccer", "dbpedia", "museum", "flights", "weather", "phone"])
         # semantic_labeler.train_random_forest([11], ["soccer"])
-        semantic_labeler.write_data_sources(limit=None, filter_unknown=False)
+        # semantic_labeler.write_data_sources(limit=None, filter_unknown=False)
         resp = jsonify("Training complete.")
         resp.status_code = 200
         return resp
