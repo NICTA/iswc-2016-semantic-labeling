@@ -137,7 +137,7 @@ RUN rm spark-2.1.0-bin-hadoop2.7.tgz
 #
 # Download this repo
 #
-RUN git clone https://github.com/NICTA/iswc-2016-semantic-labeling.git
+RUN git clone http://github.com/NICTA/iswc-2016-semantic-labeling.git
 
 #
 # Swith to the folder where the project is
