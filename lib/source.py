@@ -65,7 +65,8 @@ class Source(object):
                 writer.writerow([key, col.name, col.source_name, col.semantic_type])
 
     def read_semantic_type_json(self, file_path):
-        with open(file_path, 'r') as f:
+        enc = self.find_source_encoding(file_path)
+        with open(file_path, 'r', encoding=enc) as f:
             logging.info("Reading semantic type json: {}".format(file_path))
             data = json.load(f)
             node_array = data["graph"]["nodes"]
