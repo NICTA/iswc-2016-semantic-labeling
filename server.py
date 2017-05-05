@@ -92,7 +92,7 @@ UPLOAD_FOLDER = "/data/"  # TODO change this to model folder
 TEST_URL = "/test"
 RESET_URL = "/reset"
 semantic_labeler = SemanticLabeler()
-domains = ["soccer", "dbpedia", "museum", "weather"]
+domains = ["soccer", "dbpedia", "museum", "weather", "weapons"]
 
 
 @service.errorhandler(404)
@@ -242,9 +242,9 @@ def first_time():
     logging.info("First time setup...")
     try:
         semantic_labeler.reset()
-        semantic_labeler.read_data_sources(["soccer"])
-        semantic_labeler.train_semantic_types(["soccer"])
-        semantic_labeler.train_random_forest([11], ["soccer"])
+        semantic_labeler.read_data_sources(["weapons"])
+        semantic_labeler.train_semantic_types(["weapons"])
+        semantic_labeler.train_random_forest([11], ["weapons"])
 
         # semantic_labeler.read_data_sources(["soccer", "dbpedia", "museum", "weather"])
         # semantic_labeler.train_semantic_types(["soccer", "dbpedia", "museum", "weather"])

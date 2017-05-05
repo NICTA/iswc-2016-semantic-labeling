@@ -3,14 +3,13 @@
 *.swp
 debug.txt
 *.log*
-*.csv
+#*.csv
 .idea/
 training_data.csv
 data/datasets/flight/
 data/datasets/phonedirectory/
 data/datasets/test_data/
 data/datasets/train_data/
-data/datasets/weapon-lod/
 data/write_csv_datasets/
 lib/__pycache__/
 main/__pycache__/
@@ -19,3 +18,8 @@ tests/__pycache__/
 data/datasets/t2k/
 data/write_columnmap_True/
 data/write_csv_datasets_True/
+data/write_columnmap_False/
+data/write_csv_datasets_False/
+docker/Dockerfile (copy)
+docker/karma-*
+data/datasets/weapons/*-copy

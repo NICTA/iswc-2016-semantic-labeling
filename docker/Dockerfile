@@ -35,8 +35,6 @@ RUN apt-get install -y curl grep sed dpkg && \
                 rm tini.deb && \
                     apt-get clean
 
-RUN which python3
-
 # make some useful symlinks that are expected to exist
 RUN cd /usr/local/bin/ \
 #	&& { [ -e easy_install ] || ln -s easy_install-* easy_install; } \
@@ -88,6 +86,12 @@ ENV username karma
 RUN useradd -ms /bin/bash $username && echo "$username:$username" | chpasswd && adduser $username sudo
 RUN mkdir -p /home/$username && chown -R $username:$username /home/$username
 WORKDIR /home/$username
+
+#
+# Set pyspark version of python to 3.5
+#
+ENV PYSPARK_PYTHON=python3.5
+ENV PYSPARK_DRIVER_PYTHON=python3.5
 
 #
 # clean up...
@@ -152,7 +156,6 @@ EXPOSE 8000
 # Launch the server...
 #
 CMD \
-    eval 'elasticsearch-5.1.1/bin/elasticsearch &'
-#    cd iswc-2016-semantic-labeling/ && \
-#    python3 server.py
+    eval 'elasticsearch-5.1.1/bin/elasticsearch &' && \
+    python3 iswc-2016-semantic-labeling/server.py
 
