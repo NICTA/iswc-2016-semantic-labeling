@@ -57,12 +57,22 @@ RUN pip3 --no-cache-dir install \
         flask-admin \
         flask-login \
         flask-restful \
-        flask-uploads \
+        flask-uploads
+
+RUN pip3 --no-cache-dir install \
         matplotlib \
-        numpy \
+        numpy
+
+
+RUN pip3 --no-cache-dir install \
         requests \
-        sklearn \
-        pandas \
+        sklearn
+
+#RUN apt-get install -y --reinstall build-essential
+RUN apt-get install -y g++
+RUN pip3 --no-cache-dir install pandas
+
+RUN pip3 --no-cache-dir install \
         Pillow
 #
 # Install Java 1.8...
