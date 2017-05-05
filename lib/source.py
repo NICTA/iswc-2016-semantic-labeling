@@ -167,7 +167,8 @@ class Source(object):
                         self.column_map[header].add_value(row[header])
 
     def read_data_from_json(self, file_path):
-        with open(file_path, 'r') as f:
+        enc = self.find_source_encoding(file_path)
+        with open(file_path, 'r', encoding=enc) as f:
             logging.info("Reading data from json: {}".format(file_path))
             json_array = json.load(f)
             for node in json_array:

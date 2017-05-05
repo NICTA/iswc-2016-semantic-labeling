@@ -157,5 +157,6 @@ EXPOSE 8000
 #
 CMD \
     eval 'elasticsearch-5.1.1/bin/elasticsearch &' && \
-    python3 iswc-2016-semantic-labeling/server.py
+    cd iswc-2016-semantic-labeling/ &&\
+    python3 server.py
 
