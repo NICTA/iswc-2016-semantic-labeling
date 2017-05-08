@@ -34,7 +34,7 @@ rootLogger.addHandler(consoleHandler)
 # logging for elasticsearch
 es_logger = logging.getLogger('elasticsearch')
 es_logger.propagate = False
-es_logger.setLevel(logging.INFO)
+es_logger.setLevel(logging.ERROR)
 es_logger_handler = logging.handlers.RotatingFileHandler('karma-elasticsearch-base.log',
                                                       maxBytes=0.5*10**9,
                                                       backupCount=3, mode='w')
@@ -42,7 +42,7 @@ es_logger.addHandler(es_logger_handler)
 
 es_tracer = logging.getLogger('elasticsearch.trace')
 es_tracer.propagate = False
-es_tracer.setLevel(logging.INFO)
+es_tracer.setLevel(logging.ERROR)
 es_tracer_handler = logging.handlers.RotatingFileHandler('karma-elasticsearch-full.log',
                                                    maxBytes=0.5*10**9,
                                                    backupCount=3, mode='w')
@@ -51,7 +51,7 @@ es_tracer.addHandler(es_tracer_handler)
 # logging for py4j
 py4j_logger = logging.getLogger('py4j')
 py4j_logger.propagate = False
-py4j_logger.setLevel(logging.INFO)
+py4j_logger.setLevel(logging.ERROR)
 py4j_logger_handler = logging.handlers.RotatingFileHandler('karma-py4j.log',
                                                    maxBytes=0.5*10**9,
                                                    backupCount=3, mode='w')

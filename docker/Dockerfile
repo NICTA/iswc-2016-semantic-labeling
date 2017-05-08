@@ -59,6 +59,10 @@ RUN pip3 --no-cache-dir install \
         flask-restful \
         flask-uploads
 
+RUN apt-get update && apt-get install -y --reinstall build-essential
+#RUN apt-get install -y g++
+RUN pip3 --no-cache-dir install pandas
+
 RUN pip3 --no-cache-dir install \
         matplotlib \
         numpy
@@ -67,10 +71,6 @@ RUN pip3 --no-cache-dir install \
 RUN pip3 --no-cache-dir install \
         requests \
         sklearn
-
-#RUN apt-get install -y --reinstall build-essential
-RUN apt-get install -y g++
-RUN pip3 --no-cache-dir install pandas
 
 RUN pip3 --no-cache-dir install \
         Pillow
@@ -131,6 +131,9 @@ RUN \
     pip3 install elasticsearch && \
     pip3 install gensim
 
+# support for a higher amount of memory map areas for elasticsearch
+RUN sysctl -w vm.max_map_count=262144
+
 USER $username
 
 #
@@ -143,6 +146,9 @@ RUN \
 # remove archives
 RUN rm elasticsearch-5.1.1.tar.gz
 RUN rm spark-2.1.0-bin-hadoop2.7.tgz
+
+# silence verbose logging of elasticsearch
+COPY log4j2.properties elasticsearch-5.1.1/bin/config/
 
 #
 # Download this repo
