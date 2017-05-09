@@ -225,7 +225,7 @@ def get_semantic_type():
     try:
         column = Column(header, source)
         for element in values:
-            logging.info("Add element: {}".format(element))
+            # logging.debug("Add element: {}".format(element))
             # logging.debug("column: {}".format(column))
             column.add_value(element)
 
