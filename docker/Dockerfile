@@ -148,7 +148,8 @@ RUN rm elasticsearch-5.1.1.tar.gz
 RUN rm spark-2.1.0-bin-hadoop2.7.tgz
 
 # silence verbose logging of elasticsearch
-COPY log4j2.properties elasticsearch-5.1.1/bin/config/
+COPY log4j2.properties elasticsearch-5.1.1/config/
+COPY jvm.options elasticsearch-5.1.1/config/
 
 #
 # Download this repo

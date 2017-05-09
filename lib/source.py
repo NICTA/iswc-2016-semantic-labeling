@@ -123,9 +123,9 @@ class Source(object):
                 self.column_map[header].add_value(element)
 
     def read_data_from_csv(self, file_path):
-        logging.info("Reading data from csv: {} ".format(file_path))
         correct_encoding = self.find_source_encoding(file_path)
         with open(file_path, encoding=correct_encoding) as csv_file:
+            logging.info("Reading data from csv: {} ".format(file_path))
             reader = csv.DictReader(csv_file)
             headers = reader.fieldnames
             for header in headers:
@@ -142,8 +142,8 @@ class Source(object):
 
     def read_data_from_wc_csv(self, file_path):
         correct_encoding = self.find_source_encoding(file_path)
-        logging.info("Reading data from wc csv: {}".format(file_path))
         with open(file_path, encoding=correct_encoding) as csv_file:
+            logging.info("Reading data from wc csv: {}".format(file_path))
             reader = csv.DictReader(csv_file)
             headers = reader.fieldnames
             for header in headers:
@@ -190,20 +190,22 @@ class Source(object):
                         self.column_map[field].add_value(str(node[field]))
 
     def read_data_from_xml(self, file_path):
-        logging.info("Reading data from xml: {}".format(file_path))
-        xml_tree = ElementTree.parse(file_path)
-        root = xml_tree.getroot()
-        for child in root:
-            for attrib_name in child.attrib.keys():
-                if attrib_name not in self.column_map:
-                    column = Column(attrib_name, file_path)
-                    self.column_map[attrib_name] = column
-                self.column_map[attrib_name].add_value(child.attrib[attrib_name])
-            for attrib in child:
-                if attrib.tag not in self.column_map:
-                    column = Column(attrib.tag, file_path)
-                    self.column_map[attrib.tag] = column
-                self.column_map[attrib.tag].add_value(attrib.text)
+        correct_encoding = self.find_source_encoding(file_path)
+        with open(file_path, 'r', encoding=correct_encoding) as f:
+            logging.info("Reading data from xml: {}".format(file_path))
+            xml_tree = ElementTree.parse(f)
+            root = xml_tree.getroot()
+            for child in root:
+                for attrib_name in child.attrib.keys():
+                    if attrib_name not in self.column_map:
+                        column = Column(attrib_name, file_path)
+                        self.column_map[attrib_name] = column
+                    self.column_map[attrib_name].add_value(child.attrib[attrib_name])
+                for attrib in child:
+                    if attrib.tag not in self.column_map:
+                        column = Column(attrib.tag, file_path)
+                        self.column_map[attrib.tag] = column
+                    self.column_map[attrib.tag].add_value(attrib.text)
 
     def read_semantic_type_from_gold(self, file_path):
         logging.info("Reading semantic type from gold: {}".format(file_path))
