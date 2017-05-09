@@ -1,13 +1,13 @@
 from flask import Flask, request
 from flask import make_response
 from flask import jsonify
+import json
 
 from lib import indexer
 from lib.column import Column
 from lib.source import Source
 from lib.utils import get_new_index_name
 from main.semantic_labeler import SemanticLabeler
-
 
 import logging
 import os
@@ -94,6 +94,7 @@ RESET_URL = "/reset"
 semantic_labeler = SemanticLabeler()
 domains = ["soccer", "dbpedia", "museum", "weather", "weapons"]
 
+service.config['JSON_AS_ASCII'] = False
 
 @service.errorhandler(404)
 def not_found(error=None):
@@ -207,25 +208,25 @@ def delete_column():
 @service.route(COLUMN_URL, methods=["POST"])
 def get_semantic_type():
     logging.info("Getting semantic type...")
-
-    if "header" not in request.json or "values" not in request.json:
+    jsonContent = json.dumps(request.json, ensure_ascii=False)
+    if "header" not in jsonContent or "values" not in jsonContent:
         logging.error("Either header or values not in request.")
         return bad_uri("Either header or values not in request.")
-    header = request.json["header"]
-    values = request.json["values"]
+    header = jsonContent["header"]
+    values = jsonContent["values"]
     if not(isinstance(values, list)):
         logging.error("values must be a list")
         return bad_uri("values must be a list")
-    if "source" not in request.json:
+    if "source" not in jsonContent:
         source = None
     else:
-        source = request.json["source"]
+        source = jsonContent["source"]
 
     try:
         column = Column(header, source)
         for element in values:
             logging.info("Add element: {}".format(element))
-            logging.debug("column: {}".format(column))
+            # logging.debug("column: {}".format(column))
             column.add_value(element)
 
         result = semantic_labeler.predict_semantic_type_for_column(column)

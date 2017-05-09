@@ -103,6 +103,10 @@ WORKDIR /home/$username
 ENV PYSPARK_PYTHON=python3.5
 ENV PYSPARK_DRIVER_PYTHON=python3.5
 
+# configure python encodings
+ENV PYTHONIOENCODING=utf-8
+ENV PYTHONENCODING=utf-8
+
 #
 # clean up...
 #
