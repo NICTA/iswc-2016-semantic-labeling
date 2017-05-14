@@ -208,19 +208,19 @@ def delete_column():
 @service.route(COLUMN_URL, methods=["POST"])
 def get_semantic_type():
     logging.info("Getting semantic type...")
-    jsonContent = json.dumps(request.json, ensure_ascii=False)
-    if "header" not in jsonContent or "values" not in jsonContent:
+    # jsonContent = json.dumps(request.json, ensure_ascii=False)
+    if "header" not in request.json or "values" not in request.json:
         logging.error("Either header or values not in request.")
         return bad_uri("Either header or values not in request.")
-    header = jsonContent["header"]
-    values = jsonContent["values"]
+    header = request.json["header"]
+    values = request.json["values"]
     if not(isinstance(values, list)):
         logging.error("values must be a list")
         return bad_uri("values must be a list")
-    if "source" not in jsonContent:
+    if "source" not in request.json:
         source = None
     else:
-        source = jsonContent["source"]
+        source = request.json["source"]
 
     try:
         column = Column(header, source)
@@ -307,7 +307,7 @@ def read_folder():
     folder_name = request.json["folder"]
     logging.info("Indexing data sources from folder {}".format(folder_name))
     try:
-        semantic_labeler.read_data_sources(folder_name)
+        semantic_labeler.read_data_sources([folder_name])
         logging.info("Listing folders for response.")
         return list_folder()
     except Exception as e:

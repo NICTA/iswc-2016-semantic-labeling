@@ -4,762 +4,244 @@
     "description": null,
     "sourceColumns": [
         {
-            "id": "HN111246",
-            "hNodeId": "HN111246",
-            "columnName": "artist_uri"
-        },
-        {
-            "id": "HN99088",
-            "hNodeId": "HN99088",
-            "columnName": "sourceURL"
-        },
-        {
-            "id": "HN99132",
-            "hNodeId": "HN99132",
-            "columnName": "provenance"
-        },
-        {
-            "id": "HN99138",
-            "hNodeId": "HN99138",
-            "columnName": "galleryLabel"
-        },
-        {
-            "id": "HN99082",
-            "hNodeId": "HN99082",
-            "columnName": "title"
-        },
-        {
-            "id": "HN99113",
-            "hNodeId": "HN99113",
-            "columnName": "imageURL"
-        },
-        {
-            "id": "HN109699",
-            "hNodeId": "HN109699",
+            "id": "HN83240",
+            "hNodeId": "HN83240",
             "columnName": "birthDate"
         },
         {
-            "id": "HN110078",
-            "hNodeId": "HN110078",
+            "id": "HN72623",
+            "hNodeId": "HN72623",
+            "columnName": "title"
+        },
+        {
+            "id": "HN83619",
+            "hNodeId": "HN83619",
             "columnName": "deathDate"
         },
         {
-            "id": "HN99135",
-            "hNodeId": "HN99135",
-            "columnName": "creationDate"
-        },
-        {
-            "id": "HN99094",
-            "hNodeId": "HN99094",
-            "columnName": "dimensions"
-        },
-        {
-            "id": "HN110848",
-            "hNodeId": "HN110848",
-            "columnName": "material_URI"
-        },
-        {
-            "id": "HN99086",
-            "hNodeId": "HN99086",
+            "id": "HN72627",
+            "hNodeId": "HN72627",
             "columnName": "materials"
         },
         {
-            "id": "HN112393",
-            "hNodeId": "HN112393",
-            "columnName": "provenance_type_uri"
+            "id": "HN72741",
+            "hNodeId": "HN72741",
+            "columnName": "values"
         },
         {
-            "id": "HN112014",
-            "hNodeId": "HN112014",
-            "columnName": "galleryLabel_type_uri"
-        },
-        {
-            "id": "HN110468",
-            "hNodeId": "HN110468",
-            "columnName": "nationality_URI"
-        },
-        {
-            "id": "HN99084",
-            "hNodeId": "HN99084",
+            "id": "HN72625",
+            "hNodeId": "HN72625",
             "columnName": "nationality"
         },
         {
-            "id": "HN111632",
-            "hNodeId": "HN111632",
-            "columnName": "artist_appellation_uri"
+            "id": "HN72629",
+            "hNodeId": "HN72629",
+            "columnName": "sourceURL"
         },
         {
-            "id": "HN99096",
-            "hNodeId": "HN99096",
+            "id": "HN72679",
+            "hNodeId": "HN72679",
+            "columnName": "galleryLabel"
+        },
+        {
+            "id": "HN72676",
+            "hNodeId": "HN72676",
+            "columnName": "creationDate"
+        },
+        {
+            "id": "HN72648",
+            "hNodeId": "HN72648",
+            "columnName": "relatedArtworksURL"
+        },
+        {
+            "id": "HN72637",
+            "hNodeId": "HN72637",
             "columnName": "artist"
         },
         {
-            "id": "HN99092",
-            "hNodeId": "HN99092",
+            "id": "HN72673",
+            "hNodeId": "HN72673",
+            "columnName": "provenance"
+        },
+        {
+            "id": "HN72635",
+            "hNodeId": "HN72635",
+            "columnName": "dimensions"
+        },
+        {
+            "id": "HN72633",
+            "hNodeId": "HN72633",
             "columnName": "creditLine"
+        },
+        {
+            "id": "HN72646",
+            "hNodeId": "HN72646",
+            "columnName": "relatedArtworksTitle"
+        },
+        {
+            "id": "HN72631",
+            "hNodeId": "HN72631",
+            "columnName": "accessionNumber"
+        },
+        {
+            "id": "HN72654",
+            "hNodeId": "HN72654",
+            "columnName": "imageURL"
         }
     ],
     "mappingToSourceColumns": [
         {
-            "id": "HN111632",
-            "sourceColumnId": "HN111632"
+            "id": "HN83240",
+            "sourceColumnId": "HN83240"
         },
         {
-            "id": "HN112393",
-            "sourceColumnId": "HN112393"
+            "id": "HN72623",
+            "sourceColumnId": "HN72623"
         },
         {
-            "id": "HN111246",
-            "sourceColumnId": "HN111246"
+            "id": "HN83619",
+            "sourceColumnId": "HN83619"
         },
         {
-            "id": "HN99132",
-            "sourceColumnId": "HN99132"
+            "id": "HN72627",
+            "sourceColumnId": "HN72627"
         },
         {
-            "id": "HN99113",
-            "sourceColumnId": "HN99113"
+            "id": "HN72741",
+            "sourceColumnId": "HN72741"
         },
         {
-            "id": "HN99135",
-            "sourceColumnId": "HN99135"
+            "id": "HN72625",
+            "sourceColumnId": "HN72625"
         },
         {
-            "id": "HN112014",
-            "sourceColumnId": "HN112014"
+            "id": "HN72629",
+            "sourceColumnId": "HN72629"
         },
         {
-            "id": "HN110078",
-            "sourceColumnId": "HN110078"
+            "id": "HN72679",
+            "sourceColumnId": "HN72679"
         },
         {
-            "id": "HN99138",
-            "sourceColumnId": "HN99138"
+            "id": "HN72676",
+            "sourceColumnId": "HN72676"
         },
         {
-            "id": "HN110848",
-            "sourceColumnId": "HN110848"
+            "id": "HN72648",
+            "sourceColumnId": "HN72648"
         },
         {
-            "id": "HN99088",
-            "sourceColumnId": "HN99088"
+            "id": "HN72637",
+            "sourceColumnId": "HN72637"
         },
         {
-            "id": "HN109699",
-            "sourceColumnId": "HN109699"
+            "id": "HN72673",
+            "sourceColumnId": "HN72673"
         },
         {
-            "id": "HN99086",
-            "sourceColumnId": "HN99086"
+            "id": "HN72635",
+            "sourceColumnId": "HN72635"
         },
         {
-            "id": "HN110468",
-            "sourceColumnId": "HN110468"
+            "id": "HN72646",
+            "sourceColumnId": "HN72646"
         },
         {
-            "id": "HN99094",
-            "sourceColumnId": "HN99094"
+            "id": "HN72633",
+            "sourceColumnId": "HN72633"
         },
         {
-            "id": "HN99084",
-            "sourceColumnId": "HN99084"
+            "id": "HN72631",
+            "sourceColumnId": "HN72631"
         },
         {
-            "id": "HN99096",
-            "sourceColumnId": "HN99096"
-        },
-        {
-            "id": "HN99082",
-            "sourceColumnId": "HN99082"
-        },
-        {
-            "id": "HN99092",
-            "sourceColumnId": "HN99092"
+            "id": "HN72654",
+            "sourceColumnId": "HN72654"
         }
     ],
     "graph": {
         "nodes": [
             {
-                "id": "http://erlangen-crm.org/current/E12_Production1",
+                "id": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject1",
                 "label": {
-                    "uri": "http://erlangen-crm.org/current/E12_Production"
+                    "uri": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject"
                 },
                 "type": "InternalNode",
                 "modelIds": null
             },
             {
-                "id": "http://erlangen-crm.org/current/E21_Person1",
+                "id": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject2",
                 "label": {
-                    "uri": "http://erlangen-crm.org/current/E21_Person"
+                    "uri": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject"
                 },
                 "type": "InternalNode",
                 "modelIds": null
             },
             {
-                "id": "http://erlangen-crm.org/current/E52_Time-Span4",
+                "id": "http://www.americanartcollaborative.org/ontology/Person1",
                 "label": {
-                    "uri": "http://erlangen-crm.org/current/E52_Time-Span"
+                    "uri": "http://www.americanartcollaborative.org/ontology/Person"
                 },
                 "type": "InternalNode",
                 "modelIds": null
             },
             {
-                "id": "http://erlangen-crm.org/current/E69_Death1",
+                "id": "http://www.w3.org/2008/05/skos#Concept1",
                 "label": {
-                    "uri": "http://erlangen-crm.org/current/E69_Death"
+                    "uri": "http://www.w3.org/2008/05/skos#Concept"
                 },
                 "type": "InternalNode",
                 "modelIds": null
             },
             {
-                "id": "http://erlangen-crm.org/current/E74_Group1",
+                "id": "http://xmlns.com/foaf/0.1/Document2",
                 "label": {
-                    "uri": "http://erlangen-crm.org/current/E74_Group"
+                    "uri": "http://xmlns.com/foaf/0.1/Document"
                 },
                 "type": "InternalNode",
                 "modelIds": null
             },
             {
-                "id": "http://erlangen-crm.org/current/E82_Actor_Appellation1",
+                "id": "http://xmlns.com/foaf/0.1/Document1",
                 "label": {
-                    "uri": "http://erlangen-crm.org/current/E82_Actor_Appellation"
+                    "uri": "http://xmlns.com/foaf/0.1/Document"
                 },
                 "type": "InternalNode",
                 "modelIds": null
             },
             {
-                "id": "http://erlangen-crm.org/current/E67_Birth1",
+                "id": "http://www.europeana.eu/schemas/edm/EuropeanaAggregation1",
                 "label": {
-                    "uri": "http://erlangen-crm.org/current/E67_Birth"
+                    "uri": "http://www.europeana.eu/schemas/edm/EuropeanaAggregation"
                 },
                 "type": "InternalNode",
                 "modelIds": null
             },
             {
-                "id": "HN111246",
+                "id": "http://www.europeana.eu/schemas/edm/WebResource1",
                 "label": {
-                    "uri": "HN111246"
+                    "uri": "http://www.europeana.eu/schemas/edm/WebResource"
+                },
+                "type": "InternalNode",
+                "modelIds": null
+            },
+            {
+                "id": "HN83240",
+                "label": {
+                    "uri": "HN83240"
                 },
                 "type": "ColumnNode",
-                "hNodeId": "HN111246",
-                "columnName": "artist_uri",
-                "rdfLiteralType": null,
-                "userSemanticTypes": [
-                    {
-                        "hNodeId": "HN111246",
-                        "domain": {
-                            "uri": "http://erlangen-crm.org/current/E21_Person"
-                        },
-                        "type": {
-                            "uri": "http://isi.edu/integration/karma/dev#classLink"
-                        },
-                        "origin": "User",
-                        "confidenceScore": 1.0
-                    }
-                ],
-                "learnedSemanticTypes": [
-                    {
-                        "hNodeId": "HN111246",
-                        "domain": {
-                            "uri": "http://erlangen-crm.org/current/E82_Actor_Appellation"
-                        },
-                        "type": {
-                            "uri": "http://isi.edu/integration/karma/dev#classLink"
-                        },
-                        "origin": "TfIdfModel",
-                        "confidenceScore": 0.3553956696075493
-                    },
-                    {
-                        "hNodeId": "HN111246",
-                        "domain": {
-                            "uri": "http://erlangen-crm.org/current/E21_Person"
-                        },
-                        "type": {
-                            "uri": "http://isi.edu/integration/karma/dev#classLink"
-                        },
-                        "origin": "TfIdfModel",
-                        "confidenceScore": 0.3406167027736376
-                    },
-                    {
-                        "hNodeId": "HN111246",
-                        "domain": {
-                            "uri": "http://erlangen-crm.org/current/E39_Actor"
-                        },
-                        "type": {
-                            "uri": "http://isi.edu/integration/karma/dev#classLink"
-                        },
-                        "origin": "TfIdfModel",
-                        "confidenceScore": 0.19078042240816898
-                    },
-                    {
-                        "hNodeId": "HN111246",
-                        "domain": {
-                            "uri": "http://erlangen-crm.org/current/E22_Man-Made_Object"
-                        },
-                        "type": {
-                            "uri": "http://isi.edu/integration/karma/dev#classLink"
-                        },
-                        "origin": "TfIdfModel",
-                        "confidenceScore": 0.11320720521064413
-                    }
-                ],
-                "modelIds": null
-            },
-            {
-                "id": "http://erlangen-crm.org/current/E22_Man-Made_Object1",
-                "label": {
-                    "uri": "http://erlangen-crm.org/current/E22_Man-Made_Object"
-                },
-                "type": "InternalNode",
-                "modelIds": null
-            },
-            {
-                "id": "http://erlangen-crm.org/current/E35_Title1",
-                "label": {
-                    "uri": "http://erlangen-crm.org/current/E35_Title"
-                },
-                "type": "InternalNode",
-                "modelIds": null
-            },
-            {
-                "id": "http://erlangen-crm.org/current/E8_Acquisition1",
-                "label": {
-                    "uri": "http://erlangen-crm.org/current/E8_Acquisition"
-                },
-                "type": "InternalNode",
-                "modelIds": null
-            },
-            {
-                "id": "http://erlangen-crm.org/current/E55_Type1",
-                "label": {
-                    "uri": "http://erlangen-crm.org/current/E55_Type"
-                },
-                "type": "InternalNode",
-                "modelIds": null
-            },
-            {
-                "id": "http://erlangen-crm.org/current/E54_Dimension1",
-                "label": {
-                    "uri": "http://erlangen-crm.org/current/E54_Dimension"
-                },
-                "type": "InternalNode",
-                "modelIds": null
-            },
-            {
-                "id": "HN99088",
-                "label": {
-                    "uri": "HN99088"
-                },
-                "type": "ColumnNode",
-                "hNodeId": "HN99088",
-                "columnName": "sourceURL",
-                "rdfLiteralType": null,
-                "userSemanticTypes": [
-                    {
-                        "hNodeId": "HN99088",
-                        "domain": {
-                            "uri": "http://erlangen-crm.org/current/E22_Man-Made_Object"
-                        },
-                        "type": {
-                            "uri": "http://isi.edu/integration/karma/dev#classLink"
-                        },
-                        "origin": "User",
-                        "confidenceScore": 1.0
-                    }
-                ],
-                "learnedSemanticTypes": [
-                    {
-                        "hNodeId": "HN99088",
-                        "domain": {
-                            "uri": "http://erlangen-crm.org/current/E22_Man-Made_Object"
-                        },
-                        "type": {
-                            "uri": "http://isi.edu/integration/karma/dev#classLink"
-                        },
-                        "origin": "TfIdfModel",
-                        "confidenceScore": 0.45560501723433766
-                    },
-                    {
-                        "hNodeId": "HN99088",
-                        "domain": {
-                            "uri": "http://erlangen-crm.org/current/E38_Image"
-                        },
-                        "type": {
-                            "uri": "http://isi.edu/integration/karma/dev#classLink"
-                        },
-                        "origin": "TfIdfModel",
-                        "confidenceScore": 0.23672928108009061
-                    },
-                    {
-                        "hNodeId": "HN99088",
-                        "domain": {
-                            "uri": "http://erlangen-crm.org/current/E78_Collection"
-                        },
-                        "type": {
-                            "uri": "http://isi.edu/integration/karma/dev#classLink"
-                        },
-                        "origin": "TfIdfModel",
-                        "confidenceScore": 0.18142287175422886
-                    },
-                    {
-                        "hNodeId": "HN99088",
-                        "domain": {
-                            "uri": "http://erlangen-crm.org/current/E8_Acquisition"
-                        },
-                        "type": {
-                            "uri": "http://erlangen-crm.org/current/P3_has_note"
-                        },
-                        "origin": "TfIdfModel",
-                        "confidenceScore": 0.1262428299313429
-                    }
-                ],
-                "modelIds": null
-            },
-            {
-                "id": "http://erlangen-crm.org/current/E33_Linguistic_Object1",
-                "label": {
-                    "uri": "http://erlangen-crm.org/current/E33_Linguistic_Object"
-                },
-                "type": "InternalNode",
-                "modelIds": null
-            },
-            {
-                "id": "http://erlangen-crm.org/current/E55_Type2",
-                "label": {
-                    "uri": "http://erlangen-crm.org/current/E55_Type"
-                },
-                "type": "InternalNode",
-                "modelIds": null
-            },
-            {
-                "id": "HN99132",
-                "label": {
-                    "uri": "HN99132"
-                },
-                "type": "ColumnNode",
-                "hNodeId": "HN99132",
-                "columnName": "provenance",
-                "rdfLiteralType": null,
-                "userSemanticTypes": [
-                    {
-                        "hNodeId": "HN99132",
-                        "domain": {
-                            "uri": "http://erlangen-crm.org/current/E33_Linguistic_Object"
-                        },
-                        "type": {
-                            "uri": "http://erlangen-crm.org/current/P3_has_note"
-                        },
-                        "origin": "User",
-                        "confidenceScore": 1.0
-                    }
-                ],
-                "learnedSemanticTypes": [
-                    {
-                        "hNodeId": "HN99132",
-                        "domain": {
-                            "uri": "http://erlangen-crm.org/current/E33_Linguistic_Object"
-                        },
-                        "type": {
-                            "uri": "http://erlangen-crm.org/current/P3_has_note"
-                        },
-                        "origin": "TfIdfModel",
-                        "confidenceScore": 0.2957120472900935
-                    },
-                    {
-                        "hNodeId": "HN99132",
-                        "domain": {
-                            "uri": "http://erlangen-crm.org/current/E8_Acquisition"
-                        },
-                        "type": {
-                            "uri": "http://erlangen-crm.org/current/P3_has_note"
-                        },
-                        "origin": "TfIdfModel",
-                        "confidenceScore": 0.2837421549662006
-                    },
-                    {
-                        "hNodeId": "HN99132",
-                        "domain": {
-                            "uri": "http://erlangen-crm.org/current/E22_Man-Made_Object"
-                        },
-                        "type": {
-                            "uri": "http://erlangen-crm.org/current/P3_has_note"
-                        },
-                        "origin": "TfIdfModel",
-                        "confidenceScore": 0.22201526763368556
-                    },
-                    {
-                        "hNodeId": "HN99132",
-                        "domain": {
-                            "uri": "http://erlangen-crm.org/current/E73_Information_Object"
-                        },
-                        "type": {
-                            "uri": "http://erlangen-crm.org/current/P3_has_note"
-                        },
-                        "origin": "TfIdfModel",
-                        "confidenceScore": 0.19853053011002036
-                    }
-                ],
-                "modelIds": null
-            },
-            {
-                "id": "http://erlangen-crm.org/current/E33_Linguistic_Object2",
-                "label": {
-                    "uri": "http://erlangen-crm.org/current/E33_Linguistic_Object"
-                },
-                "type": "InternalNode",
-                "modelIds": null
-            },
-            {
-                "id": "http://erlangen-crm.org/current/E55_Type3",
-                "label": {
-                    "uri": "http://erlangen-crm.org/current/E55_Type"
-                },
-                "type": "InternalNode",
-                "modelIds": null
-            },
-            {
-                "id": "HN99138",
-                "label": {
-                    "uri": "HN99138"
-                },
-                "type": "ColumnNode",
-                "hNodeId": "HN99138",
-                "columnName": "galleryLabel",
-                "rdfLiteralType": null,
-                "userSemanticTypes": [
-                    {
-                        "hNodeId": "HN99138",
-                        "domain": {
-                            "uri": "http://erlangen-crm.org/current/E33_Linguistic_Object"
-                        },
-                        "type": {
-                            "uri": "http://erlangen-crm.org/current/P3_has_note"
-                        },
-                        "origin": "User",
-                        "confidenceScore": 1.0
-                    }
-                ],
-                "learnedSemanticTypes": [
-                    {
-                        "hNodeId": "HN99138",
-                        "domain": {
-                            "uri": "http://erlangen-crm.org/current/E73_Information_Object"
-                        },
-                        "type": {
-                            "uri": "http://erlangen-crm.org/current/P3_has_note"
-                        },
-                        "origin": "TfIdfModel",
-                        "confidenceScore": 0.3227306910093698
-                    },
-                    {
-                        "hNodeId": "HN99138",
-                        "domain": {
-                            "uri": "http://erlangen-crm.org/current/E33_Linguistic_Object"
-                        },
-                        "type": {
-                            "uri": "http://erlangen-crm.org/current/P3_has_note"
-                        },
-                        "origin": "TfIdfModel",
-                        "confidenceScore": 0.3063248848662393
-                    },
-                    {
-                        "hNodeId": "HN99138",
-                        "domain": {
-                            "uri": "http://erlangen-crm.org/current/E22_Man-Made_Object"
-                        },
-                        "type": {
-                            "uri": "http://erlangen-crm.org/current/P3_has_note"
-                        },
-                        "origin": "TfIdfModel",
-                        "confidenceScore": 0.2689362241579091
-                    },
-                    {
-                        "hNodeId": "HN99138",
-                        "domain": {
-                            "uri": "http://erlangen-crm.org/current/E21_Person"
-                        },
-                        "type": {
-                            "uri": "http://erlangen-crm.org/current/P3_has_note"
-                        },
-                        "origin": "TfIdfModel",
-                        "confidenceScore": 0.10200819996648182
-                    }
-                ],
-                "modelIds": null
-            },
-            {
-                "id": "HN99082",
-                "label": {
-                    "uri": "HN99082"
-                },
-                "type": "ColumnNode",
-                "hNodeId": "HN99082",
-                "columnName": "title",
-                "rdfLiteralType": null,
-                "userSemanticTypes": [
-                    {
-                        "hNodeId": "HN99082",
-                        "domain": {
-                            "uri": "http://erlangen-crm.org/current/E35_Title"
-                        },
-                        "type": {
-                            "uri": "http://www.w3.org/2000/01/rdf-schema#label"
-                        },
-                        "origin": "User",
-                        "confidenceScore": 1.0
-                    }
-                ],
-                "learnedSemanticTypes": [
-                    {
-                        "hNodeId": "HN99082",
-                        "domain": {
-                            "uri": "http://erlangen-crm.org/current/E35_Title"
-                        },
-                        "type": {
-                            "uri": "http://www.w3.org/2000/01/rdf-schema#label"
-                        },
-                        "origin": "TfIdfModel",
-                        "confidenceScore": 0.430383142177172
-                    },
-                    {
-                        "hNodeId": "HN99082",
-                        "domain": {
-                            "uri": "http://erlangen-crm.org/current/E22_Man-Made_Object"
-                        },
-                        "type": {
-                            "uri": "http://isi.edu/integration/karma/dev#classLink"
-                        },
-                        "origin": "TfIdfModel",
-                        "confidenceScore": 0.22360320899473404
-                    },
-                    {
-                        "hNodeId": "HN99082",
-                        "domain": {
-                            "uri": "http://erlangen-crm.org/current/E22_Man-Made_Object"
-                        },
-                        "type": {
-                            "uri": "http://erlangen-crm.org/current/P3_has_note"
-                        },
-                        "origin": "TfIdfModel",
-                        "confidenceScore": 0.1857990501242895
-                    },
-                    {
-                        "hNodeId": "HN99082",
-                        "domain": {
-                            "uri": "http://erlangen-crm.org/current/E73_Information_Object"
-                        },
-                        "type": {
-                            "uri": "http://erlangen-crm.org/current/P3_has_note"
-                        },
-                        "origin": "TfIdfModel",
-                        "confidenceScore": 0.16021459870380447
-                    }
-                ],
-                "modelIds": null
-            },
-            {
-                "id": "http://erlangen-crm.org/current/E38_Image1",
-                "label": {
-                    "uri": "http://erlangen-crm.org/current/E38_Image"
-                },
-                "type": "InternalNode",
-                "modelIds": null
-            },
-            {
-                "id": "HN99113",
-                "label": {
-                    "uri": "HN99113"
-                },
-                "type": "ColumnNode",
-                "hNodeId": "HN99113",
-                "columnName": "imageURL",
-                "rdfLiteralType": null,
-                "userSemanticTypes": [
-                    {
-                        "hNodeId": "HN99113",
-                        "domain": {
-                            "uri": "http://erlangen-crm.org/current/E38_Image"
-                        },
-                        "type": {
-                            "uri": "http://isi.edu/integration/karma/dev#classLink"
-                        },
-                        "origin": "User",
-                        "confidenceScore": 1.0
-                    }
-                ],
-                "learnedSemanticTypes": [
-                    {
-                        "hNodeId": "HN99113",
-                        "domain": {
-                            "uri": "http://erlangen-crm.org/current/E38_Image"
-                        },
-                        "type": {
-                            "uri": "http://isi.edu/integration/karma/dev#classLink"
-                        },
-                        "origin": "TfIdfModel",
-                        "confidenceScore": 0.8520755184557108
-                    },
-                    {
-                        "hNodeId": "HN99113",
-                        "domain": {
-                            "uri": "http://erlangen-crm.org/current/E22_Man-Made_Object"
-                        },
-                        "type": {
-                            "uri": "http://isi.edu/integration/karma/dev#classLink"
-                        },
-                        "origin": "TfIdfModel",
-                        "confidenceScore": 0.05690143598632719
-                    },
-                    {
-                        "hNodeId": "HN99113",
-                        "domain": {
-                            "uri": "http://erlangen-crm.org/current/E53_Place"
-                        },
-                        "type": {
-                            "uri": "http://isi.edu/integration/karma/dev#classLink"
-                        },
-                        "origin": "TfIdfModel",
-                        "confidenceScore": 0.049129950392903965
-                    },
-                    {
-                        "hNodeId": "HN99113",
-                        "domain": {
-                            "uri": "http://erlangen-crm.org/current/E82_Actor_Appellation"
-                        },
-                        "type": {
-                            "uri": "http://isi.edu/integration/karma/dev#classLink"
-                        },
-                        "origin": "TfIdfModel",
-                        "confidenceScore": 0.04189309516505799
-                    }
-                ],
-                "modelIds": null
-            },
-            {
-                "id": "http://erlangen-crm.org/current/E52_Time-Span1",
-                "label": {
-                    "uri": "http://erlangen-crm.org/current/E52_Time-Span"
-                },
-                "type": "InternalNode",
-                "modelIds": null
-            },
-            {
-                "id": "HN109699",
-                "label": {
-                    "uri": "HN109699"
-                },
-                "type": "ColumnNode",
-                "hNodeId": "HN109699",
+                "hNodeId": "HN83240",
                 "columnName": "birthDate",
                 "rdfLiteralType": null,
                 "userSemanticTypes": [
                     {
-                        "hNodeId": "HN109699",
+                        "hNodeId": "HN83240",
                         "domain": {
-                            "uri": "http://erlangen-crm.org/current/E52_Time-Span"
+                            "uri": "http://www.americanartcollaborative.org/ontology/Person"
                         },
                         "type": {
-                            "uri": "http://erlangen-crm.org/current/P82_at_some_time_within"
+                            "uri": "http://rdvocab.info/ElementsGr2/dateOfBirth"
                         },
                         "origin": "User",
                         "confidenceScore": 1.0
@@ -767,77 +249,139 @@
                 ],
                 "learnedSemanticTypes": [
                     {
-                        "hNodeId": "HN109699",
+                        "hNodeId": "HN83240",
                         "domain": {
-                            "uri": "http://erlangen-crm.org/current/E52_Time-Span"
+                            "uri": "http://www.americanartcollaborative.org/ontology/Person"
                         },
                         "type": {
-                            "uri": "http://erlangen-crm.org/current/P82a_begin_of_the_begin"
+                            "uri": "http://rdvocab.info/ElementsGr2/dateOfBirth"
                         },
                         "origin": "TfIdfModel",
-                        "confidenceScore": 0.46923169865535636
+                        "confidenceScore": 0.4450294368290202
                     },
                     {
-                        "hNodeId": "HN109699",
+                        "hNodeId": "HN83240",
                         "domain": {
-                            "uri": "http://erlangen-crm.org/current/E52_Time-Span"
+                            "uri": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject"
                         },
                         "type": {
-                            "uri": "http://erlangen-crm.org/current/P82_at_some_time_within"
+                            "uri": "http://purl.org/dc/terms/created"
                         },
                         "origin": "TfIdfModel",
-                        "confidenceScore": 0.33634283384268054
+                        "confidenceScore": 0.3124157718397477
                     },
                     {
-                        "hNodeId": "HN109699",
+                        "hNodeId": "HN83240",
                         "domain": {
-                            "uri": "http://erlangen-crm.org/current/E52_Time-Span"
+                            "uri": "http://www.americanartcollaborative.org/ontology/Person"
                         },
                         "type": {
-                            "uri": "http://erlangen-crm.org/current/P82b_end_of_the_end"
+                            "uri": "http://rdvocab.info/ElementsGr2/dateOfDeath"
                         },
                         "origin": "TfIdfModel",
-                        "confidenceScore": 0.14016236647792657
+                        "confidenceScore": 0.20871776794111832
                     },
                     {
-                        "hNodeId": "HN109699",
+                        "hNodeId": "HN83240",
                         "domain": {
-                            "uri": "http://erlangen-crm.org/current/E52_Time-Span"
+                            "uri": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject"
                         },
                         "type": {
-                            "uri": "http://www.w3.org/2000/01/rdf-schema#label"
+                            "uri": "http://purl.org/dc/terms/description"
                         },
                         "origin": "TfIdfModel",
-                        "confidenceScore": 0.05426310102403656
+                        "confidenceScore": 0.03383702339011379
                     }
                 ],
                 "modelIds": null
             },
             {
-                "id": "http://erlangen-crm.org/current/E52_Time-Span2",
+                "id": "HN72623",
                 "label": {
-                    "uri": "http://erlangen-crm.org/current/E52_Time-Span"
+                    "uri": "HN72623"
                 },
-                "type": "InternalNode",
+                "type": "ColumnNode",
+                "hNodeId": "HN72623",
+                "columnName": "title",
+                "rdfLiteralType": null,
+                "userSemanticTypes": [
+                    {
+                        "hNodeId": "HN72623",
+                        "domain": {
+                            "uri": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject"
+                        },
+                        "type": {
+                            "uri": "http://purl.org/dc/terms/title"
+                        },
+                        "origin": "User",
+                        "confidenceScore": 1.0
+                    }
+                ],
+                "learnedSemanticTypes": [
+                    {
+                        "hNodeId": "HN72623",
+                        "domain": {
+                            "uri": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject"
+                        },
+                        "type": {
+                            "uri": "http://purl.org/dc/terms/title"
+                        },
+                        "origin": "TfIdfModel",
+                        "confidenceScore": 0.43639932109350543
+                    },
+                    {
+                        "hNodeId": "HN72623",
+                        "domain": {
+                            "uri": "http://xmlns.com/foaf/0.1/Document"
+                        },
+                        "type": {
+                            "uri": "http://isi.edu/integration/karma/dev#classLink"
+                        },
+                        "origin": "TfIdfModel",
+                        "confidenceScore": 0.23650302703857173
+                    },
+                    {
+                        "hNodeId": "HN72623",
+                        "domain": {
+                            "uri": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject"
+                        },
+                        "type": {
+                            "uri": "http://purl.org/dc/terms/description"
+                        },
+                        "origin": "TfIdfModel",
+                        "confidenceScore": 0.2030750069704416
+                    },
+                    {
+                        "hNodeId": "HN72623",
+                        "domain": {
+                            "uri": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject"
+                        },
+                        "type": {
+                            "uri": "http://purl.org/dc/terms/provenance"
+                        },
+                        "origin": "TfIdfModel",
+                        "confidenceScore": 0.12402264489748122
+                    }
+                ],
                 "modelIds": null
             },
             {
-                "id": "HN110078",
+                "id": "HN83619",
                 "label": {
-                    "uri": "HN110078"
+                    "uri": "HN83619"
                 },
                 "type": "ColumnNode",
-                "hNodeId": "HN110078",
+                "hNodeId": "HN83619",
                 "columnName": "deathDate",
                 "rdfLiteralType": null,
                 "userSemanticTypes": [
                     {
-                        "hNodeId": "HN110078",
+                        "hNodeId": "HN83619",
                         "domain": {
-                            "uri": "http://erlangen-crm.org/current/E52_Time-Span"
+                            "uri": "http://www.americanartcollaborative.org/ontology/Person"
                         },
                         "type": {
-                            "uri": "http://erlangen-crm.org/current/P82_at_some_time_within"
+                            "uri": "http://rdvocab.info/ElementsGr2/dateOfDeath"
                         },
                         "origin": "User",
                         "confidenceScore": 1.0
@@ -845,279 +389,69 @@
                 ],
                 "learnedSemanticTypes": [
                     {
-                        "hNodeId": "HN110078",
+                        "hNodeId": "HN83619",
                         "domain": {
-                            "uri": "http://erlangen-crm.org/current/E52_Time-Span"
+                            "uri": "http://www.americanartcollaborative.org/ontology/Person"
                         },
                         "type": {
-                            "uri": "http://erlangen-crm.org/current/P82b_end_of_the_end"
+                            "uri": "http://rdvocab.info/ElementsGr2/dateOfDeath"
                         },
                         "origin": "TfIdfModel",
-                        "confidenceScore": 0.4569251671736514
+                        "confidenceScore": 0.3903209500862761
                     },
                     {
-                        "hNodeId": "HN110078",
+                        "hNodeId": "HN83619",
                         "domain": {
-                            "uri": "http://erlangen-crm.org/current/E52_Time-Span"
+                            "uri": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject"
                         },
                         "type": {
-                            "uri": "http://erlangen-crm.org/current/P82_at_some_time_within"
+                            "uri": "http://purl.org/dc/terms/created"
                         },
                         "origin": "TfIdfModel",
-                        "confidenceScore": 0.32734612241902034
+                        "confidenceScore": 0.3095497906061257
                     },
                     {
-                        "hNodeId": "HN110078",
+                        "hNodeId": "HN83619",
                         "domain": {
-                            "uri": "http://erlangen-crm.org/current/E52_Time-Span"
+                            "uri": "http://www.americanartcollaborative.org/ontology/Person"
                         },
                         "type": {
-                            "uri": "http://erlangen-crm.org/current/P82a_begin_of_the_begin"
+                            "uri": "http://rdvocab.info/ElementsGr2/dateOfBirth"
                         },
                         "origin": "TfIdfModel",
-                        "confidenceScore": 0.16131787857108545
+                        "confidenceScore": 0.23050782925589036
                     },
                     {
-                        "hNodeId": "HN110078",
+                        "hNodeId": "HN83619",
                         "domain": {
-                            "uri": "http://erlangen-crm.org/current/E69_Death"
+                            "uri": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject"
                         },
                         "type": {
-                            "uri": "http://erlangen-crm.org/current/P82_at_some_time_within"
+                            "uri": "http://purl.org/dc/terms/provenance"
                         },
                         "origin": "TfIdfModel",
-                        "confidenceScore": 0.0544108318362428
+                        "confidenceScore": 0.06962143005170786
                     }
                 ],
                 "modelIds": null
             },
             {
-                "id": "HN99135",
+                "id": "HN72627",
                 "label": {
-                    "uri": "HN99135"
+                    "uri": "HN72627"
                 },
                 "type": "ColumnNode",
-                "hNodeId": "HN99135",
-                "columnName": "creationDate",
-                "rdfLiteralType": null,
-                "userSemanticTypes": [
-                    {
-                        "hNodeId": "HN99135",
-                        "domain": {
-                            "uri": "http://erlangen-crm.org/current/E52_Time-Span"
-                        },
-                        "type": {
-                            "uri": "http://erlangen-crm.org/current/P82_at_some_time_within"
-                        },
-                        "origin": "User",
-                        "confidenceScore": 1.0
-                    }
-                ],
-                "learnedSemanticTypes": [
-                    {
-                        "hNodeId": "HN99135",
-                        "domain": {
-                            "uri": "http://erlangen-crm.org/current/E52_Time-Span"
-                        },
-                        "type": {
-                            "uri": "http://erlangen-crm.org/current/P82_at_some_time_within"
-                        },
-                        "origin": "TfIdfModel",
-                        "confidenceScore": 0.4977823676052751
-                    },
-                    {
-                        "hNodeId": "HN99135",
-                        "domain": {
-                            "uri": "http://erlangen-crm.org/current/E52_Time-Span"
-                        },
-                        "type": {
-                            "uri": "http://erlangen-crm.org/current/P82b_end_of_the_end"
-                        },
-                        "origin": "TfIdfModel",
-                        "confidenceScore": 0.19946142023243713
-                    },
-                    {
-                        "hNodeId": "HN99135",
-                        "domain": {
-                            "uri": "http://erlangen-crm.org/current/E52_Time-Span"
-                        },
-                        "type": {
-                            "uri": "http://erlangen-crm.org/current/P82a_begin_of_the_begin"
-                        },
-                        "origin": "TfIdfModel",
-                        "confidenceScore": 0.18766176310308982
-                    },
-                    {
-                        "hNodeId": "HN99135",
-                        "domain": {
-                            "uri": "http://erlangen-crm.org/current/E33_Linguistic_Object"
-                        },
-                        "type": {
-                            "uri": "http://erlangen-crm.org/current/P3_has_note"
-                        },
-                        "origin": "TfIdfModel",
-                        "confidenceScore": 0.11509444905919794
-                    }
-                ],
-                "modelIds": null
-            },
-            {
-                "id": "HN99094",
-                "label": {
-                    "uri": "HN99094"
-                },
-                "type": "ColumnNode",
-                "hNodeId": "HN99094",
-                "columnName": "dimensions",
-                "rdfLiteralType": null,
-                "userSemanticTypes": [
-                    {
-                        "hNodeId": "HN99094",
-                        "domain": {
-                            "uri": "http://erlangen-crm.org/current/E54_Dimension"
-                        },
-                        "type": {
-                            "uri": "http://erlangen-crm.org/current/P3_has_note"
-                        },
-                        "origin": "User",
-                        "confidenceScore": 1.0
-                    }
-                ],
-                "learnedSemanticTypes": [
-                    {
-                        "hNodeId": "HN99094",
-                        "domain": {
-                            "uri": "http://erlangen-crm.org/current/E54_Dimension"
-                        },
-                        "type": {
-                            "uri": "http://erlangen-crm.org/current/P3_has_note"
-                        },
-                        "origin": "TfIdfModel",
-                        "confidenceScore": 0.7257738450669149
-                    },
-                    {
-                        "hNodeId": "HN99094",
-                        "domain": {
-                            "uri": "http://erlangen-crm.org/current/E34_Inscription"
-                        },
-                        "type": {
-                            "uri": "http://erlangen-crm.org/current/P3_has_note"
-                        },
-                        "origin": "TfIdfModel",
-                        "confidenceScore": 0.10506444308342762
-                    },
-                    {
-                        "hNodeId": "HN99094",
-                        "domain": {
-                            "uri": "http://erlangen-crm.org/current/E22_Man-Made_Object"
-                        },
-                        "type": {
-                            "uri": "http://erlangen-crm.org/current/P3_has_note"
-                        },
-                        "origin": "TfIdfModel",
-                        "confidenceScore": 0.09305850612407839
-                    },
-                    {
-                        "hNodeId": "HN99094",
-                        "domain": {
-                            "uri": "http://erlangen-crm.org/current/E73_Information_Object"
-                        },
-                        "type": {
-                            "uri": "http://erlangen-crm.org/current/P3_has_note"
-                        },
-                        "origin": "TfIdfModel",
-                        "confidenceScore": 0.07610320572557912
-                    }
-                ],
-                "modelIds": null
-            },
-            {
-                "id": "HN110848",
-                "label": {
-                    "uri": "HN110848"
-                },
-                "type": "ColumnNode",
-                "hNodeId": "HN110848",
-                "columnName": "material_URI",
-                "rdfLiteralType": null,
-                "userSemanticTypes": [
-                    {
-                        "hNodeId": "HN110848",
-                        "domain": {
-                            "uri": "http://erlangen-crm.org/current/E55_Type"
-                        },
-                        "type": {
-                            "uri": "http://isi.edu/integration/karma/dev#classLink"
-                        },
-                        "origin": "User",
-                        "confidenceScore": 1.0
-                    }
-                ],
-                "learnedSemanticTypes": [
-                    {
-                        "hNodeId": "HN110848",
-                        "domain": {
-                            "uri": "http://erlangen-crm.org/current/E57_Material"
-                        },
-                        "type": {
-                            "uri": "http://isi.edu/integration/karma/dev#classLink"
-                        },
-                        "origin": "TfIdfModel",
-                        "confidenceScore": 0.42901189552105695
-                    },
-                    {
-                        "hNodeId": "HN110848",
-                        "domain": {
-                            "uri": "http://erlangen-crm.org/current/E55_Type"
-                        },
-                        "type": {
-                            "uri": "http://isi.edu/integration/karma/dev#classLink"
-                        },
-                        "origin": "TfIdfModel",
-                        "confidenceScore": 0.3896538323682252
-                    },
-                    {
-                        "hNodeId": "HN110848",
-                        "domain": {
-                            "uri": "http://erlangen-crm.org/current/E74_Group"
-                        },
-                        "type": {
-                            "uri": "http://isi.edu/integration/karma/dev#classLink"
-                        },
-                        "origin": "TfIdfModel",
-                        "confidenceScore": 0.1474937433291512
-                    },
-                    {
-                        "hNodeId": "HN110848",
-                        "domain": {
-                            "uri": "http://erlangen-crm.org/current/E55_Type"
-                        },
-                        "type": {
-                            "uri": "http://www.w3.org/2000/01/rdf-schema#label"
-                        },
-                        "origin": "TfIdfModel",
-                        "confidenceScore": 0.03384052878156665
-                    }
-                ],
-                "modelIds": null
-            },
-            {
-                "id": "HN99086",
-                "label": {
-                    "uri": "HN99086"
-                },
-                "type": "ColumnNode",
-                "hNodeId": "HN99086",
+                "hNodeId": "HN72627",
                 "columnName": "materials",
                 "rdfLiteralType": null,
                 "userSemanticTypes": [
                     {
-                        "hNodeId": "HN99086",
+                        "hNodeId": "HN72627",
                         "domain": {
-                            "uri": "http://erlangen-crm.org/current/E55_Type"
+                            "uri": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject"
                         },
                         "type": {
-                            "uri": "http://www.w3.org/2000/01/rdf-schema#label"
+                            "uri": "http://purl.org/dc/terms/medium"
                         },
                         "origin": "User",
                         "confidenceScore": 1.0
@@ -1125,69 +459,69 @@
                 ],
                 "learnedSemanticTypes": [
                     {
-                        "hNodeId": "HN99086",
+                        "hNodeId": "HN72627",
                         "domain": {
-                            "uri": "http://erlangen-crm.org/current/E29_Design_or_Procedure"
+                            "uri": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject"
                         },
                         "type": {
-                            "uri": "http://erlangen-crm.org/current/P3_has_note"
+                            "uri": "http://purl.org/dc/terms/medium"
                         },
                         "origin": "TfIdfModel",
-                        "confidenceScore": 0.3256608597752332
+                        "confidenceScore": 0.7733649009376244
                     },
                     {
-                        "hNodeId": "HN99086",
+                        "hNodeId": "HN72627",
                         "domain": {
-                            "uri": "http://erlangen-crm.org/current/E57_Material"
+                            "uri": "http://www.w3.org/2008/05/skos#Concept"
                         },
                         "type": {
-                            "uri": "http://www.w3.org/2000/01/rdf-schema#label"
+                            "uri": "http://www.w3.org/2008/05/skos#prefLabel"
                         },
                         "origin": "TfIdfModel",
-                        "confidenceScore": 0.3026694827683053
+                        "confidenceScore": 0.11583451798681314
                     },
                     {
-                        "hNodeId": "HN99086",
+                        "hNodeId": "HN72627",
                         "domain": {
-                            "uri": "http://erlangen-crm.org/current/E55_Type"
+                            "uri": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject"
                         },
                         "type": {
-                            "uri": "http://www.w3.org/2000/01/rdf-schema#label"
+                            "uri": "http://purl.org/dc/terms/description"
                         },
                         "origin": "TfIdfModel",
-                        "confidenceScore": 0.2662138213914311
+                        "confidenceScore": 0.07019690867470689
                     },
                     {
-                        "hNodeId": "HN99086",
+                        "hNodeId": "HN72627",
                         "domain": {
-                            "uri": "http://erlangen-crm.org/current/E57_Material"
+                            "uri": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject"
                         },
                         "type": {
-                            "uri": "http://isi.edu/integration/karma/dev#classLink"
+                            "uri": "http://purl.org/dc/terms/provenance"
                         },
                         "origin": "TfIdfModel",
-                        "confidenceScore": 0.10545583606503038
+                        "confidenceScore": 0.04060367240085548
                     }
                 ],
                 "modelIds": null
             },
             {
-                "id": "HN112393",
+                "id": "HN72741",
                 "label": {
-                    "uri": "HN112393"
+                    "uri": "HN72741"
                 },
                 "type": "ColumnNode",
-                "hNodeId": "HN112393",
-                "columnName": "provenance_type_uri",
+                "hNodeId": "HN72741",
+                "columnName": "values",
                 "rdfLiteralType": null,
                 "userSemanticTypes": [
                     {
-                        "hNodeId": "HN112393",
+                        "hNodeId": "HN72741",
                         "domain": {
-                            "uri": "http://erlangen-crm.org/current/E55_Type"
+                            "uri": "http://www.w3.org/2008/05/skos#Concept"
                         },
                         "type": {
-                            "uri": "http://isi.edu/integration/karma/dev#classLink"
+                            "uri": "http://www.w3.org/2008/05/skos#prefLabel"
                         },
                         "origin": "User",
                         "confidenceScore": 1.0
@@ -1195,209 +529,69 @@
                 ],
                 "learnedSemanticTypes": [
                     {
-                        "hNodeId": "HN112393",
+                        "hNodeId": "HN72741",
                         "domain": {
-                            "uri": "http://erlangen-crm.org/current/E55_Type"
+                            "uri": "http://www.w3.org/2008/05/skos#Concept"
                         },
                         "type": {
-                            "uri": "http://isi.edu/integration/karma/dev#classLink"
+                            "uri": "http://www.w3.org/2008/05/skos#prefLabel"
                         },
                         "origin": "TfIdfModel",
-                        "confidenceScore": 0.6269726579704022
+                        "confidenceScore": 0.40449538633727955
                     },
                     {
-                        "hNodeId": "HN112393",
+                        "hNodeId": "HN72741",
                         "domain": {
-                            "uri": "http://erlangen-crm.org/current/E33_Linguistic_Object"
+                            "uri": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject"
                         },
                         "type": {
-                            "uri": "http://isi.edu/integration/karma/dev#classLink"
+                            "uri": "http://purl.org/dc/terms/description"
                         },
                         "origin": "TfIdfModel",
-                        "confidenceScore": 0.14026670082520548
+                        "confidenceScore": 0.2831202327805238
                     },
                     {
-                        "hNodeId": "HN112393",
+                        "hNodeId": "HN72741",
                         "domain": {
-                            "uri": "http://erlangen-crm.org/current/E74_Group"
+                            "uri": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject"
                         },
                         "type": {
-                            "uri": "http://isi.edu/integration/karma/dev#classLink"
+                            "uri": "http://purl.org/dc/terms/title"
                         },
                         "origin": "TfIdfModel",
-                        "confidenceScore": 0.11982776401976798
+                        "confidenceScore": 0.25146558159197585
                     },
                     {
-                        "hNodeId": "HN112393",
+                        "hNodeId": "HN72741",
                         "domain": {
-                            "uri": "http://erlangen-crm.org/current/E57_Material"
+                            "uri": "http://xmlns.com/foaf/0.1/Document"
                         },
                         "type": {
                             "uri": "http://isi.edu/integration/karma/dev#classLink"
                         },
                         "origin": "TfIdfModel",
-                        "confidenceScore": 0.11293287718462428
+                        "confidenceScore": 0.06091879929022078
                     }
                 ],
                 "modelIds": null
             },
             {
-                "id": "HN112014",
+                "id": "HN72625",
                 "label": {
-                    "uri": "HN112014"
+                    "uri": "HN72625"
                 },
                 "type": "ColumnNode",
-                "hNodeId": "HN112014",
-                "columnName": "galleryLabel_type_uri",
-                "rdfLiteralType": null,
-                "userSemanticTypes": [
-                    {
-                        "hNodeId": "HN112014",
-                        "domain": {
-                            "uri": "http://erlangen-crm.org/current/E55_Type"
-                        },
-                        "type": {
-                            "uri": "http://isi.edu/integration/karma/dev#classLink"
-                        },
-                        "origin": "User",
-                        "confidenceScore": 1.0
-                    }
-                ],
-                "learnedSemanticTypes": [
-                    {
-                        "hNodeId": "HN112014",
-                        "domain": {
-                            "uri": "http://erlangen-crm.org/current/E55_Type"
-                        },
-                        "type": {
-                            "uri": "http://isi.edu/integration/karma/dev#classLink"
-                        },
-                        "origin": "TfIdfModel",
-                        "confidenceScore": 0.6297169225121175
-                    },
-                    {
-                        "hNodeId": "HN112014",
-                        "domain": {
-                            "uri": "http://erlangen-crm.org/current/E33_Linguistic_Object"
-                        },
-                        "type": {
-                            "uri": "http://isi.edu/integration/karma/dev#classLink"
-                        },
-                        "origin": "TfIdfModel",
-                        "confidenceScore": 0.13923479754485044
-                    },
-                    {
-                        "hNodeId": "HN112014",
-                        "domain": {
-                            "uri": "http://erlangen-crm.org/current/E74_Group"
-                        },
-                        "type": {
-                            "uri": "http://isi.edu/integration/karma/dev#classLink"
-                        },
-                        "origin": "TfIdfModel",
-                        "confidenceScore": 0.11894621816954748
-                    },
-                    {
-                        "hNodeId": "HN112014",
-                        "domain": {
-                            "uri": "http://erlangen-crm.org/current/E57_Material"
-                        },
-                        "type": {
-                            "uri": "http://isi.edu/integration/karma/dev#classLink"
-                        },
-                        "origin": "TfIdfModel",
-                        "confidenceScore": 0.11210206177348452
-                    }
-                ],
-                "modelIds": null
-            },
-            {
-                "id": "HN110468",
-                "label": {
-                    "uri": "HN110468"
-                },
-                "type": "ColumnNode",
-                "hNodeId": "HN110468",
-                "columnName": "nationality_URI",
-                "rdfLiteralType": null,
-                "userSemanticTypes": [
-                    {
-                        "hNodeId": "HN110468",
-                        "domain": {
-                            "uri": "http://erlangen-crm.org/current/E74_Group"
-                        },
-                        "type": {
-                            "uri": "http://isi.edu/integration/karma/dev#classLink"
-                        },
-                        "origin": "User",
-                        "confidenceScore": 1.0
-                    }
-                ],
-                "learnedSemanticTypes": [
-                    {
-                        "hNodeId": "HN110468",
-                        "domain": {
-                            "uri": "http://erlangen-crm.org/current/E74_Group"
-                        },
-                        "type": {
-                            "uri": "http://isi.edu/integration/karma/dev#classLink"
-                        },
-                        "origin": "TfIdfModel",
-                        "confidenceScore": 0.7032946689025518
-                    },
-                    {
-                        "hNodeId": "HN110468",
-                        "domain": {
-                            "uri": "http://erlangen-crm.org/current/E55_Type"
-                        },
-                        "type": {
-                            "uri": "http://isi.edu/integration/karma/dev#classLink"
-                        },
-                        "origin": "TfIdfModel",
-                        "confidenceScore": 0.17102219151945344
-                    },
-                    {
-                        "hNodeId": "HN110468",
-                        "domain": {
-                            "uri": "http://erlangen-crm.org/current/E57_Material"
-                        },
-                        "type": {
-                            "uri": "http://isi.edu/integration/karma/dev#classLink"
-                        },
-                        "origin": "TfIdfModel",
-                        "confidenceScore": 0.08114552408090271
-                    },
-                    {
-                        "hNodeId": "HN110468",
-                        "domain": {
-                            "uri": "http://erlangen-crm.org/current/E55_Type"
-                        },
-                        "type": {
-                            "uri": "http://www.w3.org/2000/01/rdf-schema#label"
-                        },
-                        "origin": "TfIdfModel",
-                        "confidenceScore": 0.04453761549709207
-                    }
-                ],
-                "modelIds": null
-            },
-            {
-                "id": "HN99084",
-                "label": {
-                    "uri": "HN99084"
-                },
-                "type": "ColumnNode",
-                "hNodeId": "HN99084",
+                "hNodeId": "HN72625",
                 "columnName": "nationality",
                 "rdfLiteralType": null,
                 "userSemanticTypes": [
                     {
-                        "hNodeId": "HN99084",
+                        "hNodeId": "HN72625",
                         "domain": {
-                            "uri": "http://erlangen-crm.org/current/E74_Group"
+                            "uri": "http://www.americanartcollaborative.org/ontology/Person"
                         },
                         "type": {
-                            "uri": "http://www.w3.org/2000/01/rdf-schema#label"
+                            "uri": "http://rdvocab.info/ElementsGr2/countryAssociatedWithThePerson"
                         },
                         "origin": "User",
                         "confidenceScore": 1.0
@@ -1405,66 +599,66 @@
                 ],
                 "learnedSemanticTypes": [
                     {
-                        "hNodeId": "HN99084",
+                        "hNodeId": "HN72625",
                         "domain": {
-                            "uri": "http://erlangen-crm.org/current/E74_Group"
+                            "uri": "http://www.americanartcollaborative.org/ontology/Person"
                         },
                         "type": {
-                            "uri": "http://www.w3.org/2000/01/rdf-schema#label"
+                            "uri": "http://rdvocab.info/ElementsGr2/countryAssociatedWithThePerson"
                         },
                         "origin": "TfIdfModel",
-                        "confidenceScore": 0.5266599501857036
+                        "confidenceScore": 0.7636117455007346
                     },
                     {
-                        "hNodeId": "HN99084",
+                        "hNodeId": "HN72625",
                         "domain": {
-                            "uri": "http://erlangen-crm.org/current/E74_Group"
+                            "uri": "http://www.w3.org/2008/05/skos#Concept"
                         },
                         "type": {
-                            "uri": "http://isi.edu/integration/karma/dev#classLink"
+                            "uri": "http://www.w3.org/2008/05/skos#prefLabel"
                         },
                         "origin": "TfIdfModel",
-                        "confidenceScore": 0.34381524044650796
+                        "confidenceScore": 0.10199668273591547
                     },
                     {
-                        "hNodeId": "HN99084",
+                        "hNodeId": "HN72625",
                         "domain": {
-                            "uri": "http://erlangen-crm.org/current/E55_Type"
+                            "uri": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject"
                         },
                         "type": {
-                            "uri": "http://www.w3.org/2000/01/rdf-schema#label"
+                            "uri": "http://purl.org/dc/terms/description"
                         },
                         "origin": "TfIdfModel",
-                        "confidenceScore": 0.0756511252956277
+                        "confidenceScore": 0.06929309304260668
                     },
                     {
-                        "hNodeId": "HN99084",
+                        "hNodeId": "HN72625",
                         "domain": {
-                            "uri": "http://erlangen-crm.org/current/E21_Person"
+                            "uri": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject"
                         },
                         "type": {
-                            "uri": "http://erlangen-crm.org/current/P3_has_note"
+                            "uri": "http://purl.org/dc/terms/provenance"
                         },
                         "origin": "TfIdfModel",
-                        "confidenceScore": 0.053873684072160755
+                        "confidenceScore": 0.06509847872074326
                     }
                 ],
                 "modelIds": null
             },
             {
-                "id": "HN111632",
+                "id": "HN72629",
                 "label": {
-                    "uri": "HN111632"
+                    "uri": "HN72629"
                 },
                 "type": "ColumnNode",
-                "hNodeId": "HN111632",
-                "columnName": "artist_appellation_uri",
+                "hNodeId": "HN72629",
+                "columnName": "sourceURL",
                 "rdfLiteralType": null,
                 "userSemanticTypes": [
                     {
-                        "hNodeId": "HN111632",
+                        "hNodeId": "HN72629",
                         "domain": {
-                            "uri": "http://erlangen-crm.org/current/E82_Actor_Appellation"
+                            "uri": "http://xmlns.com/foaf/0.1/Document"
                         },
                         "type": {
                             "uri": "http://isi.edu/integration/karma/dev#classLink"
@@ -1475,69 +669,279 @@
                 ],
                 "learnedSemanticTypes": [
                     {
-                        "hNodeId": "HN111632",
+                        "hNodeId": "HN72629",
                         "domain": {
-                            "uri": "http://erlangen-crm.org/current/E82_Actor_Appellation"
+                            "uri": "http://xmlns.com/foaf/0.1/Document"
                         },
                         "type": {
                             "uri": "http://isi.edu/integration/karma/dev#classLink"
                         },
                         "origin": "TfIdfModel",
-                        "confidenceScore": 0.6190031619260191
+                        "confidenceScore": 0.42132208566731694
                     },
                     {
-                        "hNodeId": "HN111632",
+                        "hNodeId": "HN72629",
                         "domain": {
-                            "uri": "http://erlangen-crm.org/current/E21_Person"
+                            "uri": "http://www.europeana.eu/schemas/edm/WebResource"
                         },
                         "type": {
                             "uri": "http://isi.edu/integration/karma/dev#classLink"
                         },
                         "origin": "TfIdfModel",
-                        "confidenceScore": 0.27287901410321774
+                        "confidenceScore": 0.4203557602416276
                     },
                     {
-                        "hNodeId": "HN111632",
+                        "hNodeId": "HN72629",
                         "domain": {
-                            "uri": "http://erlangen-crm.org/current/E39_Actor"
+                            "uri": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject"
                         },
                         "type": {
-                            "uri": "http://isi.edu/integration/karma/dev#classLink"
+                            "uri": "http://purl.org/dc/terms/provenance"
                         },
                         "origin": "TfIdfModel",
-                        "confidenceScore": 0.06321561333592632
+                        "confidenceScore": 0.10298937179097678
                     },
                     {
-                        "hNodeId": "HN111632",
+                        "hNodeId": "HN72629",
                         "domain": {
-                            "uri": "http://erlangen-crm.org/current/E22_Man-Made_Object"
+                            "uri": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject"
                         },
                         "type": {
-                            "uri": "http://isi.edu/integration/karma/dev#classLink"
+                            "uri": "http://purl.org/dc/terms/description"
                         },
                         "origin": "TfIdfModel",
-                        "confidenceScore": 0.04490221063483685
+                        "confidenceScore": 0.05533278230007868
                     }
                 ],
                 "modelIds": null
             },
             {
-                "id": "HN99096",
+                "id": "HN72679",
                 "label": {
-                    "uri": "HN99096"
+                    "uri": "HN72679"
                 },
                 "type": "ColumnNode",
-                "hNodeId": "HN99096",
+                "hNodeId": "HN72679",
+                "columnName": "galleryLabel",
+                "rdfLiteralType": null,
+                "userSemanticTypes": [
+                    {
+                        "hNodeId": "HN72679",
+                        "domain": {
+                            "uri": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject"
+                        },
+                        "type": {
+                            "uri": "http://purl.org/dc/terms/description"
+                        },
+                        "origin": "User",
+                        "confidenceScore": 1.0
+                    }
+                ],
+                "learnedSemanticTypes": [
+                    {
+                        "hNodeId": "HN72679",
+                        "domain": {
+                            "uri": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject"
+                        },
+                        "type": {
+                            "uri": "http://purl.org/dc/terms/description"
+                        },
+                        "origin": "TfIdfModel",
+                        "confidenceScore": 0.5302732248586405
+                    },
+                    {
+                        "hNodeId": "HN72679",
+                        "domain": {
+                            "uri": "http://www.americanartcollaborative.org/ontology/Person"
+                        },
+                        "type": {
+                            "uri": "http://rdvocab.info/ElementsGr2/biographicalInformation"
+                        },
+                        "origin": "TfIdfModel",
+                        "confidenceScore": 0.27110238826738264
+                    },
+                    {
+                        "hNodeId": "HN72679",
+                        "domain": {
+                            "uri": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject"
+                        },
+                        "type": {
+                            "uri": "http://purl.org/dc/terms/title"
+                        },
+                        "origin": "TfIdfModel",
+                        "confidenceScore": 0.11500303540152526
+                    },
+                    {
+                        "hNodeId": "HN72679",
+                        "domain": {
+                            "uri": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject"
+                        },
+                        "type": {
+                            "uri": "http://purl.org/dc/terms/provenance"
+                        },
+                        "origin": "TfIdfModel",
+                        "confidenceScore": 0.0836213514724516
+                    }
+                ],
+                "modelIds": null
+            },
+            {
+                "id": "HN72676",
+                "label": {
+                    "uri": "HN72676"
+                },
+                "type": "ColumnNode",
+                "hNodeId": "HN72676",
+                "columnName": "creationDate",
+                "rdfLiteralType": null,
+                "userSemanticTypes": [
+                    {
+                        "hNodeId": "HN72676",
+                        "domain": {
+                            "uri": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject"
+                        },
+                        "type": {
+                            "uri": "http://purl.org/dc/terms/created"
+                        },
+                        "origin": "User",
+                        "confidenceScore": 1.0
+                    }
+                ],
+                "learnedSemanticTypes": [
+                    {
+                        "hNodeId": "HN72676",
+                        "domain": {
+                            "uri": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject"
+                        },
+                        "type": {
+                            "uri": "http://purl.org/dc/terms/created"
+                        },
+                        "origin": "TfIdfModel",
+                        "confidenceScore": 0.5280238921618333
+                    },
+                    {
+                        "hNodeId": "HN72676",
+                        "domain": {
+                            "uri": "http://www.americanartcollaborative.org/ontology/Person"
+                        },
+                        "type": {
+                            "uri": "http://rdvocab.info/ElementsGr2/dateOfBirth"
+                        },
+                        "origin": "TfIdfModel",
+                        "confidenceScore": 0.27118595366043513
+                    },
+                    {
+                        "hNodeId": "HN72676",
+                        "domain": {
+                            "uri": "http://www.americanartcollaborative.org/ontology/Person"
+                        },
+                        "type": {
+                            "uri": "http://rdvocab.info/ElementsGr2/dateOfDeath"
+                        },
+                        "origin": "TfIdfModel",
+                        "confidenceScore": 0.12774182790707458
+                    },
+                    {
+                        "hNodeId": "HN72676",
+                        "domain": {
+                            "uri": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject"
+                        },
+                        "type": {
+                            "uri": "http://purl.org/dc/terms/description"
+                        },
+                        "origin": "TfIdfModel",
+                        "confidenceScore": 0.0730483262706569
+                    }
+                ],
+                "modelIds": null
+            },
+            {
+                "id": "HN72648",
+                "label": {
+                    "uri": "HN72648"
+                },
+                "type": "ColumnNode",
+                "hNodeId": "HN72648",
+                "columnName": "relatedArtworksURL",
+                "rdfLiteralType": null,
+                "userSemanticTypes": [
+                    {
+                        "hNodeId": "HN72648",
+                        "domain": {
+                            "uri": "http://xmlns.com/foaf/0.1/Document"
+                        },
+                        "type": {
+                            "uri": "http://isi.edu/integration/karma/dev#classLink"
+                        },
+                        "origin": "User",
+                        "confidenceScore": 1.0
+                    }
+                ],
+                "learnedSemanticTypes": [
+                    {
+                        "hNodeId": "HN72648",
+                        "domain": {
+                            "uri": "http://www.europeana.eu/schemas/edm/WebResource"
+                        },
+                        "type": {
+                            "uri": "http://isi.edu/integration/karma/dev#classLink"
+                        },
+                        "origin": "TfIdfModel",
+                        "confidenceScore": 0.42024439332352953
+                    },
+                    {
+                        "hNodeId": "HN72648",
+                        "domain": {
+                            "uri": "http://xmlns.com/foaf/0.1/Document"
+                        },
+                        "type": {
+                            "uri": "http://isi.edu/integration/karma/dev#classLink"
+                        },
+                        "origin": "TfIdfModel",
+                        "confidenceScore": 0.419334813196252
+                    },
+                    {
+                        "hNodeId": "HN72648",
+                        "domain": {
+                            "uri": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject"
+                        },
+                        "type": {
+                            "uri": "http://purl.org/dc/terms/provenance"
+                        },
+                        "origin": "TfIdfModel",
+                        "confidenceScore": 0.105057296705782
+                    },
+                    {
+                        "hNodeId": "HN72648",
+                        "domain": {
+                            "uri": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject"
+                        },
+                        "type": {
+                            "uri": "http://purl.org/dc/terms/description"
+                        },
+                        "origin": "TfIdfModel",
+                        "confidenceScore": 0.05536349677443646
+                    }
+                ],
+                "modelIds": null
+            },
+            {
+                "id": "HN72637",
+                "label": {
+                    "uri": "HN72637"
+                },
+                "type": "ColumnNode",
+                "hNodeId": "HN72637",
                 "columnName": "artist",
                 "rdfLiteralType": null,
                 "userSemanticTypes": [
                     {
-                        "hNodeId": "HN99096",
+                        "hNodeId": "HN72637",
                         "domain": {
-                            "uri": "http://erlangen-crm.org/current/E82_Actor_Appellation"
+                            "uri": "http://www.americanartcollaborative.org/ontology/Person"
                         },
                         "type": {
-                            "uri": "http://www.w3.org/2000/01/rdf-schema#label"
+                            "uri": "http://rdvocab.info/ElementsGr2/nameOfThePerson"
                         },
                         "origin": "User",
                         "confidenceScore": 1.0
@@ -1545,69 +949,69 @@
                 ],
                 "learnedSemanticTypes": [
                     {
-                        "hNodeId": "HN99096",
+                        "hNodeId": "HN72637",
                         "domain": {
-                            "uri": "http://erlangen-crm.org/current/E82_Actor_Appellation"
+                            "uri": "http://www.americanartcollaborative.org/ontology/Person"
                         },
                         "type": {
-                            "uri": "http://www.w3.org/2000/01/rdf-schema#label"
+                            "uri": "http://rdvocab.info/ElementsGr2/nameOfThePerson"
                         },
                         "origin": "TfIdfModel",
-                        "confidenceScore": 0.6096640029786992
+                        "confidenceScore": 0.513599067491532
                     },
                     {
-                        "hNodeId": "HN99096",
+                        "hNodeId": "HN72637",
                         "domain": {
-                            "uri": "http://erlangen-crm.org/current/E22_Man-Made_Object"
+                            "uri": "http://xmlns.com/foaf/0.1/Document"
                         },
                         "type": {
                             "uri": "http://isi.edu/integration/karma/dev#classLink"
                         },
                         "origin": "TfIdfModel",
-                        "confidenceScore": 0.16625296967234288
+                        "confidenceScore": 0.22117648831527129
                     },
                     {
-                        "hNodeId": "HN99096",
+                        "hNodeId": "HN72637",
                         "domain": {
-                            "uri": "http://erlangen-crm.org/current/E8_Acquisition"
+                            "uri": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject"
                         },
                         "type": {
-                            "uri": "http://erlangen-crm.org/current/P3_has_note"
+                            "uri": "http://purl.org/dc/terms/provenance"
                         },
                         "origin": "TfIdfModel",
-                        "confidenceScore": 0.13013933935530622
+                        "confidenceScore": 0.16731533807069954
                     },
                     {
-                        "hNodeId": "HN99096",
+                        "hNodeId": "HN72637",
                         "domain": {
-                            "uri": "http://erlangen-crm.org/current/E33_Linguistic_Object"
+                            "uri": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject"
                         },
                         "type": {
-                            "uri": "http://erlangen-crm.org/current/P3_has_note"
+                            "uri": "http://purl.org/dc/terms/description"
                         },
                         "origin": "TfIdfModel",
-                        "confidenceScore": 0.09394368799365177
+                        "confidenceScore": 0.09790910612249722
                     }
                 ],
                 "modelIds": null
             },
             {
-                "id": "HN99092",
+                "id": "HN72673",
                 "label": {
-                    "uri": "HN99092"
+                    "uri": "HN72673"
                 },
                 "type": "ColumnNode",
-                "hNodeId": "HN99092",
-                "columnName": "creditLine",
+                "hNodeId": "HN72673",
+                "columnName": "provenance",
                 "rdfLiteralType": null,
                 "userSemanticTypes": [
                     {
-                        "hNodeId": "HN99092",
+                        "hNodeId": "HN72673",
                         "domain": {
-                            "uri": "http://erlangen-crm.org/current/E8_Acquisition"
+                            "uri": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject"
                         },
                         "type": {
-                            "uri": "http://erlangen-crm.org/current/P3_has_note"
+                            "uri": "http://purl.org/dc/terms/provenance"
                         },
                         "origin": "User",
                         "confidenceScore": 1.0
@@ -1615,48 +1019,387 @@
                 ],
                 "learnedSemanticTypes": [
                     {
-                        "hNodeId": "HN99092",
+                        "hNodeId": "HN72673",
                         "domain": {
-                            "uri": "http://erlangen-crm.org/current/E30_Right"
+                            "uri": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject"
                         },
                         "type": {
-                            "uri": "http://erlangen-crm.org/current/P3_has_note"
+                            "uri": "http://purl.org/dc/terms/provenance"
                         },
                         "origin": "TfIdfModel",
-                        "confidenceScore": 0.46228396660373694
+                        "confidenceScore": 0.5831534378534939
                     },
                     {
-                        "hNodeId": "HN99092",
+                        "hNodeId": "HN72673",
                         "domain": {
-                            "uri": "http://erlangen-crm.org/current/E8_Acquisition"
+                            "uri": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject"
                         },
                         "type": {
-                            "uri": "http://erlangen-crm.org/current/P3_has_note"
+                            "uri": "http://purl.org/dc/terms/description"
                         },
                         "origin": "TfIdfModel",
-                        "confidenceScore": 0.374660988161031
+                        "confidenceScore": 0.21217303533692994
                     },
                     {
-                        "hNodeId": "HN99092",
+                        "hNodeId": "HN72673",
                         "domain": {
-                            "uri": "http://erlangen-crm.org/current/E33_Linguistic_Object"
+                            "uri": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject"
                         },
                         "type": {
-                            "uri": "http://erlangen-crm.org/current/P3_has_note"
+                            "uri": "http://purl.org/dc/terms/title"
                         },
                         "origin": "TfIdfModel",
-                        "confidenceScore": 0.08563063486821496
+                        "confidenceScore": 0.10793853642153026
                     },
                     {
-                        "hNodeId": "HN99092",
+                        "hNodeId": "HN72673",
                         "domain": {
-                            "uri": "http://erlangen-crm.org/current/E22_Man-Made_Object"
+                            "uri": "http://www.americanartcollaborative.org/ontology/Person"
                         },
                         "type": {
-                            "uri": "http://erlangen-crm.org/current/P3_has_note"
+                            "uri": "http://rdvocab.info/ElementsGr2/biographicalInformation"
                         },
                         "origin": "TfIdfModel",
-                        "confidenceScore": 0.07742441036701705
+                        "confidenceScore": 0.0967349903880459
+                    }
+                ],
+                "modelIds": null
+            },
+            {
+                "id": "HN72635",
+                "label": {
+                    "uri": "HN72635"
+                },
+                "type": "ColumnNode",
+                "hNodeId": "HN72635",
+                "columnName": "dimensions",
+                "rdfLiteralType": null,
+                "userSemanticTypes": [
+                    {
+                        "hNodeId": "HN72635",
+                        "domain": {
+                            "uri": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject"
+                        },
+                        "type": {
+                            "uri": "http://purl.org/dc/terms/extent"
+                        },
+                        "origin": "User",
+                        "confidenceScore": 1.0
+                    }
+                ],
+                "learnedSemanticTypes": [
+                    {
+                        "hNodeId": "HN72635",
+                        "domain": {
+                            "uri": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject"
+                        },
+                        "type": {
+                            "uri": "http://purl.org/dc/terms/extent"
+                        },
+                        "origin": "TfIdfModel",
+                        "confidenceScore": 0.6983420700712066
+                    },
+                    {
+                        "hNodeId": "HN72635",
+                        "domain": {
+                            "uri": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject"
+                        },
+                        "type": {
+                            "uri": "http://www.americanartcollaborative.org/ontology/accessionNumber"
+                        },
+                        "origin": "TfIdfModel",
+                        "confidenceScore": 0.11479747902527968
+                    },
+                    {
+                        "hNodeId": "HN72635",
+                        "domain": {
+                            "uri": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject"
+                        },
+                        "type": {
+                            "uri": "http://purl.org/dc/terms/description"
+                        },
+                        "origin": "TfIdfModel",
+                        "confidenceScore": 0.09891810367120368
+                    },
+                    {
+                        "hNodeId": "HN72635",
+                        "domain": {
+                            "uri": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject"
+                        },
+                        "type": {
+                            "uri": "http://purl.org/dc/terms/provenance"
+                        },
+                        "origin": "TfIdfModel",
+                        "confidenceScore": 0.08794234723230998
+                    }
+                ],
+                "modelIds": null
+            },
+            {
+                "id": "HN72633",
+                "label": {
+                    "uri": "HN72633"
+                },
+                "type": "ColumnNode",
+                "hNodeId": "HN72633",
+                "columnName": "creditLine",
+                "rdfLiteralType": null,
+                "userSemanticTypes": [
+                    {
+                        "hNodeId": "HN72633",
+                        "domain": {
+                            "uri": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject"
+                        },
+                        "type": {
+                            "uri": "http://purl.org/dc/terms/provenance"
+                        },
+                        "origin": "User",
+                        "confidenceScore": 1.0
+                    }
+                ],
+                "learnedSemanticTypes": [
+                    {
+                        "hNodeId": "HN72633",
+                        "domain": {
+                            "uri": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject"
+                        },
+                        "type": {
+                            "uri": "http://purl.org/dc/terms/provenance"
+                        },
+                        "origin": "TfIdfModel",
+                        "confidenceScore": 0.7552845257220437
+                    },
+                    {
+                        "hNodeId": "HN72633",
+                        "domain": {
+                            "uri": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject"
+                        },
+                        "type": {
+                            "uri": "http://purl.org/dc/terms/description"
+                        },
+                        "origin": "TfIdfModel",
+                        "confidenceScore": 0.12771290016572145
+                    },
+                    {
+                        "hNodeId": "HN72633",
+                        "domain": {
+                            "uri": "http://www.americanartcollaborative.org/ontology/Person"
+                        },
+                        "type": {
+                            "uri": "http://rdvocab.info/ElementsGr2/nameOfThePerson"
+                        },
+                        "origin": "TfIdfModel",
+                        "confidenceScore": 0.05947757482362027
+                    },
+                    {
+                        "hNodeId": "HN72633",
+                        "domain": {
+                            "uri": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject"
+                        },
+                        "type": {
+                            "uri": "http://purl.org/dc/terms/title"
+                        },
+                        "origin": "TfIdfModel",
+                        "confidenceScore": 0.05752499928861451
+                    }
+                ],
+                "modelIds": null
+            },
+            {
+                "id": "HN72646",
+                "label": {
+                    "uri": "HN72646"
+                },
+                "type": "ColumnNode",
+                "hNodeId": "HN72646",
+                "columnName": "relatedArtworksTitle",
+                "rdfLiteralType": null,
+                "userSemanticTypes": [
+                    {
+                        "hNodeId": "HN72646",
+                        "domain": {
+                            "uri": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject"
+                        },
+                        "type": {
+                            "uri": "http://purl.org/dc/terms/title"
+                        },
+                        "origin": "User",
+                        "confidenceScore": 1.0
+                    }
+                ],
+                "learnedSemanticTypes": [
+                    {
+                        "hNodeId": "HN72646",
+                        "domain": {
+                            "uri": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject"
+                        },
+                        "type": {
+                            "uri": "http://purl.org/dc/terms/title"
+                        },
+                        "origin": "TfIdfModel",
+                        "confidenceScore": 0.40684060873972755
+                    },
+                    {
+                        "hNodeId": "HN72646",
+                        "domain": {
+                            "uri": "http://xmlns.com/foaf/0.1/Document"
+                        },
+                        "type": {
+                            "uri": "http://isi.edu/integration/karma/dev#classLink"
+                        },
+                        "origin": "TfIdfModel",
+                        "confidenceScore": 0.2650604191464612
+                    },
+                    {
+                        "hNodeId": "HN72646",
+                        "domain": {
+                            "uri": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject"
+                        },
+                        "type": {
+                            "uri": "http://purl.org/dc/terms/description"
+                        },
+                        "origin": "TfIdfModel",
+                        "confidenceScore": 0.18140971193538014
+                    },
+                    {
+                        "hNodeId": "HN72646",
+                        "domain": {
+                            "uri": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject"
+                        },
+                        "type": {
+                            "uri": "http://purl.org/dc/terms/provenance"
+                        },
+                        "origin": "TfIdfModel",
+                        "confidenceScore": 0.14668926017843104
+                    }
+                ],
+                "modelIds": null
+            },
+            {
+                "id": "HN72631",
+                "label": {
+                    "uri": "HN72631"
+                },
+                "type": "ColumnNode",
+                "hNodeId": "HN72631",
+                "columnName": "accessionNumber",
+                "rdfLiteralType": null,
+                "userSemanticTypes": [
+                    {
+                        "hNodeId": "HN72631",
+                        "domain": {
+                            "uri": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject"
+                        },
+                        "type": {
+                            "uri": "http://www.americanartcollaborative.org/ontology/accessionNumber"
+                        },
+                        "origin": "User",
+                        "confidenceScore": 1.0
+                    }
+                ],
+                "learnedSemanticTypes": [
+                    {
+                        "hNodeId": "HN72631",
+                        "domain": {
+                            "uri": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject"
+                        },
+                        "type": {
+                            "uri": "http://www.americanartcollaborative.org/ontology/accessionNumber"
+                        },
+                        "origin": "TfIdfModel",
+                        "confidenceScore": 0.9885488881098206
+                    },
+                    {
+                        "hNodeId": "HN72631",
+                        "domain": {
+                            "uri": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject"
+                        },
+                        "type": {
+                            "uri": "http://purl.org/dc/terms/extent"
+                        },
+                        "origin": "TfIdfModel",
+                        "confidenceScore": 0.011345631000150637
+                    },
+                    {
+                        "hNodeId": "HN72631",
+                        "domain": {
+                            "uri": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject"
+                        },
+                        "type": {
+                            "uri": "http://purl.org/dc/terms/description"
+                        },
+                        "origin": "TfIdfModel",
+                        "confidenceScore": 1.054808900287821E-4
+                    }
+                ],
+                "modelIds": null
+            },
+            {
+                "id": "HN72654",
+                "label": {
+                    "uri": "HN72654"
+                },
+                "type": "ColumnNode",
+                "hNodeId": "HN72654",
+                "columnName": "imageURL",
+                "rdfLiteralType": null,
+                "userSemanticTypes": [
+                    {
+                        "hNodeId": "HN72654",
+                        "domain": {
+                            "uri": "http://www.europeana.eu/schemas/edm/WebResource"
+                        },
+                        "type": {
+                            "uri": "http://isi.edu/integration/karma/dev#classLink"
+                        },
+                        "origin": "User",
+                        "confidenceScore": 1.0
+                    }
+                ],
+                "learnedSemanticTypes": [
+                    {
+                        "hNodeId": "HN72654",
+                        "domain": {
+                            "uri": "http://www.europeana.eu/schemas/edm/WebResource"
+                        },
+                        "type": {
+                            "uri": "http://isi.edu/integration/karma/dev#classLink"
+                        },
+                        "origin": "TfIdfModel",
+                        "confidenceScore": 0.8936743675958223
+                    },
+                    {
+                        "hNodeId": "HN72654",
+                        "domain": {
+                            "uri": "http://xmlns.com/foaf/0.1/Document"
+                        },
+                        "type": {
+                            "uri": "http://isi.edu/integration/karma/dev#classLink"
+                        },
+                        "origin": "TfIdfModel",
+                        "confidenceScore": 0.09707443096352752
+                    },
+                    {
+                        "hNodeId": "HN72654",
+                        "domain": {
+                            "uri": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject"
+                        },
+                        "type": {
+                            "uri": "http://purl.org/dc/terms/description"
+                        },
+                        "origin": "TfIdfModel",
+                        "confidenceScore": 0.0072743450923025196
+                    },
+                    {
+                        "hNodeId": "HN72654",
+                        "domain": {
+                            "uri": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject"
+                        },
+                        "type": {
+                            "uri": "http://www.americanartcollaborative.org/ontology/accessionNumber"
+                        },
+                        "origin": "TfIdfModel",
+                        "confidenceScore": 0.0019768563483475925
                     }
                 ],
                 "modelIds": null
@@ -1664,11 +1407,11 @@
         ],
         "links": [
             {
-                "id": "http://erlangen-crm.org/current/E12_Production1---http://erlangen-crm.org/current/P14_carried_out_by---http://erlangen-crm.org/current/E21_Person1",
-                "weight": 0.01,
+                "id": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject1---http://www.europeana.eu/schemas/edm/isRelatedTo---http://www.americanartcollaborative.org/ontology/CulturalHeritageObject2",
+                "weight": 0.009999999776482582,
                 "type": "ObjectPropertyLink",
                 "label": {
-                    "uri": "http://erlangen-crm.org/current/P14_carried_out_by"
+                    "uri": "http://www.europeana.eu/schemas/edm/isRelatedTo"
                 },
                 "objectPropertyType": "None",
                 "status": "ForcedByUser",
@@ -1676,11 +1419,11 @@
                 "modelIds": null
             },
             {
-                "id": "http://erlangen-crm.org/current/E12_Production1---http://erlangen-crm.org/current/P4_has_time-span---http://erlangen-crm.org/current/E52_Time-Span4",
-                "weight": 0.01,
+                "id": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject1---http://purl.org/dc/terms/creator---http://www.americanartcollaborative.org/ontology/Person1",
+                "weight": 0.009999999776482582,
                 "type": "ObjectPropertyLink",
                 "label": {
-                    "uri": "http://erlangen-crm.org/current/P4_has_time-span"
+                    "uri": "http://purl.org/dc/terms/creator"
                 },
                 "objectPropertyType": "None",
                 "status": "ForcedByUser",
@@ -1688,11 +1431,11 @@
                 "modelIds": null
             },
             {
-                "id": "http://erlangen-crm.org/current/E21_Person1---http://erlangen-crm.org/current/P100i_died_in---http://erlangen-crm.org/current/E69_Death1",
-                "weight": 0.01,
+                "id": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject1---http://purl.org/dc/terms/subject---http://www.w3.org/2008/05/skos#Concept1",
+                "weight": 0.009999999776482582,
                 "type": "ObjectPropertyLink",
                 "label": {
-                    "uri": "http://erlangen-crm.org/current/P100i_died_in"
+                    "uri": "http://purl.org/dc/terms/subject"
                 },
                 "objectPropertyType": "None",
                 "status": "ForcedByUser",
@@ -1700,11 +1443,11 @@
                 "modelIds": null
             },
             {
-                "id": "http://erlangen-crm.org/current/E21_Person1---http://erlangen-crm.org/current/P107i_is_current_or_former_member_of---http://erlangen-crm.org/current/E74_Group1",
-                "weight": 0.01,
+                "id": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject1---http://xmlns.com/foaf/0.1/page---http://xmlns.com/foaf/0.1/Document2",
+                "weight": 0.009999999776482582,
                 "type": "ObjectPropertyLink",
                 "label": {
-                    "uri": "http://erlangen-crm.org/current/P107i_is_current_or_former_member_of"
+                    "uri": "http://xmlns.com/foaf/0.1/page"
                 },
                 "objectPropertyType": "None",
                 "status": "ForcedByUser",
@@ -1712,11 +1455,11 @@
                 "modelIds": null
             },
             {
-                "id": "http://erlangen-crm.org/current/E21_Person1---http://erlangen-crm.org/current/P131_is_identified_by---http://erlangen-crm.org/current/E82_Actor_Appellation1",
-                "weight": 0.01,
+                "id": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject2---http://xmlns.com/foaf/0.1/page---http://xmlns.com/foaf/0.1/Document1",
+                "weight": 0.009999999776482582,
                 "type": "ObjectPropertyLink",
                 "label": {
-                    "uri": "http://erlangen-crm.org/current/P131_is_identified_by"
+                    "uri": "http://xmlns.com/foaf/0.1/page"
                 },
                 "objectPropertyType": "None",
                 "status": "ForcedByUser",
@@ -1724,11 +1467,11 @@
                 "modelIds": null
             },
             {
-                "id": "http://erlangen-crm.org/current/E21_Person1---http://erlangen-crm.org/current/P98i_was_born---http://erlangen-crm.org/current/E67_Birth1",
-                "weight": 0.01,
+                "id": "http://www.europeana.eu/schemas/edm/EuropeanaAggregation1---http://www.europeana.eu/schemas/edm/aggregatedCHO---http://www.americanartcollaborative.org/ontology/CulturalHeritageObject1",
+                "weight": 0.009999999776482582,
                 "type": "ObjectPropertyLink",
                 "label": {
-                    "uri": "http://erlangen-crm.org/current/P98i_was_born"
+                    "uri": "http://www.europeana.eu/schemas/edm/aggregatedCHO"
                 },
                 "objectPropertyType": "None",
                 "status": "ForcedByUser",
@@ -1736,7 +1479,85 @@
                 "modelIds": null
             },
             {
-                "id": "http://erlangen-crm.org/current/E21_Person1---http://isi.edu/integration/karma/dev#classLink---HN111246",
+                "id": "http://www.europeana.eu/schemas/edm/EuropeanaAggregation1---http://www.europeana.eu/schemas/edm/hasView---http://www.europeana.eu/schemas/edm/WebResource1",
+                "weight": 0.009999999776482582,
+                "type": "ObjectPropertyLink",
+                "label": {
+                    "uri": "http://www.europeana.eu/schemas/edm/hasView"
+                },
+                "objectPropertyType": "None",
+                "status": "ForcedByUser",
+                "keyInfo": "None",
+                "modelIds": null
+            },
+            {
+                "id": "http://www.americanartcollaborative.org/ontology/Person1---http://rdvocab.info/ElementsGr2/dateOfBirth---HN83240",
+                "weight": 0.01,
+                "type": "DataPropertyLink",
+                "label": {
+                    "uri": "http://rdvocab.info/ElementsGr2/dateOfBirth"
+                },
+                "status": "ForcedByUser",
+                "keyInfo": "None",
+                "modelIds": null
+            },
+            {
+                "id": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject1---http://purl.org/dc/terms/title---HN72623",
+                "weight": 0.01,
+                "type": "DataPropertyLink",
+                "label": {
+                    "uri": "http://purl.org/dc/terms/title"
+                },
+                "status": "ForcedByUser",
+                "keyInfo": "None",
+                "modelIds": null
+            },
+            {
+                "id": "http://www.americanartcollaborative.org/ontology/Person1---http://rdvocab.info/ElementsGr2/dateOfDeath---HN83619",
+                "weight": 0.01,
+                "type": "DataPropertyLink",
+                "label": {
+                    "uri": "http://rdvocab.info/ElementsGr2/dateOfDeath"
+                },
+                "status": "ForcedByUser",
+                "keyInfo": "None",
+                "modelIds": null
+            },
+            {
+                "id": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject1---http://purl.org/dc/terms/medium---HN72627",
+                "weight": 0.01,
+                "type": "DataPropertyLink",
+                "label": {
+                    "uri": "http://purl.org/dc/terms/medium"
+                },
+                "status": "ForcedByUser",
+                "keyInfo": "None",
+                "modelIds": null
+            },
+            {
+                "id": "http://www.w3.org/2008/05/skos#Concept1---http://www.w3.org/2008/05/skos#prefLabel---HN72741",
+                "weight": 0.01,
+                "type": "DataPropertyLink",
+                "label": {
+                    "uri": "http://www.w3.org/2008/05/skos#prefLabel"
+                },
+                "status": "ForcedByUser",
+                "keyInfo": "None",
+                "modelIds": null
+            },
+            {
+                "id": "http://www.americanartcollaborative.org/ontology/Person1---http://rdvocab.info/ElementsGr2/countryAssociatedWithThePerson---HN72625",
+                "weight": 0.01,
+                "type": "DataPropertyLink",
+                "label": {
+                    "uri": "http://rdvocab.info/ElementsGr2/countryAssociatedWithThePerson"
+                },
+                "status": "ForcedByUser",
+                "keyInfo": "None",
+                "modelIds": null
+            },
+            {
+                "id": "http://xmlns.com/foaf/0.1/Document2---http://isi.edu/integration/karma/dev#classLink---HN72629",
                 "weight": 0.01,
                 "type": "ClassInstanceLink",
                 "label": {
@@ -1747,67 +1568,29 @@
                 "modelIds": null
             },
             {
-                "id": "http://erlangen-crm.org/current/E22_Man-Made_Object1---http://erlangen-crm.org/current/P102_has_title---http://erlangen-crm.org/current/E35_Title1",
+                "id": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject1---http://purl.org/dc/terms/description---HN72679",
                 "weight": 0.01,
-                "type": "ObjectPropertyLink",
+                "type": "DataPropertyLink",
                 "label": {
-                    "uri": "http://erlangen-crm.org/current/P102_has_title"
+                    "uri": "http://purl.org/dc/terms/description"
                 },
-                "objectPropertyType": "None",
                 "status": "ForcedByUser",
                 "keyInfo": "None",
                 "modelIds": null
             },
             {
-                "id": "http://erlangen-crm.org/current/E22_Man-Made_Object1---http://erlangen-crm.org/current/P108i_was_produced_by---http://erlangen-crm.org/current/E12_Production1",
+                "id": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject1---http://purl.org/dc/terms/created---HN72676",
                 "weight": 0.01,
-                "type": "ObjectPropertyLink",
+                "type": "DataPropertyLink",
                 "label": {
-                    "uri": "http://erlangen-crm.org/current/P108i_was_produced_by"
+                    "uri": "http://purl.org/dc/terms/created"
                 },
-                "objectPropertyType": "None",
                 "status": "ForcedByUser",
                 "keyInfo": "None",
                 "modelIds": null
             },
             {
-                "id": "http://erlangen-crm.org/current/E22_Man-Made_Object1---http://erlangen-crm.org/current/P24i_changed_ownership_through---http://erlangen-crm.org/current/E8_Acquisition1",
-                "weight": 0.01,
-                "type": "ObjectPropertyLink",
-                "label": {
-                    "uri": "http://erlangen-crm.org/current/P24i_changed_ownership_through"
-                },
-                "objectPropertyType": "None",
-                "status": "ForcedByUser",
-                "keyInfo": "None",
-                "modelIds": null
-            },
-            {
-                "id": "http://erlangen-crm.org/current/E22_Man-Made_Object1---http://erlangen-crm.org/current/P2_has_type---http://erlangen-crm.org/current/E55_Type1",
-                "weight": 0.01,
-                "type": "ObjectPropertyLink",
-                "label": {
-                    "uri": "http://erlangen-crm.org/current/P2_has_type"
-                },
-                "objectPropertyType": "None",
-                "status": "ForcedByUser",
-                "keyInfo": "None",
-                "modelIds": null
-            },
-            {
-                "id": "http://erlangen-crm.org/current/E22_Man-Made_Object1---http://erlangen-crm.org/current/P43_has_dimension---http://erlangen-crm.org/current/E54_Dimension1",
-                "weight": 0.01,
-                "type": "ObjectPropertyLink",
-                "label": {
-                    "uri": "http://erlangen-crm.org/current/P43_has_dimension"
-                },
-                "objectPropertyType": "None",
-                "status": "ForcedByUser",
-                "keyInfo": "None",
-                "modelIds": null
-            },
-            {
-                "id": "http://erlangen-crm.org/current/E22_Man-Made_Object1---http://isi.edu/integration/karma/dev#classLink---HN99088",
+                "id": "http://xmlns.com/foaf/0.1/Document1---http://isi.edu/integration/karma/dev#classLink---HN72648",
                 "weight": 0.01,
                 "type": "ClassInstanceLink",
                 "label": {
@@ -1818,100 +1601,73 @@
                 "modelIds": null
             },
             {
-                "id": "http://erlangen-crm.org/current/E33_Linguistic_Object1---http://erlangen-crm.org/current/P129_is_about---http://erlangen-crm.org/current/E22_Man-Made_Object1",
-                "weight": 0.01,
-                "type": "ObjectPropertyLink",
-                "label": {
-                    "uri": "http://erlangen-crm.org/current/P129_is_about"
-                },
-                "objectPropertyType": "None",
-                "status": "ForcedByUser",
-                "keyInfo": "None",
-                "modelIds": null
-            },
-            {
-                "id": "http://erlangen-crm.org/current/E33_Linguistic_Object1---http://erlangen-crm.org/current/P2_has_type---http://erlangen-crm.org/current/E55_Type2",
-                "weight": 0.01,
-                "type": "ObjectPropertyLink",
-                "label": {
-                    "uri": "http://erlangen-crm.org/current/P2_has_type"
-                },
-                "objectPropertyType": "None",
-                "status": "ForcedByUser",
-                "keyInfo": "None",
-                "modelIds": null
-            },
-            {
-                "id": "http://erlangen-crm.org/current/E33_Linguistic_Object1---http://erlangen-crm.org/current/P3_has_note---HN99132",
+                "id": "http://www.americanartcollaborative.org/ontology/Person1---http://rdvocab.info/ElementsGr2/nameOfThePerson---HN72637",
                 "weight": 0.01,
                 "type": "DataPropertyLink",
                 "label": {
-                    "uri": "http://erlangen-crm.org/current/P3_has_note"
+                    "uri": "http://rdvocab.info/ElementsGr2/nameOfThePerson"
                 },
                 "status": "ForcedByUser",
                 "keyInfo": "None",
                 "modelIds": null
             },
             {
-                "id": "http://erlangen-crm.org/current/E33_Linguistic_Object2---http://erlangen-crm.org/current/P129_is_about---http://erlangen-crm.org/current/E22_Man-Made_Object1",
-                "weight": 0.01,
-                "type": "ObjectPropertyLink",
-                "label": {
-                    "uri": "http://erlangen-crm.org/current/P129_is_about"
-                },
-                "objectPropertyType": "None",
-                "status": "ForcedByUser",
-                "keyInfo": "None",
-                "modelIds": null
-            },
-            {
-                "id": "http://erlangen-crm.org/current/E33_Linguistic_Object2---http://erlangen-crm.org/current/P2_has_type---http://erlangen-crm.org/current/E55_Type3",
-                "weight": 0.01,
-                "type": "ObjectPropertyLink",
-                "label": {
-                    "uri": "http://erlangen-crm.org/current/P2_has_type"
-                },
-                "objectPropertyType": "None",
-                "status": "ForcedByUser",
-                "keyInfo": "None",
-                "modelIds": null
-            },
-            {
-                "id": "http://erlangen-crm.org/current/E33_Linguistic_Object2---http://erlangen-crm.org/current/P3_has_note---HN99138",
+                "id": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject1---http://purl.org/dc/terms/provenance---HN72673",
                 "weight": 0.01,
                 "type": "DataPropertyLink",
                 "label": {
-                    "uri": "http://erlangen-crm.org/current/P3_has_note"
+                    "uri": "http://purl.org/dc/terms/provenance"
                 },
                 "status": "ForcedByUser",
                 "keyInfo": "None",
                 "modelIds": null
             },
             {
-                "id": "http://erlangen-crm.org/current/E35_Title1---http://www.w3.org/2000/01/rdf-schema#label---HN99082",
+                "id": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject1---http://purl.org/dc/terms/extent---HN72635",
                 "weight": 0.01,
                 "type": "DataPropertyLink",
                 "label": {
-                    "uri": "http://www.w3.org/2000/01/rdf-schema#label"
+                    "uri": "http://purl.org/dc/terms/extent"
                 },
                 "status": "ForcedByUser",
                 "keyInfo": "None",
                 "modelIds": null
             },
             {
-                "id": "http://erlangen-crm.org/current/E38_Image1---http://erlangen-crm.org/current/P138_represents---http://erlangen-crm.org/current/E22_Man-Made_Object1",
+                "id": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject1---http://purl.org/dc/terms/provenance---HN72633",
                 "weight": 0.01,
-                "type": "ObjectPropertyLink",
+                "type": "DataPropertyLink",
                 "label": {
-                    "uri": "http://erlangen-crm.org/current/P138_represents"
+                    "uri": "http://purl.org/dc/terms/provenance"
                 },
-                "objectPropertyType": "None",
                 "status": "ForcedByUser",
                 "keyInfo": "None",
                 "modelIds": null
             },
             {
-                "id": "http://erlangen-crm.org/current/E38_Image1---http://isi.edu/integration/karma/dev#classLink---HN99113",
+                "id": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject2---http://purl.org/dc/terms/title---HN72646",
+                "weight": 0.01,
+                "type": "DataPropertyLink",
+                "label": {
+                    "uri": "http://purl.org/dc/terms/title"
+                },
+                "status": "ForcedByUser",
+                "keyInfo": "None",
+                "modelIds": null
+            },
+            {
+                "id": "http://www.americanartcollaborative.org/ontology/CulturalHeritageObject1---http://www.americanartcollaborative.org/ontology/accessionNumber---HN72631",
+                "weight": 0.01,
+                "type": "DataPropertyLink",
+                "label": {
+                    "uri": "http://www.americanartcollaborative.org/ontology/accessionNumber"
+                },
+                "status": "ForcedByUser",
+                "keyInfo": "None",
+                "modelIds": null
+            },
+            {
+                "id": "http://www.europeana.eu/schemas/edm/WebResource1---http://isi.edu/integration/karma/dev#classLink---HN72654",
                 "weight": 0.01,
                 "type": "ClassInstanceLink",
                 "label": {
@@ -1919,173 +1675,6 @@
                 },
                 "status": "ForcedByUser",
                 "keyInfo": "UriOfInstance",
-                "modelIds": null
-            },
-            {
-                "id": "http://erlangen-crm.org/current/E52_Time-Span1---http://erlangen-crm.org/current/P82_at_some_time_within---HN109699",
-                "weight": 0.01,
-                "type": "DataPropertyLink",
-                "label": {
-                    "uri": "http://erlangen-crm.org/current/P82_at_some_time_within"
-                },
-                "status": "ForcedByUser",
-                "keyInfo": "None",
-                "modelIds": null
-            },
-            {
-                "id": "http://erlangen-crm.org/current/E52_Time-Span2---http://erlangen-crm.org/current/P82_at_some_time_within---HN110078",
-                "weight": 0.01,
-                "type": "DataPropertyLink",
-                "label": {
-                    "uri": "http://erlangen-crm.org/current/P82_at_some_time_within"
-                },
-                "status": "ForcedByUser",
-                "keyInfo": "None",
-                "modelIds": null
-            },
-            {
-                "id": "http://erlangen-crm.org/current/E52_Time-Span4---http://erlangen-crm.org/current/P82_at_some_time_within---HN99135",
-                "weight": 0.01,
-                "type": "DataPropertyLink",
-                "label": {
-                    "uri": "http://erlangen-crm.org/current/P82_at_some_time_within"
-                },
-                "status": "ForcedByUser",
-                "keyInfo": "None",
-                "modelIds": null
-            },
-            {
-                "id": "http://erlangen-crm.org/current/E54_Dimension1---http://erlangen-crm.org/current/P3_has_note---HN99094",
-                "weight": 0.01,
-                "type": "DataPropertyLink",
-                "label": {
-                    "uri": "http://erlangen-crm.org/current/P3_has_note"
-                },
-                "status": "ForcedByUser",
-                "keyInfo": "None",
-                "modelIds": null
-            },
-            {
-                "id": "http://erlangen-crm.org/current/E55_Type1---http://isi.edu/integration/karma/dev#classLink---HN110848",
-                "weight": 0.01,
-                "type": "ClassInstanceLink",
-                "label": {
-                    "uri": "http://isi.edu/integration/karma/dev#classLink"
-                },
-                "status": "ForcedByUser",
-                "keyInfo": "UriOfInstance",
-                "modelIds": null
-            },
-            {
-                "id": "http://erlangen-crm.org/current/E55_Type1---http://www.w3.org/2000/01/rdf-schema#label---HN99086",
-                "weight": 0.01,
-                "type": "DataPropertyLink",
-                "label": {
-                    "uri": "http://www.w3.org/2000/01/rdf-schema#label"
-                },
-                "status": "ForcedByUser",
-                "keyInfo": "None",
-                "modelIds": null
-            },
-            {
-                "id": "http://erlangen-crm.org/current/E55_Type2---http://isi.edu/integration/karma/dev#classLink---HN112393",
-                "weight": 0.01,
-                "type": "ClassInstanceLink",
-                "label": {
-                    "uri": "http://isi.edu/integration/karma/dev#classLink"
-                },
-                "status": "ForcedByUser",
-                "keyInfo": "UriOfInstance",
-                "modelIds": null
-            },
-            {
-                "id": "http://erlangen-crm.org/current/E55_Type3---http://isi.edu/integration/karma/dev#classLink---HN112014",
-                "weight": 0.01,
-                "type": "ClassInstanceLink",
-                "label": {
-                    "uri": "http://isi.edu/integration/karma/dev#classLink"
-                },
-                "status": "ForcedByUser",
-                "keyInfo": "UriOfInstance",
-                "modelIds": null
-            },
-            {
-                "id": "http://erlangen-crm.org/current/E67_Birth1---http://erlangen-crm.org/current/P4_has_time-span---http://erlangen-crm.org/current/E52_Time-Span1",
-                "weight": 0.01,
-                "type": "ObjectPropertyLink",
-                "label": {
-                    "uri": "http://erlangen-crm.org/current/P4_has_time-span"
-                },
-                "objectPropertyType": "None",
-                "status": "ForcedByUser",
-                "keyInfo": "None",
-                "modelIds": null
-            },
-            {
-                "id": "http://erlangen-crm.org/current/E69_Death1---http://erlangen-crm.org/current/P4_has_time-span---http://erlangen-crm.org/current/E52_Time-Span2",
-                "weight": 0.01,
-                "type": "ObjectPropertyLink",
-                "label": {
-                    "uri": "http://erlangen-crm.org/current/P4_has_time-span"
-                },
-                "objectPropertyType": "None",
-                "status": "ForcedByUser",
-                "keyInfo": "None",
-                "modelIds": null
-            },
-            {
-                "id": "http://erlangen-crm.org/current/E74_Group1---http://isi.edu/integration/karma/dev#classLink---HN110468",
-                "weight": 0.01,
-                "type": "ClassInstanceLink",
-                "label": {
-                    "uri": "http://isi.edu/integration/karma/dev#classLink"
-                },
-                "status": "ForcedByUser",
-                "keyInfo": "UriOfInstance",
-                "modelIds": null
-            },
-            {
-                "id": "http://erlangen-crm.org/current/E74_Group1---http://www.w3.org/2000/01/rdf-schema#label---HN99084",
-                "weight": 0.01,
-                "type": "DataPropertyLink",
-                "label": {
-                    "uri": "http://www.w3.org/2000/01/rdf-schema#label"
-                },
-                "status": "ForcedByUser",
-                "keyInfo": "None",
-                "modelIds": null
-            },
-            {
-                "id": "http://erlangen-crm.org/current/E82_Actor_Appellation1---http://isi.edu/integration/karma/dev#classLink---HN111632",
-                "weight": 0.01,
-                "type": "ClassInstanceLink",
-                "label": {
-                    "uri": "http://isi.edu/integration/karma/dev#classLink"
-                },
-                "status": "ForcedByUser",
-                "keyInfo": "UriOfInstance",
-                "modelIds": null
-            },
-            {
-                "id": "http://erlangen-crm.org/current/E82_Actor_Appellation1---http://www.w3.org/2000/01/rdf-schema#label---HN99096",
-                "weight": 0.01,
-                "type": "DataPropertyLink",
-                "label": {
-                    "uri": "http://www.w3.org/2000/01/rdf-schema#label"
-                },
-                "status": "ForcedByUser",
-                "keyInfo": "None",
-                "modelIds": null
-            },
-            {
-                "id": "http://erlangen-crm.org/current/E8_Acquisition1---http://erlangen-crm.org/current/P3_has_note---HN99092",
-                "weight": 0.01,
-                "type": "DataPropertyLink",
-                "label": {
-                    "uri": "http://erlangen-crm.org/current/P3_has_note"
-                },
-                "status": "ForcedByUser",
-                "keyInfo": "None",
                 "modelIds": null
             }
         ]

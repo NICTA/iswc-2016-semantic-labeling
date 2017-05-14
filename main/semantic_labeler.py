@@ -126,8 +126,11 @@ class SemanticLabeler:
         #     train_examples_map = searcher.search_types_data("", [])
         #     textual_train_map = searcher.search_similar_text_data("", column.value_text, [])
         #
-        train_examples_map = searcher.search_types_data("", [])
-        textual_train_map = searcher.search_similar_text_data("", column.value_text, [])
+        # index_config = {'name': "train_data"}
+        index_config = "_all"
+        train_examples_map = searcher.search_types_data(index_config, [])
+        textual_train_map = searcher.search_similar_text_data(index_config, column.value_text, [])
+        logging.info("Train examples map size {}".format(len(train_examples_map)))
 
         cur_res = {'source_name': column.source_name,
                    'column_name': column.name,

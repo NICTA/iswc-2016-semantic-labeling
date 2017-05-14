@@ -1,8 +1,10 @@
 #
-# Docker file for the Karma API
+# Docker file for the DSL API
 #
 
 FROM ubuntu
+
+MAINTAINER Data61 CSIRO
 
 #
 # Install software...
@@ -102,6 +104,12 @@ WORKDIR /home/$username
 #
 ENV PYSPARK_PYTHON=python3.5
 ENV PYSPARK_DRIVER_PYTHON=python3.5
+
+# Set the locale
+RUN locale-gen en_US.UTF-8
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US:en
+ENV LC_ALL en_US.UTF-8
 
 # configure python encodings
 ENV PYTHONIOENCODING=utf-8

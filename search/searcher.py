@@ -1,6 +1,7 @@
 from elasticsearch.helpers import scan
 
 from lib.utils import get_index_name
+import logging
 
 __author__ = "minh"
 
@@ -27,7 +28,8 @@ class Searcher:
                                         }
                                     },
                                     size=10)
-        except Exception:
+        except Exception as e:
+            logging.warning("Search similar text data not possible: {}".format(e))
             result = {"hits": {"hits": []}}
         return result
 
