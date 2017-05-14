@@ -306,7 +306,7 @@ def read_folder():
     folder_name = request.json["folder"]
     logging.info("Indexing data sources from folder {}".format(folder_name))
     try:
-        semantic_labeler.read_data_sources(folder_name)
+        semantic_labeler.read_data_sources([folder_name])
         logging.info("Listing folders for response.")
         return list_folder()
     except Exception as e:
