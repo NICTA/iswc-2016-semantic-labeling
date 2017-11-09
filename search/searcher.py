@@ -29,7 +29,7 @@ class Searcher:
                                     },
                                     size=10)
         except Exception as e:
-            logging.warning("Search similar text data not possible: {}".format(e))
+            logging.warning("Search similar text data not possible")
             result = {"hits": {"hits": []}}
         return result
 

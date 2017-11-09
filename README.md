@@ -1,5 +1,5 @@
 This fork contains the original back end for semantic labelling, but the api has been changed.
-These changes have been introduced to allow common evaluation benchmark for various schema matching approaches.
+These changes have been introduced to allow common evaluation benchmark for various semantic typing approaches via [serene-benchmark](http://github.com/NICTA/serene-benchmark).
 
 Semantic Typing
 ===============
@@ -26,7 +26,10 @@ cd elasticsearch-5.1.1/bin
 ./elasticsearch
 ```
 
+You might need to increase virtual memory limits (on Linux it can be done):
+```
 sudo sysctl -w vm.max_map_count=262144
+```
 
 Spark
 ```
